@@ -43,11 +43,11 @@ PersianValidation::mobile( $input ); // validate mobile number
 ```
 
 ``` php
-PersianValidation::mobile( $input ); // validate sheba number
+PersianValidation::sheba( $input ); // validate sheba number
 ```
 
 ``` php
-PersianValidation::mobile( $input ); // validate meliCode number
+PersianValidation::meliCode( $input ); // validate meliCode number
 ```
 ## License
 
