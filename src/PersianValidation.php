@@ -1,5 +1,5 @@
 <?php
-namespace Persian\Validation;
+namespace Anetwork\Validation;
 
 /**
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>

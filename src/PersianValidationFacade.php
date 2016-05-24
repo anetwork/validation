@@ -1,5 +1,5 @@
 <?php
-namespace Persian\Validation;
+namespace Anetwork\Validation;
 
 use Illuminate\Support\Facades\Facade;
 

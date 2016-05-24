@@ -1,6 +1,6 @@
 <?php
 
-namespace Persian\Validation;
+namespace Anetwork\Validation;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +24,7 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function register()
     {
 
-      $this->app->bind( 'PersianValidation', 'Persian\Validation\PersianValidation' );
+      $this->app->bind( 'PersianValidation', 'Anetwork\Validation\PersianValidation' );
 
     }
 }
