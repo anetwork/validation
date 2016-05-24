@@ -14,7 +14,6 @@
         }
     },
     "require": {
-      "anetwork/validation": "dev-master",
         "illuminate/support": "^5.2"
     }
 }
