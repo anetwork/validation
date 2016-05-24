@@ -24,28 +24,31 @@ and the following Facade to the aliases part
 
 ## Usage
 
-You can use these methods in deffernt ways:
-
-There are hot ones for quick usage, besides some provided to manage outputs on your own way
-
-Some are shown below
+You can use it as below
 
 ``` php
-PersianValidation::alpha( $input );
+PersianValidation::alpha( $input ); // validate pesrain alphabet
 ```
 
 ``` php
-PersianValidation::num( $input );
+PersianValidation::num( $input ); // validate persian number
 ```
 
 ``` php
-PersianValidation::alpha_num( $input );
+PersianValidation::alpha_num( $input ); // validate persian alphabet and number
 ```
 
 ``` php
-PersianValidation::mobile( $input );
+PersianValidation::mobile( $input ); // validate mobile number
 ```
 
+``` php
+PersianValidation::sheba( $input ); // validate sheba number
+```
+
+``` php
+PersianValidation::meliCode( $input ); // validate meliCode number
+```
 ## License
 
 The MIT License (MIT).
