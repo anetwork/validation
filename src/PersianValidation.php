@@ -10,7 +10,13 @@ class PersianValidation
     //variable of class
     protected $status;
 
-
+    /**
+     * validate persian alphabet
+     * @param string $input
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 21, 2016
+     * @return object
+     */
     public function alpha( $input ) {
 
         $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $input );
@@ -22,6 +28,13 @@ class PersianValidation
 
     }
 
+    /**
+     * validate persian number
+     * @param string $input
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 21, 2016
+     * @return object
+     */
     public function num( $input ) {
 
       $this->status = preg_match( '/^[^\x{6F0}-\x{6F9}]+$/u', $input );
@@ -33,6 +46,13 @@ class PersianValidation
 
       }
 
+    /**
+     * validate persian alphabet and number
+     * @param string $input
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 21, 2016
+     * @return object
+     */
     public function alpha_num( $input ) {
 
       $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $input );
@@ -44,6 +64,13 @@ class PersianValidation
 
       }
 
+    /**
+     * validate mobile number
+     * @param string $input
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 21, 2016
+     * @return object
+     */
     public function mobile( $input ) {
 
       $this->status = preg_match( '/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $input );
@@ -55,6 +82,13 @@ class PersianValidation
 
       }
 
+    /**
+     * validate sheba number
+     * @param string $input
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 21, 2016
+     * @return object
+     */
     public function sheba( $input ) {
 
       if ( !empty( $input ) ) {
@@ -97,6 +131,13 @@ class PersianValidation
 
   }
 
+   /**
+    * validate meliCode number
+    * @param string $input
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since May 21, 2016
+    * @return object
+    */
     public function melliCode( $input ) {
 
       $control = 0;
@@ -124,6 +165,6 @@ class PersianValidation
 		  else
 		  	return response()->json( [ 'status' => 'fail', 'messages' => 'MeliCode is not valid' ], 420 );
 
-  }
+   }
 
 }
