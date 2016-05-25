@@ -4,6 +4,10 @@ namespace Anetwork\Validation;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+ * @since May 21, 2016
+ */
 class PersianValidationServiceProvider extends ServiceProvider
 {
     /**

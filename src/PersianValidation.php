@@ -17,7 +17,7 @@ class PersianValidation
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
-     * @return object
+     * @return boolean
      */
     public function alpha( $attribute, $value, $parameters, $validator ) {
 
@@ -34,7 +34,7 @@ class PersianValidation
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
-     * @return object
+     * @return boolean
      */
     public function num( $attribute, $value, $parameters, $validator ) {
 
@@ -51,7 +51,7 @@ class PersianValidation
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
-     * @return object
+     * @return boolean
      */
     public function alpha_num( $attribute, $value, $parameters, $validator ) {
 
@@ -68,7 +68,7 @@ class PersianValidation
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
-     * @return object
+     * @return boolean
      */
     public function mobile( $attribute, $value, $parameters, $validator ) {
 
@@ -85,7 +85,7 @@ class PersianValidation
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
-     * @return object
+     * @return boolean
      */
     public function sheba( $attribute, $value, $parameters, $validator ) {
 

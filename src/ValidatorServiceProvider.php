@@ -5,15 +5,19 @@ namespace Anetwork\Validation;
 use Illuminate\Support\ServiceProvider;
 use Validator;
 
+/**
+ * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+ * @since May 25, 2016
+ */
 class ValidatorServiceProvider extends ServiceProvider
 {
 
     protected $new_message;
 
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
+     * create custom validation rules and message 
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 25, 2016
      */
     public function boot()
     {

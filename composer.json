@@ -1,7 +1,6 @@
 {
     "name": "anetwork/validation",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Shahrokh Niakan",
