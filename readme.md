@@ -15,40 +15,30 @@ $ composer require Anetwork/Validation
 Add the following provider to providers part of config/app.php
 ``` php
 Anetwork\Validation\PersianValidationServiceProvider::class
+Anetwork\Validation\ValidatorServiceProvider::class,
+
 ```
 
 and the following Facade to the aliases part
 ``` php
-'PersianValidation' => Anetwork\Validation\PersianValidation::class
+'PersianValidation' => Anetwork\Validation\Facades\PersianValidation::class
 ```
 
 ## Usage
 
-You can use it as below
+You can use it as Validator rules
 
 ``` php
-PersianValidation::alpha( $input ); // validate pesrain alphabet
+Validator::make( $request->all(), [
+  'name' => 'persian_alpha',
+  'age' => 'persian_num',
+  'address' => 'persian_alpha_num',
+  'mobile' => 'mobile',
+  'sheba_number' => 'sheba',
+  'melli_code' => 'melliCode',
+]);
 ```
 
-``` php
-PersianValidation::num( $input ); // validate persian number
-```
-
-``` php
-PersianValidation::alpha_num( $input ); // validate persian alphabet and number
-```
-
-``` php
-PersianValidation::mobile( $input ); // validate mobile number
-```
-
-``` php
-PersianValidation::sheba( $input ); // validate sheba number
-```
-
-``` php
-PersianValidation::meliCode( $input ); // validate meliCode number
-```
 ## License
 
 The MIT License (MIT).

@@ -12,91 +12,89 @@ class PersianValidation
 
     /**
      * validate persian alphabet
-     * @param string $input
+     * @param string $attribute, $value
+     * @param array $parameters
+     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return object
      */
-    public function alpha( $input ) {
+    public function alpha( $attribute, $value, $parameters, $validator ) {
 
-        $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $input );
+        $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $value );
 
-        if ( $this->status )
-          return response()->json( [ 'status' => 'fail', 'messages' => 'Persion alphabet is not valid' ], 420 );
-
-        return true;
+        return ( $this->status ? false : true );
 
     }
 
     /**
      * validate persian number
-     * @param string $input
+     * @param string $attribute, $value
+     * @param array $parameters
+     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return object
      */
-    public function num( $input ) {
+    public function num( $attribute, $value, $parameters, $validator ) {
 
-      $this->status = preg_match( '/^[^\x{6F0}-\x{6F9}]+$/u', $input );
+      $this->status = preg_match( '/^[^\x{6F0}-\x{6F9}]+$/u', $value );
 
-      if ( $this->status )
-        return response()->json( [ 'status' => 'fail', 'messages' => 'Persion number is not valid' ], 420 );
+      return ( $this->status ? false : true );
 
-      return true;
-
-      }
+    }
 
     /**
      * validate persian alphabet and number
-     * @param string $input
+     * @param string $attribute, $value
+     * @param array $parameters
+     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return object
      */
-    public function alpha_num( $input ) {
+    public function alpha_num( $attribute, $value, $parameters, $validator ) {
 
-      $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $input );
+      $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $value );
 
-      if ( $this->status )
-        return response()->json( [ 'status' => 'fail', 'messages' => 'Persion alpha-number is not valid' ], 420 );
+      return ( $this->status ? false : true );
 
-      return true;
-
-      }
+    }
 
     /**
      * validate mobile number
-     * @param string $input
+     * @param string $attribute, $value
+     * @param array $parameters
+     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return object
      */
-    public function mobile( $input ) {
+    public function mobile( $attribute, $value, $parameters, $validator ) {
 
-      $this->status = preg_match( '/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $input );
+      $this->status = preg_match( '/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value );
 
-      if ( $this->status )
-        return response()->json( [ 'status' => 'fail', 'messages' => 'Persion mobile is not valid' ], 420 );
+      return ( $this->status ? false : true );
 
-      return true;
-
-      }
+    }
 
     /**
      * validate sheba number
-     * @param string $input
+     * @param string $attribute, $value
+     * @param array $parameters
+     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return object
      */
-    public function sheba( $input ) {
+    public function sheba( $attribute, $value, $parameters, $validator ) {
 
-      if ( !empty( $input ) ) {
+      if ( !empty( $value ) ) {
 
-				$input = preg_replace ( '/[\W_]+/', '', strtoupper( $input ) );
+				$value = preg_replace ( '/[\W_]+/', '', strtoupper( $value ) );
 
-				if ( ( 4 > strlen( $input ) ||  strlen ( $input ) > 34 ) || ( is_numeric ( $input [ 0 ] )  || is_numeric ( $input [ 1 ] ) ) || ( ! is_numeric ( $input [ 2 ] ) || ! is_numeric ( $input [ 3 ] ) ) )
-					return response()->json( [ 'status' => 'fail', 'messages' => 'Sheba number is not valid' ], 420 );
+				if ( ( 4 > strlen( $value ) ||  strlen ( $value ) > 34 ) || ( is_numeric ( $value [ 0 ] )  || is_numeric ( $value [ 1 ] ) ) || ( ! is_numeric ( $value [ 2 ] ) || ! is_numeric ( $value [ 3 ] ) ) )
+					return false;
 
 			$ibanReplaceChars = range('A','Z');
 
@@ -104,7 +102,7 @@ class PersianValidation
 				$ibanReplaceValues[] = strval ( $tempvalue );
 
 
-			$tmpIBAN = substr( $input, 4 ) . substr( $input, 0, 4 );
+			$tmpIBAN = substr( $value, 4 ) . substr( $value, 0, 4 );
 
 			$tmpIBAN = str_replace( $ibanReplaceChars, $ibanReplaceValues, $tmpIBAN );
 
@@ -121,49 +119,51 @@ class PersianValidation
 			}
 
 		 if ( $tmpValue != 1 )
-       return response()->json( [ 'status' => 'fail', 'messages' => 'Sheba number is not valid' ], 420 );
+       return false;
 
 			return true;
 
 		}
 
-    return response()->json( [ 'status' => 'fail', 'messages' => 'Sheba number is not valid' ], 420 );
+    return false;
 
   }
 
    /**
     * validate meliCode number
-    * @param string $input
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
     * @return object
     */
-    public function melliCode( $input ) {
+    public function melliCode( $attribute, $value, $parameters, $validator  ) {
 
       $control = 0;
 		  $sub = 0;
 
-		  if ( !preg_match( '/^\d{8,10}$/', $input ) )
-			  return response()->json( [ 'status' => 'fail', 'messages' => 'MeliCode is not valid' ], 420 );
+		  if ( !preg_match( '/^\d{8,10}$/', $value ) )
+			  return false;
 
 
-		  if ( strlen( $input ) == 8 )
-			  $input = '00' . $input;
-		  elseif ( strlen( $input ) == 9 )
-			  $input = '0' . $input;
+		  if ( strlen( $value ) == 8 )
+			  $value = '00' . $value;
+		  elseif ( strlen( $value ) == 9 )
+			  $value = '0' . $value;
 
 		  for( $i = 0; $i <= 8; $i++ )
-			  $sub = $sub + ( $input[$i] * ( 10 - $i ) );
+			  $sub = $sub + ( $value[$i] * ( 10 - $i ) );
 
 		  if ( ( $sub % 11 ) <= 2 )
 			  $control = ( $sub % 11 );
 		  else
 		  	$control = 11 - ( $sub % 11 );
 
-		  if ( $input[9] == $control )
+		  if ( $value[9] == $control )
 			  return true;
 		  else
-		  	return response()->json( [ 'status' => 'fail', 'messages' => 'MeliCode is not valid' ], 420 );
+		  	return false;
 
    }
 

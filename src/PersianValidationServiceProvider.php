@@ -27,4 +27,5 @@ class PersianValidationServiceProvider extends ServiceProvider
       $this->app->bind( 'PersianValidation', 'Anetwork\Validation\PersianValidation' );
 
     }
+
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Anetwork\Validation;
+namespace Anetwork\Validation\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
