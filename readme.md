@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/anetwork/validation.svg?branch=master)](https://travis-ci.org/anetwork/validation)
+
 # Laravel Persian Validation
 
 Laravel Persian Validation provides validation for Persian alphabet, number and etc.
