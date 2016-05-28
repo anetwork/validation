@@ -1,6 +1,10 @@
 # Laravel Persian Validation
 
-Laravel Persian Validation provides validation for persian alphabet, number and ....
+Laravel Persian Validation provides validation for Persian alphabet, number and etc, that related to Persian.
+
+## License
+
+Laravel Persian Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Install
 
@@ -19,11 +23,6 @@ Anetwork\Validation\ValidatorServiceProvider::class,
 
 ```
 
-and the following Facade to the aliases part
-``` php
-'PersianValidation' => Anetwork\Validation\Facades\PersianValidation::class
-```
-
 ## Usage
 
 You can use it as Validator rules
@@ -38,7 +37,3 @@ Validator::make( $request->all(), [
   'melli_code' => 'melliCode',
 ]);
 ```
-
-## License
-
-The MIT License (MIT).

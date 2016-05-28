@@ -21,9 +21,9 @@ class PersianValidation
      */
     public function alpha( $attribute, $value, $parameters, $validator ) {
 
-        $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $value );
+        $this->status = preg_match( "/^[\x{600}-\x{6FF}]+$/u", $value);
 
-        return ( $this->status ? false : true );
+        return ( $this->status ? true : false );
 
     }
 
@@ -38,9 +38,9 @@ class PersianValidation
      */
     public function num( $attribute, $value, $parameters, $validator ) {
 
-      $this->status = preg_match( '/^[^\x{6F0}-\x{6F9}]+$/u', $value );
+      $this->status = preg_match( '/^[\x{6F0}-\x{6F9}]+$/u', $value );
 
-      return ( $this->status ? false : true );
+      return ( $this->status ? true : false );
 
     }
 
@@ -55,9 +55,9 @@ class PersianValidation
      */
     public function alpha_num( $attribute, $value, $parameters, $validator ) {
 
-      $this->status = preg_match( '/^[^\x{600}-\x{6FF}]+$/u', $value );
+      $this->status = preg_match( '/^[\x{600}-\x{6FF}]+$/u', $value );
 
-      return ( $this->status ? false : true );
+      return ( $this->status ? true : false );
 
     }
 
@@ -74,7 +74,7 @@ class PersianValidation
 
       $this->status = preg_match( '/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value );
 
-      return ( $this->status ? false : true );
+      return ( $this->status ? true : false );
 
     }
 
@@ -136,7 +136,7 @@ class PersianValidation
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
-    * @return object
+    * @return boolean
     */
     public function melliCode( $attribute, $value, $parameters, $validator  ) {
 
