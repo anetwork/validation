@@ -4,6 +4,11 @@
 
 Laravel Persian Validation provides validation for Persian alphabet, number and etc.
 
+## Requirement
+
+* Laravel 5.*
+* PHP 5.5 >=
+
 ## License
 
 Laravel Persian Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)

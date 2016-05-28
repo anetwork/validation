@@ -5,6 +5,9 @@ php:
   - 7.0
   - hhvm
 
-install: composer update
+install:
+  composer self-update
+  composer update
+  composer dump-autoload
 
 script: phpunit
