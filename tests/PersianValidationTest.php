@@ -14,6 +14,12 @@ class ConvertTest extends PHPUnit_Framework_TestCase
     protected $value;
     protected $parameters;
     protected $validator;
+    protected $PersianValidation;
+
+    public function __construct() {
+
+      $this->PersianValidation = new PersianValidation();
+    }
 
     /**
      * unit test of persian alphabet
@@ -25,15 +31,15 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "Shahrokh";
 
-      $this->assertEquals( false,  PersianValidation::alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "شاهرخ";
 
-      $this->assertEquals( true,  PersianValidation::alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "1111شاهرخ";
 
-      $this->assertEquals( false,  PersianValidation::alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
 
     }
@@ -48,15 +54,15 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "1234";
 
-      $this->assertEquals( false,  PersianValidation::num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "۱۲۳۴";
 
-      $this->assertEquals( true,  PersianValidation::num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "۱۲۳123";
 
-      $this->assertEquals( false,  PersianValidation::num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
@@ -70,27 +76,27 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "Shahrokh1234";
 
-      $this->assertEquals( false,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "1111شاهرخ";
 
-      $this->assertEquals( false,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "1111شاهرخ۱۲۳۴";
 
-      $this->assertEquals( false,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "شاهرخ";
 
-      $this->assertEquals( true,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "۱۲۳۴";
 
-      $this->assertEquals( true,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value =  "Shahrokh۱۲۳۴شاهرخ";
 
-      $this->assertEquals( false,  PersianValidation::alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->alpha_num( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
@@ -104,27 +110,27 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "+989380105725";
 
-      $this->assertEquals( true,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "09380105725";
 
-      $this->assertEquals( true,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "989123583439";
 
-      $this->assertEquals( true,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "9380105725";
 
-      $this->assertEquals( false,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "09023583439";
 
-      $this->assertEquals( true,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "09313583439";
 
-      $this->assertEquals( true,  PersianValidation::mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->mobile( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
@@ -138,15 +144,15 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "IR062960000000100324200001";
 
-      $this->assertEquals( true,  PersianValidation::sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "IR06296000000010032420000";
 
-      $this->assertEquals( false,  PersianValidation::sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "00062960000000100324200001";
 
-      $this->assertEquals( false,  PersianValidation::sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->sheba( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
@@ -160,15 +166,15 @@ class ConvertTest extends PHPUnit_Framework_TestCase
 
       $this->value = "3240175800";
 
-      $this->assertEquals( true,  PersianValidation::melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( true,  $this->PersianValidation->melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "324011122";
 
-      $this->assertEquals( false,  PersianValidation::melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = "3213213";
 
-      $this->assertEquals( false,  PersianValidation::melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->melliCode( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
