@@ -1,6 +1,6 @@
 # Laravel Persian Validation
 
-Laravel Persian Validation provides validation for Persian alphabet, number and etc, that related to Persian.
+Laravel Persian Validation provides validation for Persian alphabet, number and etc.
 
 ## License
 
