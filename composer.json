@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "php": ">=5.5.9",
+        "php" : "~5.5|~7.0",
         "illuminate/support": "^5.2"
     }
 }
