@@ -26,8 +26,6 @@ $ composer require Anetwork/Validation
 Add the following provider to providers part of config/app.php
 ``` php
 Anetwork\Validation\PersianValidationServiceProvider::class
-Anetwork\Validation\ValidatorServiceProvider::class,
-
 ```
 
 ## Usage
@@ -36,11 +34,18 @@ You can use it as Validator rules
 
 ``` php
 Validator::make( $request->all(), [
+
   'name' => 'persian_alpha',
+
   'age' => 'persian_num',
+
   'address' => 'persian_alpha_num',
+
   'mobile' => 'mobile',
+
   'sheba_number' => 'sheba',
+
   'melli_code' => 'melliCode',
+
 ]);
 ```
