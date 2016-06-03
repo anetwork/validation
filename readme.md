@@ -33,19 +33,21 @@ Anetwork\Validation\PersianValidationServiceProvider::class
 You can use it as Validator rules
 
 ``` php
+for example your request is content of this parameters
+
 Validator::make( $request->all(), [
 
-  'name' => 'persian_alpha',
+  'name' => 'persian_alpha',    // validate persian alphabet
 
-  'age' => 'persian_num',
+  'age' => 'persian_num',   // validate persian numbers
 
-  'address' => 'persian_alpha_num',
+  'address' => 'persian_alpha_num',   // validate persian alphabet & numbers
 
-  'mobile' => 'mobile',
+  'mobile' => 'mobile',   // validate mobile number
 
-  'sheba_number' => 'sheba',
+  'sheba_number' => 'sheba',    // validate sheba number of bank account
 
-  'melli_code' => 'melliCode',
+  'melli_code' => 'melliCode',    // validate melli code number
 
 ]);
 ```

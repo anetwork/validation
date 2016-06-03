@@ -7,7 +7,7 @@ use Anetwork\Validation\PersianValidation as PersianValidation;
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since May 28, 2016
  */
-class ConvertTest extends PHPUnit_Framework_TestCase
+class PersianValidationTest extends PHPUnit_Framework_TestCase
 {
     //variables of class
     protected $attribute;
