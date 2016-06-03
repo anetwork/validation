@@ -33,8 +33,6 @@ Anetwork\Validation\PersianValidationServiceProvider::class
 You can use it as Validator rules
 
 ``` php
-for example your request is content of this parameters
-
 Validator::make( $request->all(), [
 
   'name' => 'persian_alpha',    // validate persian alphabet
