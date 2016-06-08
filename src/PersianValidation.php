@@ -186,4 +186,13 @@ class PersianValidation
 
    }
 
+  public function os( $attribute, $value, $parameters, $validator ) {
+
+    if ( is_array( $value ) && count( $value ) < 7 && count( $value ) > 0 )
+        return true;
+
+    return false;
+
+   }
+
 }
