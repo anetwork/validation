@@ -196,7 +196,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     public function testGeo() {
 
-      $this->value = [ "21", "22", "23", "24," "25" ];
+      $this->value = [ "21", "22", "23", "24", "25" ];
 
       $this->assertEquals( true,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
