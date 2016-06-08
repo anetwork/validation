@@ -178,4 +178,20 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    public function testCategory() {
+
+      $this->value = [ "16", "23" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [];
+
+      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "16", "23", "25" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+    }
+
 }

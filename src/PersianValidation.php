@@ -167,4 +167,15 @@ class PersianValidation
 
    }
 
+
+   public function category( $attribute, $value, $parameters, $validator ) {
+
+    if ( is_array( $value ) && count( $value ) < 3 && count( $value ) > 0 )
+        return true;
+
+    return false;
+
+
+   }
+
 }

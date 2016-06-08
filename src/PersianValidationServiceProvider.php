@@ -97,6 +97,18 @@ class PersianValidationServiceProvider extends ServiceProvider
 
           });
 
+          // create custom rule for category
+        Validator::extend( 'category', 'PersianValidation@category' );
+
+          // create custom message for category
+          Validator::replacer( 'category', function( $message, $attribute, $rule, $parameters ) {
+
+            $this->new_message = "category is out of range min 1 and max 2";
+
+            return str_replace( $message, $this->new_message, $message );
+
+          });
+
       }
 
 
