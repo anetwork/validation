@@ -124,7 +124,7 @@ class PersianValidationServiceProvider extends ServiceProvider
           // create custom rule for os
         Validator::extend( 'os', 'PersianValidation@os' );
 
-          // create custom message for geo
+          // create custom message for os
           Validator::replacer( 'os', function( $message, $attribute, $rule, $parameters ) {
 
             $this->new_message = "os is out of range min 1 and max 6";
