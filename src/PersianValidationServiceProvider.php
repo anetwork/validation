@@ -109,6 +109,18 @@ class PersianValidationServiceProvider extends ServiceProvider
 
           });
 
+         // create custom rule for geo
+        Validator::extend( 'category', 'PersianValidation@category' );
+
+          // create custom message for geo
+          Validator::replacer( 'category', function( $message, $attribute, $rule, $parameters ) {
+
+            $this->new_message = "geo is out of range min 1 and max 5";
+
+            return str_replace( $message, $this->new_message, $message );
+
+          });
+
       }
 
 

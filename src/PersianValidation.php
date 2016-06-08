@@ -175,6 +175,14 @@ class PersianValidation
 
     return false;
 
+   }
+
+   public function geo( $attribute, $value, $parameters, $validator ) {
+
+    if ( is_array( $value ) && count( $value ) < 6 && count( $value ) > 0 )
+        return true;
+
+    return false;
 
    }
 
