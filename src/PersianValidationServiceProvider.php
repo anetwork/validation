@@ -13,7 +13,7 @@ class PersianValidationServiceProvider extends ServiceProvider
 {
 
       //variable of class
-      protected $new_message;
+    protected $new_message;
 
     
     /**
@@ -22,154 +22,154 @@ class PersianValidationServiceProvider extends ServiceProvider
       * @since May 25, 2016
       * @return void
       */
-      public function boot()
-      {
+    public function boot()
+    {
 
         // create custom rule for persian alphabet
-        Validator::extend( 'persian_alpha', 'PersianValidation@alpha' );
+        Validator::extend('persian_alpha', 'PersianValidation@alpha');
 
-          // create custom message for persian alphabet
-          Validator::replacer( 'persian_alpha', function( $message, $attribute, $rule, $parameters ) {
+        // create custom message for persian alphabet
+        Validator::replacer('persian_alpha', function ($message, $attribute, $rule, $parameters) {
 
             $this->new_message = "persian alphabet is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+            return str_replace($message, $this->new_message, $message);
 
-          });
+        });
 
         // create custom rule for persian number
-        Validator::extend( 'persian_num', 'PersianValidation@num' );
+        Validator::extend('persian_num', 'PersianValidation@num');
 
-          // create custom message for persian number
-          Validator::replacer( 'persian_num', function( $message, $attribute, $rule, $parameters ) {
+        // create custom message for persian number
+        Validator::replacer('persian_num', function ($message, $attribute, $rule, $parameters) {
 
             $this->new_message = "persian number is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+            return str_replace($message, $this->new_message, $message);
 
-          });
+        });
 
         // create custom rule for persian alphabet and number
-        Validator::extend( 'persian_alpha_num', 'PersianValidation@num' );
+            Validator::extend('persian_alpha_num', 'PersianValidation@num');
 
           // create custom message for persian alphabet and number
-          Validator::replacer( 'persian_alpha_num', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('persian_alpha_num', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "persian alpahbet & number is not valid";
+                $this->new_message = "persian alpahbet & number is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
         // create custom rule for mobile
-        Validator::extend( 'mobile', 'PersianValidation@mobile' );
+            Validator::extend('mobile', 'PersianValidation@mobile');
 
           // create custom message for mobile
-          Validator::replacer( 'mobile', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('mobile', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "mobile number is not valid";
+                $this->new_message = "mobile number is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
         // create custom rule for sheba number
-        Validator::extend( 'sheba', 'PersianValidation@sheba' );
+            Validator::extend('sheba', 'PersianValidation@sheba');
 
           // create custom message for sheba number
-          Validator::replacer( 'sheba', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('sheba', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "sheba number is not valid";
+                $this->new_message = "sheba number is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
         // create custom rule for melliCode
-        Validator::extend( 'melliCode', 'PersianValidation@melliCode' );
+            Validator::extend('melliCode', 'PersianValidation@melliCode');
 
           // create custom message for melliCode
-          Validator::replacer( 'melliCode', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('melliCode', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "melliCode number is not valid";
+                $this->new_message = "melliCode number is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
            // create custom rule for category
-        Validator::extend( 'category', 'PersianValidation@category' );
+            Validator::extend('category', 'PersianValidation@category');
 
           // create custom message for category
-          Validator::replacer( 'category', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('category', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "category value is not valid";
+                $this->new_message = "category value is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
          // create custom rule for geo
-        Validator::extend( 'geo', 'PersianValidation@geo' );
+            Validator::extend('geo', 'PersianValidation@geo');
 
           // create custom message for geo
-          Validator::replacer( 'geo', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('geo', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "geo value is not valid";
+                $this->new_message = "geo value is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
           // create custom rule for os
-        Validator::extend( 'os', 'PersianValidation@os' );
+            Validator::extend('os', 'PersianValidation@os');
 
           // create custom message for os
-          Validator::replacer( 'os', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('os', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "os value is not valid";
+                $this->new_message = "os value is not valid";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
 
           // create custom rule for category_range
-        Validator::extend( 'category_range', 'PersianValidation@category_range' );
+            Validator::extend('category_range', 'PersianValidation@category_range');
 
           // create custom message for category_range
-          Validator::replacer( 'category_range', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('category_range', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "category is out of range min 1 and max 2";
+                $this->new_message = "category is out of range min 1 and max 2";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
          // create custom rule for geo_range
-        Validator::extend( 'geo_range', 'PersianValidation@geo_range' );
+            Validator::extend('geo_range', 'PersianValidation@geo_range');
 
           // create custom message for geo_range
-          Validator::replacer( 'geo_range', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('geo_range', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "geo is out of range min 1 and max 5";
+                $this->new_message = "geo is out of range min 1 and max 5";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
           // create custom rule for os_range
-        Validator::extend( 'os_range', 'PersianValidation@os_range' );
+            Validator::extend('os_range', 'PersianValidation@os_range');
 
           // create custom message for os_range
-          Validator::replacer( 'os_range', function( $message, $attribute, $rule, $parameters ) {
+            Validator::replacer('os_range', function ($message, $attribute, $rule, $parameters) {
 
-            $this->new_message = "os is out of range min 1 and max 6";
+                $this->new_message = "os is out of range min 1 and max 6";
 
-            return str_replace( $message, $this->new_message, $message );
+                return str_replace($message, $this->new_message, $message);
 
-          });
+            });
 
-      }
+    }
 
 
     /**
@@ -181,8 +181,7 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function register()
     {
 
-       $this->app->bind( 'PersianValidation', 'Anetwork\Validation\PersianValidation' );
+        $this->app->bind('PersianValidation', 'Anetwork\Validation\PersianValidation');
     
     }
-
 }

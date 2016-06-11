@@ -19,9 +19,10 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function alpha( $attribute, $value, $parameters, $validator ) {
+    public function alpha($attribute, $value, $parameters, $validator)
+    {
 
-        $this->status = preg_match( "/^[\x{600}-\x{6FF}]+$/u", $value);
+        $this->status = preg_match("/^[\x{600}-\x{6FF}]+$/u", $value);
 
         return ( $this->status ? true : false );
 
@@ -36,11 +37,12 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function num( $attribute, $value, $parameters, $validator ) {
+    public function num($attribute, $value, $parameters, $validator)
+    {
 
-      $this->status = preg_match( '/^[\x{6F0}-\x{6F9}]+$/u', $value );
+        $this->status = preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
 
-      return ( $this->status ? true : false );
+        return ( $this->status ? true : false );
 
     }
 
@@ -53,11 +55,12 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function alpha_num( $attribute, $value, $parameters, $validator ) {
+    public function alpha_num($attribute, $value, $parameters, $validator)
+    {
 
-      $this->status = preg_match( '/^[\x{600}-\x{6FF}]+$/u', $value );
+        $this->status = preg_match('/^[\x{600}-\x{6FF}]+$/u', $value);
 
-      return ( $this->status ? true : false );
+        return ( $this->status ? true : false );
 
     }
 
@@ -70,11 +73,12 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function mobile( $attribute, $value, $parameters, $validator ) {
+    public function mobile($attribute, $value, $parameters, $validator)
+    {
 
-      $this->status = preg_match( '/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value );
+        $this->status = preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
 
-      return ( $this->status ? true : false );
+        return ( $this->status ? true : false );
 
     }
 
@@ -87,47 +91,47 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function sheba( $attribute, $value, $parameters, $validator ) {
+    public function sheba($attribute, $value, $parameters, $validator)
+    {
 
-      if ( !empty( $value ) ) {
+        if (!empty($value)) {
+                $value = preg_replace('/[\W_]+/', '', strtoupper($value));
 
-				$value = preg_replace ( '/[\W_]+/', '', strtoupper( $value ) );
+            if (( 4 > strlen($value) ||  strlen($value) > 34 ) || ( is_numeric($value [ 0 ])  || is_numeric($value [ 1 ]) ) || ( ! is_numeric($value [ 2 ]) || ! is_numeric($value [ 3 ]) )) {
+                return false;
+            }
 
-				if ( ( 4 > strlen( $value ) ||  strlen ( $value ) > 34 ) || ( is_numeric ( $value [ 0 ] )  || is_numeric ( $value [ 1 ] ) ) || ( ! is_numeric ( $value [ 2 ] ) || ! is_numeric ( $value [ 3 ] ) ) )
-					return false;
+            $ibanReplaceChars = range('A', 'Z');
 
-			$ibanReplaceChars = range('A','Z');
-
-			foreach ( range( 10,35 ) as $tempvalue )
-				$ibanReplaceValues[] = strval ( $tempvalue );
+            foreach (range(10, 35) as $tempvalue) {
+                $ibanReplaceValues[] = strval($tempvalue);
+            }
 
 
-			$tmpIBAN = substr( $value, 4 ) . substr( $value, 0, 4 );
+            $tmpIBAN = substr($value, 4) . substr($value, 0, 4);
 
-			$tmpIBAN = str_replace( $ibanReplaceChars, $ibanReplaceValues, $tmpIBAN );
+            $tmpIBAN = str_replace($ibanReplaceChars, $ibanReplaceValues, $tmpIBAN);
 
-			$tmpValue = intval ( substr( $tmpIBAN, 0, 1 ) );
+            $tmpValue = intval(substr($tmpIBAN, 0, 1));
 
-			for ( $i = 1; $i < strlen( $tmpIBAN ); $i++ ) {
+            for ($i = 1; $i < strlen($tmpIBAN); $i++) {
+                $tmpValue *= 10;
 
-				$tmpValue *= 10;
+                $tmpValue += intval(substr($tmpIBAN, $i, 1));
 
-				$tmpValue += intval ( substr( $tmpIBAN, $i, 1 ) );
+                $tmpValue %= 97;
+            }
 
-				$tmpValue %= 97;
+            if ($tmpValue != 1) {
+                return false;
+            }
 
-			}
+            return true;
+        }
 
-		 if ( $tmpValue != 1 )
-       return false;
+        return false;
 
-			return true;
-
-		}
-
-    return false;
-
-  }
+    }
 
    /**
     * validate meliCode number
@@ -138,34 +142,40 @@ class PersianValidation
     * @since May 21, 2016
     * @return boolean
     */
-    public function melliCode( $attribute, $value, $parameters, $validator  ) {
+    public function melliCode($attribute, $value, $parameters, $validator)
+    {
 
-      $control = 0;
-		  $sub = 0;
+        $control = 0;
+          $sub = 0;
 
-		  if ( !preg_match( '/^\d{8,10}$/', $value ) )
-			  return false;
+        if (!preg_match('/^\d{8,10}$/', $value)) {
+            return false;
+        }
 
 
-		  if ( strlen( $value ) == 8 )
-			  $value = '00' . $value;
-		  elseif ( strlen( $value ) == 9 )
-			  $value = '0' . $value;
+        if (strlen($value) == 8) {
+            $value = '00' . $value;
+        } elseif (strlen($value) == 9) {
+            $value = '0' . $value;
+        }
 
-		  for( $i = 0; $i <= 8; $i++ )
-			  $sub = $sub + ( $value[$i] * ( 10 - $i ) );
+        for ($i = 0; $i <= 8; $i++) {
+            $sub = $sub + ( $value[$i] * ( 10 - $i ) );
+        }
 
-		  if ( ( $sub % 11 ) <= 2 )
-			  $control = ( $sub % 11 );
-		  else
-		  	$control = 11 - ( $sub % 11 );
+        if (( $sub % 11 ) <= 2) {
+            $control = ( $sub % 11 );
+        } else {
+            $control = 11 - ( $sub % 11 );
+        }
 
-		  if ( $value[9] == $control )
-			  return true;
-		  else
-		  	return false;
+        if ($value[9] == $control) {
+            return true;
+        } else {
+            return false;
+        }
 
-   }
+    }
 
    /**
     * validate category
@@ -176,27 +186,22 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-   public function category( $attribute, $value, $parameters, $validator ) {
+    public function category($attribute, $value, $parameters, $validator)
+    {
             
-        foreach ( $value as $key => $val ) {
-            
-            if ( intval( $val ) != 1 && intval( $val ) != 2 && intval( $val ) != 5 && intval( $val ) != 16 && intval( $val ) != 17 && intval( $val ) != 18 && intval( $val ) != 19 && intval( $val ) != 21 && intval( $val ) != 23 && intval( $val ) != 25 && intval( $val ) != 26 ) {
-
+        foreach ($value as $key => $val) {
+            if (intval($val) != 1 && intval($val) != 2 && intval($val) != 5 && intval($val) != 16 && intval($val) != 17 && intval($val) != 18 && intval($val) != 19 && intval($val) != 21 && intval($val) != 23 && intval($val) != 25 && intval($val) != 26) {
                 $this->status = false;
 
                 break;
-
             } else {
-
                 $this->status = true;
-
             }
-
         }
 
         return $this->status;
 
-   }
+    }
 
    /**
     * validate geo
@@ -207,27 +212,22 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-    public function geo( $attribute, $value, $parameters, $validator ) {
+    public function geo($attribute, $value, $parameters, $validator)
+    {
 
-        foreach ( $value as $key => $val ) {
-                
-            if ( ( intval( $val ) < 1352 ) || ( intval( $val ) > 1382 ) ) {
-
+        foreach ($value as $key => $val) {
+            if (( intval($val) < 1352 ) || ( intval($val) > 1382 )) {
                 $this->status = false;
 
                 break;
-
             } else {
-
                  $this->status = true;
-
             }
-
         }
 
         return $this->status;
 
-   }
+    }
 
    /**
     * validate os
@@ -238,27 +238,22 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-    public function os( $attribute, $value, $parameters, $validator ) {
+    public function os($attribute, $value, $parameters, $validator)
+    {
 
-        foreach ( $value as $key => $val ) {
-            
-            if ( intval( $val ) != 11 && intval( $val ) != 12 && intval( $val ) != 13 && intval( $val ) != 21 && intval( $val ) != 22 && intval( $val ) != 23 && intval( $val ) != 24 && intval( $val ) != 25 && intval( $val ) != 26 && intval( $val ) != 27 && intval( $val ) != 28 && intval( $val ) != 29 ) {
-
+        foreach ($value as $key => $val) {
+            if (intval($val) != 11 && intval($val) != 12 && intval($val) != 13 && intval($val) != 21 && intval($val) != 22 && intval($val) != 23 && intval($val) != 24 && intval($val) != 25 && intval($val) != 26 && intval($val) != 27 && intval($val) != 28 && intval($val) != 29) {
                 $this->status = false;
 
                  break;
-
             } else {
-
                 $this->status = true;
-
             }
-
         }
 
         return $this->status;
 
-   }
+    }
 
    /**
     * validate category range
@@ -269,14 +264,16 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-   public function category_range( $attribute, $value, $parameters, $validator ) {
+    public function category_range($attribute, $value, $parameters, $validator)
+    {
 
-    if ( is_array( $value ) && count( $value ) < 3 && !empty( $value ) )
-        return true;
+        if (is_array($value) && count($value) < 3 && !empty($value)) {
+            return true;
+        }
 
-    return false;
+        return false;
 
-   }
+    }
 
    /**
     * validate geo range
@@ -287,14 +284,16 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-   public function geo_range( $attribute, $value, $parameters, $validator ) {
+    public function geo_range($attribute, $value, $parameters, $validator)
+    {
 
-    if ( is_array( $value ) && count( $value ) < 6 && !empty( $value ) )
-        return true;
+        if (is_array($value) && count($value) < 6 && !empty($value)) {
+            return true;
+        }
 
-    return false;
+        return false;
 
-   }
+    }
 
    /**
     * validate os range
@@ -305,13 +304,14 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-  public function os_range( $attribute, $value, $parameters, $validator ) {
+    public function os_range($attribute, $value, $parameters, $validator)
+    {
 
-    if ( is_array( $value ) && count( $value ) < 7 && !empty( $value ) )
-        return true;
+        if (is_array($value) && count($value) < 7 && !empty($value)) {
+            return true;
+        }
 
-    return false;
+        return false;
 
-   }
-
+    }
 }
