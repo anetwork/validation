@@ -96,14 +96,13 @@ class PersianValidationServiceProvider extends ServiceProvider
             return str_replace( $message, $this->new_message, $message );
 
           });
-
-          // create custom rule for category
+           // create custom rule for category
         Validator::extend( 'category', 'PersianValidation@category' );
 
           // create custom message for category
           Validator::replacer( 'category', function( $message, $attribute, $rule, $parameters ) {
 
-            $this->new_message = "category is out of range min 1 and max 2";
+            $this->new_message = "category value is not valid";
 
             return str_replace( $message, $this->new_message, $message );
 
@@ -115,7 +114,7 @@ class PersianValidationServiceProvider extends ServiceProvider
           // create custom message for geo
           Validator::replacer( 'geo', function( $message, $attribute, $rule, $parameters ) {
 
-            $this->new_message = "geo is out of range min 1 and max 5";
+            $this->new_message = "geo value is not valid";
 
             return str_replace( $message, $this->new_message, $message );
 
@@ -124,15 +123,51 @@ class PersianValidationServiceProvider extends ServiceProvider
           // create custom rule for os
         Validator::extend( 'os', 'PersianValidation@os' );
 
-          // create custom message for geo
+          // create custom message for os
           Validator::replacer( 'os', function( $message, $attribute, $rule, $parameters ) {
+
+            $this->new_message = "os value is not valid";
+
+            return str_replace( $message, $this->new_message, $message );
+
+          });
+
+
+          // create custom rule for category_range
+        Validator::extend( 'category_range', 'PersianValidation@category_range' );
+
+          // create custom message for category_range
+          Validator::replacer( 'category_range', function( $message, $attribute, $rule, $parameters ) {
+
+            $this->new_message = "category is out of range min 1 and max 2";
+
+            return str_replace( $message, $this->new_message, $message );
+
+          });
+
+         // create custom rule for geo_range
+        Validator::extend( 'geo_range', 'PersianValidation@geo_range' );
+
+          // create custom message for geo_range
+          Validator::replacer( 'geo_range', function( $message, $attribute, $rule, $parameters ) {
+
+            $this->new_message = "geo is out of range min 1 and max 5";
+
+            return str_replace( $message, $this->new_message, $message );
+
+          });
+
+          // create custom rule for os_range
+        Validator::extend( 'os_range', 'PersianValidation@os_range' );
+
+          // create custom message for os_range
+          Validator::replacer( 'os_range', function( $message, $attribute, $rule, $parameters ) {
 
             $this->new_message = "os is out of range min 1 and max 6";
 
             return str_replace( $message, $this->new_message, $message );
 
           });
-
 
       }
 

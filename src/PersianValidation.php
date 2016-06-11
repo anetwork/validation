@@ -167,28 +167,93 @@ class PersianValidation
 
    }
 
-
    public function category( $attribute, $value, $parameters, $validator ) {
+            
+        foreach ( $value as $key => $val ) {
+            
+            if ( intval( $val ) != 1 && intval( $val ) != 2 && intval( $val ) != 5 && intval( $val ) != 16 && intval( $val ) != 17 && intval( $val ) != 18 && intval( $val ) != 19 && intval( $val ) != 21 && intval( $val ) != 23 && intval( $val ) != 25 && intval( $val ) != 26 ) {
 
-    if ( is_array( $value ) && count( $value ) < 3 && count( $value ) > 0 )
+                $this->status = false;
+
+                break;
+
+            } else {
+
+                $this->status = true;
+
+            }
+
+        }
+
+        return $this->status;
+
+   }
+
+    public function geo( $attribute, $value, $parameters, $validator ) {
+
+        foreach ( $value as $key => $val ) {
+                
+            if ( ( intval( $val ) < 1352 ) || ( intval( $val ) > 1382 ) ) {
+
+                $this->status = false;
+
+                break;
+
+            } else {
+
+                 $this->status = true;
+
+            }
+
+        }
+
+        return $this->status;
+
+   }
+
+    public function os( $attribute, $value, $parameters, $validator ) {
+
+        foreach ( $value as $key => $val ) {
+            
+            if ( intval( $val ) != 11 && intval( $val ) != 12 && intval( $val ) != 13 && intval( $val ) != 21 && intval( $val ) != 22 && intval( $val ) != 23 && intval( $val ) != 24 && intval( $val ) != 25 && intval( $val ) != 26 && intval( $val ) != 27 && intval( $val ) != 28 && intval( $val ) != 29 ) {
+
+                $this->status = false;
+
+                 break;
+
+            } else {
+
+                $this->status = true;
+
+            }
+
+        }
+
+        return $this->status;
+
+   }
+
+   public function category_range( $attribute, $value, $parameters, $validator ) {
+
+    if ( is_array( $value ) && count( $value ) < 3 && !empty( $value ) )
         return true;
 
     return false;
 
    }
 
-   public function geo( $attribute, $value, $parameters, $validator ) {
+   public function geo_range( $attribute, $value, $parameters, $validator ) {
 
-    if ( is_array( $value ) && count( $value ) < 6 && count( $value ) > 0 )
+    if ( is_array( $value ) && count( $value ) < 6 && !empty( $value ) )
         return true;
 
     return false;
 
    }
 
-  public function os( $attribute, $value, $parameters, $validator ) {
+  public function os_range( $attribute, $value, $parameters, $validator ) {
 
-    if ( is_array( $value ) && count( $value ) < 7 && count( $value ) > 0 )
+    if ( is_array( $value ) && count( $value ) < 7 && !empty( $value ) )
         return true;
 
     return false;

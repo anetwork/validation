@@ -178,33 +178,17 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testCategory() {
-
-      $this->value = [ "16", "23" ];
-
-      $this->assertEquals( true,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
-
-      $this->value = [];
-
-      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
-
-      $this->value = [ "16", "23", "25" ];
-
-      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
-
-    }
-
     public function testGeo() {
 
-      $this->value = [ "21", "22", "23", "24", "25" ];
+      $this->value = [ "1352", "1353", "1354" ];
 
       $this->assertEquals( true,  $this->PersianValidation->geo( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
-      $this->value = [];
+      $this->value = [ "1300" ];
 
       $this->assertEquals( false,  $this->PersianValidation->geo( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
-      $this->value = [ "21", "22", "23", "24", "25", "26" ];
+      $this->value = [ "1352", "1353", "1354", "1383" ];
 
       $this->assertEquals( false,  $this->PersianValidation->geo( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
@@ -212,17 +196,89 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     public function testOs() {
 
-      $this->value = [ "21", "22", "23", "24", "25", "26" ];
+      $this->value = [ "21", "22", "23", "24", "25" ];
 
       $this->assertEquals( true,  $this->PersianValidation->os( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
-      $this->value = [];
+      $this->value = [ "22", "23", "24", "25", "30" ];
 
       $this->assertEquals( false,  $this->PersianValidation->os( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "11", "12", "13", "21", "22", "23", "24", "25", "26", "27", "28", "29" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->os( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "11", "12", "13", "21", "22", "23", "24", "25", "26", "27", "28", "29", "20" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->os( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+    }
+
+    public function testCategory() {
+
+      $this->value = [ "1", "23", "25", "26" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "23", "25", "26", "27" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "1", "2", "5", "16", "17", "18", "19", "21", "23", "25", "26" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "1", "2", "5", "16", "4", "17", "18", "19", "21", "23", "25", "26" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->category( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+    }
+
+    public function testCategoryRange() {
+
+      $this->value = [ "16", "23" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->category_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [];
+
+      $this->assertEquals( false,  $this->PersianValidation->category_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "16", "23", "25" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->category_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+    }
+
+    public function testGeoRange() {
+
+      $this->value = [ "21", "22", "23", "24", "25" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->geo_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [];
+
+      $this->assertEquals( false,  $this->PersianValidation->geo_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [ "21", "22", "23", "24", "25", "26" ];
+
+      $this->assertEquals( false,  $this->PersianValidation->geo_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+    }
+
+    public function testOsRange() {
+
+      $this->value = [ "21", "22", "23", "24", "25", "26" ];
+
+      $this->assertEquals( true,  $this->PersianValidation->os_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+
+      $this->value = [];
+
+      $this->assertEquals( false,  $this->PersianValidation->os_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
       $this->value = [ "21", "22", "23", "24", "25", "26", "27" ];
 
-      $this->assertEquals( false,  $this->PersianValidation->os( $this->attribute, $this->value, $this->parameters, $this->validator ) );
+      $this->assertEquals( false,  $this->PersianValidation->os_range( $this->attribute, $this->value, $this->parameters, $this->validator ) );
 
     }
 
