@@ -12,14 +12,14 @@ class PersianValidation
 
     /**
      * validate persian alphabet
-     * @param string $attribute, $value
+     * @param string $attribute $value
      * @param array $parameters
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
-    public function alpha($attribute, $value, $parameters, $validator)
+    public function Alpha($attribute, $value, $parameters, $validator)
     {
 
         $this->status = preg_match("/^[\x{600}-\x{6FF}]+$/u", $value);
@@ -30,14 +30,14 @@ class PersianValidation
 
     /**
      * validate persian number
-     * @param string $attribute, $value
+     * @param string $attribute $value
      * @param array $parameters
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
-    public function num($attribute, $value, $parameters, $validator)
+    public function Num($attribute, $value, $parameters, $validator)
     {
 
         $this->status = preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
@@ -48,14 +48,14 @@ class PersianValidation
 
     /**
      * validate persian alphabet and number
-     * @param string $attribute, $value
+     * @param string $attribute $value
      * @param array $parameters
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
-    public function alpha_num($attribute, $value, $parameters, $validator)
+    public function AlphaNum($attribute, $value, $parameters, $validator)
     {
 
         $this->status = preg_match('/^[\x{600}-\x{6FF}]+$/u', $value);
@@ -66,14 +66,14 @@ class PersianValidation
 
     /**
      * validate mobile number
-     * @param string $attribute, $value
+     * @param string $attribute $value
      * @param array $parameters
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
-    public function mobile($attribute, $value, $parameters, $validator)
+    public function Mobile($attribute, $value, $parameters, $validator)
     {
 
         $this->status = preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
@@ -84,14 +84,14 @@ class PersianValidation
 
     /**
      * validate sheba number
-     * @param string $attribute, $value
+     * @param string $attribute $value
      * @param array $parameters
      * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
-    public function sheba($attribute, $value, $parameters, $validator)
+    public function Sheba($attribute, $value, $parameters, $validator)
     {
 
         if (!empty($value)) {
@@ -135,14 +135,14 @@ class PersianValidation
 
    /**
     * validate meliCode number
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
     * @return boolean
     */
-    public function melliCode($attribute, $value, $parameters, $validator)
+    public function MelliCode($attribute, $value, $parameters, $validator)
     {
 
         $control = 0;
@@ -179,16 +179,16 @@ class PersianValidation
 
    /**
     * validate category
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
     */
-    public function category($attribute, $value, $parameters, $validator)
+    public function Category($attribute, $value, $parameters, $validator)
     {
-            
+
         foreach ($value as $key => $val) {
             if (intval($val) != 1 && intval($val) != 2 && intval($val) != 5 && intval($val) != 16 && intval($val) != 17 && intval($val) != 18 && intval($val) != 19 && intval($val) != 21 && intval($val) != 23 && intval($val) != 25 && intval($val) != 26) {
                 $this->status = false;
@@ -205,14 +205,14 @@ class PersianValidation
 
    /**
     * validate geo
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
     */
-    public function geo($attribute, $value, $parameters, $validator)
+    public function Geo($attribute, $value, $parameters, $validator)
     {
 
         foreach ($value as $key => $val) {
@@ -231,14 +231,14 @@ class PersianValidation
 
    /**
     * validate os
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
     */
-    public function os($attribute, $value, $parameters, $validator)
+    public function Os($attribute, $value, $parameters, $validator)
     {
 
         foreach ($value as $key => $val) {
@@ -257,14 +257,14 @@ class PersianValidation
 
    /**
     * validate category range
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
     */
-    public function category_range($attribute, $value, $parameters, $validator)
+    public function CategoryRange($attribute, $value, $parameters, $validator)
     {
 
         if (is_array($value) && count($value) < 3 && !empty($value)) {
@@ -277,14 +277,14 @@ class PersianValidation
 
    /**
     * validate geo range
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
     */
-    public function geo_range($attribute, $value, $parameters, $validator)
+    public function GeoRange($attribute, $value, $parameters, $validator)
     {
 
         if (is_array($value) && count($value) < 6 && !empty($value)) {
@@ -297,14 +297,14 @@ class PersianValidation
 
    /**
     * validate os range
-    * @param string $attribute, $value
+    * @param string $attribute $value
     * @param array $parameters
     * @param object $validator -> instance of validator
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
     */
-    public function os_range($attribute, $value, $parameters, $validator)
+    public function OsRange($attribute, $value, $parameters, $validator)
     {
 
         if (is_array($value) && count($value) < 7 && !empty($value)) {
