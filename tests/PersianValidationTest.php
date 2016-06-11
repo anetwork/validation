@@ -178,6 +178,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of geo
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 11, 2016
+     * @return void
+     */
     public function testGeo() {
 
       $this->value = [ "1352", "1353", "1354" ];
@@ -194,6 +200,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of os
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 11, 2016
+     * @return void
+     */
     public function testOs() {
 
       $this->value = [ "21", "22", "23", "24", "25" ];
@@ -214,6 +226,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of category
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 11, 2016
+     * @return void
+     */
     public function testCategory() {
 
       $this->value = [ "1", "23", "25", "26" ];
@@ -234,6 +252,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of category range
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 8, 2016
+     * @return void
+     */
     public function testCategoryRange() {
 
       $this->value = [ "16", "23" ];
@@ -250,6 +274,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of geo range
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 8, 2016
+     * @return void
+     */
     public function testGeoRange() {
 
       $this->value = [ "21", "22", "23", "24", "25" ];
@@ -266,6 +296,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * unit test of os range
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 8, 2016
+     * @return void
+     */
     public function testOsRange() {
 
       $this->value = [ "21", "22", "23", "24", "25", "26" ];

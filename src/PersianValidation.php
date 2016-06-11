@@ -167,6 +167,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate category
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 11, 2016
+    * @return boolean
+    */
    public function category( $attribute, $value, $parameters, $validator ) {
             
         foreach ( $value as $key => $val ) {
@@ -189,6 +198,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate geo
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 11, 2016
+    * @return boolean
+    */
     public function geo( $attribute, $value, $parameters, $validator ) {
 
         foreach ( $value as $key => $val ) {
@@ -211,6 +229,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate os
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 11, 2016
+    * @return boolean
+    */
     public function os( $attribute, $value, $parameters, $validator ) {
 
         foreach ( $value as $key => $val ) {
@@ -233,6 +260,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate category range
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 8, 2016
+    * @return boolean
+    */
    public function category_range( $attribute, $value, $parameters, $validator ) {
 
     if ( is_array( $value ) && count( $value ) < 3 && !empty( $value ) )
@@ -242,6 +278,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate geo range
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 8, 2016
+    * @return boolean
+    */
    public function geo_range( $attribute, $value, $parameters, $validator ) {
 
     if ( is_array( $value ) && count( $value ) < 6 && !empty( $value ) )
@@ -251,6 +296,15 @@ class PersianValidation
 
    }
 
+   /**
+    * validate os range
+    * @param string $attribute, $value
+    * @param array $parameters
+    * @param object $validator -> instance of validator
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 8, 2016
+    * @return boolean
+    */
   public function os_range( $attribute, $value, $parameters, $validator ) {
 
     if ( is_array( $value ) && count( $value ) < 7 && !empty( $value ) )
