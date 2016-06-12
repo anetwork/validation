@@ -13,7 +13,6 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     protected $attribute;
     protected $value;
     protected $parameters;
-    protected $validator;
     protected $PersianValidation;
 
     public function __construct()
@@ -33,15 +32,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "Shahrokh";
 
-        $this->assertEquals(false, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters));
 
         $this->value = "شاهرخ";
 
-        $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "1111شاهرخ";
 
-        $this->assertEquals(false, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters));
 
 
     }
@@ -57,15 +56,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "1234";
 
-        $this->assertEquals(false, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters));
 
         $this->value = "۱۲۳۴";
 
-        $this->assertEquals(true, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "۱۲۳123";
 
-        $this->assertEquals(false, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Num($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -80,27 +79,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "Shahrokh1234";
 
-        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
         $this->value = "1111شاهرخ";
 
-        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "1111شاهرخ۱۲۳۴";
 
-        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "شاهرخ";
 
-        $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "۱۲۳۴";
 
-        $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
         $this->value =  "Shahrokh۱۲۳۴شاهرخ";
 
-        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -115,27 +114,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "+989380105725";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09380105725";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "989123583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "9380105725";
 
-        $this->assertEquals(false, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09023583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09313583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -150,15 +149,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "IR062960000000100324200001";
 
-        $this->assertEquals(true, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters));
 
         $this->value = "IR06296000000010032420000";
 
-        $this->assertEquals(false, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters));
 
         $this->value = "00062960000000100324200001";
 
-        $this->assertEquals(false, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Sheba($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -173,15 +172,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = "3240175800";
 
-        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters));
 
         $this->value = "324011122";
 
-        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters));
 
         $this->value = "3213213";
 
-        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -196,15 +195,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "1352", "1353", "1354" ];
 
-        $this->assertEquals(true, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "1300" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "1352", "1353", "1354", "1383" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Geo($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -219,19 +218,19 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "21", "22", "23", "24", "25" ];
 
-        $this->assertEquals(true, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "22", "23", "24", "25", "30" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "11", "12", "13", "21", "22", "23", "24", "25", "26", "27", "28", "29" ];
 
-        $this->assertEquals(true, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "11", "12", "13", "21", "22", "23", "24", "25", "26", "27", "28", "29", "20" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Os($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -246,19 +245,19 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "1", "23", "25", "26" ];
 
-        $this->assertEquals(true, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "23", "25", "26", "27" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "1", "2", "5", "16", "17", "18", "19", "21", "23", "25", "26" ];
 
-        $this->assertEquals(true, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "1", "2", "5", "16", "4", "17", "18", "19", "21", "23", "25", "26" ];
 
-        $this->assertEquals(false, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->Category($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -273,11 +272,11 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "16", "23" ];
 
-        $this->assertEquals(true, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [];
 
-        $this->assertEquals(false, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "16", "23", "25" ];
 
@@ -296,15 +295,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "21", "22", "23", "24", "25" ];
 
-        $this->assertEquals(true, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [];
 
-        $this->assertEquals(false, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "21", "22", "23", "24", "25", "26" ];
 
-        $this->assertEquals(false, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->GeoRange($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -319,15 +318,15 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "21", "22", "23", "24", "25", "26" ];
 
-        $this->assertEquals(true, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(true, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [];
 
-        $this->assertEquals(false, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters));
 
         $this->value = [ "21", "22", "23", "24", "25", "26", "27" ];
 
-        $this->assertEquals(false, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->OsRange($this->attribute, $this->value, $this->parameters));
 
     }
 }
