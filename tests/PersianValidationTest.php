@@ -280,7 +280,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->value = [ "16", "23", "25" ];
 
-        $this->assertEquals(false, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters, $this->validator));
+        $this->assertEquals(false, $this->PersianValidation->CategoryRange($this->attribute, $this->value, $this->parameters));
 
     }
 
