@@ -38,7 +38,7 @@ You can use it as Validator rules
 | persian_alpha | Persian alphabet |
 | persian_num | Persian numbers |
 | persian_alpha_num | Persian alphabet and numbers |
-| mobile | Iran mobile number |
+| iran_mobile | Iran mobile number |
 | sheba_number | Iran Sheba number |
 | melli_code | Iran Melli code |
 
