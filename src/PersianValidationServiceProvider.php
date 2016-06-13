@@ -62,12 +62,12 @@ class PersianValidationServiceProvider extends ServiceProvider
             });
 
         // create custom rule for mobile
-            Validator::extend('mobile', 'PersianValidation@Mobile');
+            Validator::extend('iran_mobile', 'PersianValidation@Mobile');
 
           // create custom message for mobile
-            Validator::replacer('mobile', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('iran_mobile', function ($message, $attribute, $rule, $parameters) {
 
-                $this->new_message = "mobile number is not valid";
+                $this->new_message = "iran_mobile number is not valid";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -86,10 +86,10 @@ class PersianValidationServiceProvider extends ServiceProvider
             });
 
         // create custom rule for melliCode
-            Validator::extend('melliCode', 'PersianValidation@MelliCode');
+            Validator::extend('melli_code', 'PersianValidation@MelliCode');
 
           // create custom message for melliCode
-            Validator::replacer('melliCode', function ($message, $attribute, $rule, $parameters) {
+            Validator::replacer('melli_code', function ($message, $attribute, $rule, $parameters) {
 
                 $this->new_message = "melliCode number is not valid";
 

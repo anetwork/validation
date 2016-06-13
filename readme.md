@@ -33,20 +33,30 @@ Anetwork\Validation\PersianValidationServiceProvider::class
 
 You can use it as Validator rules
 
+| Rules | Descriptions |
+| --- | --- |
+| persian_alpha | Persian alphabet |
+| persian_num | Persian numbers |
+| persian_alpha_num | Persian alphabet and numbers |
+| mobile | Iran mobile number |
+| sheba_number | Iran Sheba number |
+| melli_code | Iran Melli code |
+
+
 ``` php
 Validator::make( $request->all(), [
 
-  'name' => 'persian_alpha',    // validate persian alphabet
+  'name' => 'persian_alpha|unique|max:25',    // Validate Persian name, unique and max to 25 characters
 
-  'age' => 'persian_num',   // validate persian numbers
+  'age' => 'persian_num|required',   // Validate Persian numbers and check it's required
 
-  'address' => 'persian_alpha_num',   // validate persian alphabet & numbers
+  'address' => 'persian_alpha_num|min:10',   // Validate persian alphabet & numbers at least 10 digit accepted
 
-  'mobile' => 'mobile',   // validate mobile number
+  'mobile' => 'iran_mobile',   // Validate mobile number
 
-  'sheba_number' => 'sheba',    // validate sheba number of bank account
+  'sheba_number' => 'sheba',    // Validate sheba number of bank account
 
-  'melli_code' => 'melliCode',    // validate melli code number
+  'melli_code' => 'melli_code',    // Validate melli code number
 
 ]);
 ```
