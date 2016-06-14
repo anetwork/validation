@@ -119,7 +119,31 @@ class PersianValidationServiceProvider extends ServiceProvider
 
               return str_replace($message, $this->new_message, $message);
 
-          });
+           });
+
+         // create custom rule for Greater
+          Validator::extend('greater_than', 'PersianValidation@Greater');
+
+         // create custom message for Greater
+          Validator::replacer('greater_than', function ($message, $attribute, $rule, $parameters) {
+
+              $this->new_message = "value is not greater than parameter";
+
+              return str_replace($message, $this->new_message, $message);
+
+            });
+
+         // create custom rule for Lesser
+          Validator::extend('lesser_than', 'PersianValidation@Lesser');
+
+        // create custom message for Lesser
+          Validator::replacer('lesser_than', function ($message, $attribute, $rule, $parameters) {
+
+              $this->new_message = "value is not lesser than parameter";
+
+              return str_replace($message, $this->new_message, $message);
+
+           });
 
            // create custom rule for category
             Validator::extend('category', 'PersianValidation@Category');
