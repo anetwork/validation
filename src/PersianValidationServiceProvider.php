@@ -12,7 +12,7 @@ use Validator;
 class PersianValidationServiceProvider extends ServiceProvider
 {
 
-      //variable of class
+    // variable of class
     protected $new_message;
 
 
@@ -62,12 +62,12 @@ class PersianValidationServiceProvider extends ServiceProvider
             });
 
         // create custom rule for mobile
-            Validator::extend('iran_mobile', 'PersianValidation@Mobile');
+            Validator::extend('iran_mobile', 'PersianValidation@IranMobile');
 
           // create custom message for mobile
             Validator::replacer('iran_mobile', function ($message, $attribute, $rule, $parameters) {
 
-                $this->new_message = "iran_mobile number is not valid";
+                $this->new_message = "iran mobile number is not valid";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -91,11 +91,36 @@ class PersianValidationServiceProvider extends ServiceProvider
           // create custom message for melliCode
             Validator::replacer('melli_code', function ($message, $attribute, $rule, $parameters) {
 
-                $this->new_message = "melliCode number is not valid";
+                $this->new_message = "melli code number is not valid";
 
                 return str_replace($message, $this->new_message, $message);
 
             });
+
+         // create custom rule for NotPersian
+           Validator::extend('is_not_persian', 'PersianValidation@IsNotPersian');
+
+         // create custom message for NotPersian
+           Validator::replacer('is_not_persian', function ($message, $attribute, $rule, $parameters) {
+
+               $this->new_message = "value is not string or is contain persian alphabet or number";
+
+               return str_replace($message, $this->new_message, $message);
+
+           });
+
+        // create custom rule for NotPersian
+          Validator::extend('is_array', 'PersianValidation@IsArray');
+
+        // create custom message for NotPersian
+          Validator::replacer('is_array', function ($message, $attribute, $rule, $parameters) {
+
+              $this->new_message = "value is not array or is contain more or less that your parameter";
+
+              return str_replace($message, $this->new_message, $message);
+
+          });
+
            // create custom rule for category
             Validator::extend('category', 'PersianValidation@Category');
 
@@ -158,7 +183,7 @@ class PersianValidationServiceProvider extends ServiceProvider
             });
 
           // create custom rule for os_range
-            Validator::extend('os_range', 'PersianValidation@OsRange');
+            Validator::extend('os_range', 'PersianValidation@');
 
           // create custom message for os_range
             Validator::replacer('os_range', function ($message, $attribute, $rule, $parameters) {

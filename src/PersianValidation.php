@@ -70,7 +70,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function Mobile($attribute, $value, $parameters)
+    public function IranMobile($attribute, $value, $parameters)
     {
 
         $this->status = preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
@@ -303,4 +303,57 @@ class PersianValidation
         return false;
 
     }
+
+    /**
+     * validate string that is not contain persian alphabet and number
+     * @param string $attriute $value
+     * @param array $parameters
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 13, 2016
+     * @return boolean
+     */
+     public function IsNotPersian($attribute, $value, $parameters)
+     {
+
+       if (is_string($value)) {
+
+         $this->status = preg_match("/[\x{600}-\x{6FF}]/u", $value);
+
+         return ( $this->status ? false : true );
+
+     }
+
+     return false;
+
+   }
+
+   /**
+    * validate array with custom count of array
+    * @param string $attriute $value
+    * @param array $parameters
+    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+    * @since June 13, 2016
+    * @return boolean
+    */
+    public function IsArray($attribute, $value, $parameters)
+    {
+
+      if (is_array($value)) {
+
+        if (isset($parameters[0])) {
+
+           return ( (count($value) == $parameters[0]) ? true : false );
+
+        } else {
+
+            return true;
+
+        }
+
+    }
+
+    return false;
+
+  }
+
 }

@@ -104,37 +104,37 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * unit test of mobile number
+     * unit test of iran mobile number
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 28, 2016
      * @return void
      */
-    public function testMobile()
+    public function testIranMobile()
     {
 
         $this->value = "+989380105725";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09380105725";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "989123583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "9380105725";
 
-        $this->assertEquals(false, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(false, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09023583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
         $this->value = "09313583439";
 
-        $this->assertEquals(true, $this->PersianValidation->Mobile($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value, $this->parameters));
 
     }
 
@@ -162,14 +162,13 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * unit test of melliCode number
+     * unit test of melli code number
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 28, 2016
      * @return void
      */
     public function testMelliCode()
     {
-
         $this->value = "3240175800";
 
         $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters));
@@ -181,6 +180,75 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "3213213";
 
         $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value, $this->parameters));
+
+    }
+
+    /**
+     * unit test of not persian alphabet and number
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 13, 2016
+     * @return void
+     */
+    public function testIsNotPersian()
+    {
+
+      $this->value = "شاهرخ۱۲۳۴";
+
+      $this->assertEquals(false, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+      $this->value = "shahrokh";
+
+      $this->assertEquals(true, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+      $this->value = "Shahrokhشاهرخ۱۲۳۴";
+
+      $this->assertEquals(false, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+      $this->value = "shahrokhw3289834(!!!%$$(@_)_)_";
+
+      $this->assertEquals(true, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+      $this->value = 1213131313131;
+
+      $this->assertEquals(false, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+      $this->value = ["Shahrokh"];
+
+      $this->assertEquals(false, $this->PersianValidation->IsNotPersian($this->attribute, $this->value, $this->parameters));
+
+    }
+
+    /**
+     * unit test of check array with custom array count
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since June 13, 2016
+     * @return void
+     */
+    public function testIsArray()
+    {
+        $this->value = [];
+        $this->parameters[0] = 1;
+
+        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+
+        $this->value = [];
+
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+
+        $this->value = ["a"];
+        $this->parameters[0] = 2;
+
+        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+
+        $this->value = ["a", "b"];
+        $this->parameters[0] = 2;
+
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+
+        $this->value = ["a", "b", "c"];
+        $this->parameters[0] = 3;
+
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
     }
 
