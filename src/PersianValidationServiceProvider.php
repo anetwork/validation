@@ -115,7 +115,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for NotPersian
           Validator::replacer('is_array', function ($message, $attribute, $rule, $parameters) {
 
-              $this->new_message = "value is not array or is contain more or less that your parameter";
+              $this->new_message = "value is not array or is contain more or less";
 
               return str_replace($message, $this->new_message, $message);
 
@@ -158,7 +158,7 @@ class PersianValidationServiceProvider extends ServiceProvider
             });
 
 
-          // create custom rule for category_range
+          // create custom rule for category range
             Validator::extend('category_range', 'PersianValidation@CategoryRange');
 
           // create custom message for category_range
@@ -170,7 +170,7 @@ class PersianValidationServiceProvider extends ServiceProvider
 
             });
 
-         // create custom rule for geo_range
+         // create custom rule for geo range
             Validator::extend('geo_range', 'PersianValidation@GeoRange');
 
           // create custom message for geo_range
@@ -182,8 +182,8 @@ class PersianValidationServiceProvider extends ServiceProvider
 
             });
 
-          // create custom rule for os_range
-            Validator::extend('os_range', 'PersianValidation@');
+          // create custom rule for os range
+            Validator::extend('os_range', 'PersianValidation@OsRange');
 
           // create custom message for os_range
             Validator::replacer('os_range', function ($message, $attribute, $rule, $parameters) {
