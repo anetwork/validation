@@ -350,10 +350,10 @@ class PersianValidation
 
         }
 
-    }
+    } 
 
     return false;
-
+    
   }
 
 }

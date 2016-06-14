@@ -227,13 +227,13 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     public function testIsArray()
     {
         $this->value = [];
+
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        
+        $this->value = [];
         $this->parameters[0] = 1;
 
         $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
-
-        $this->value = [];
-
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a"];
         $this->parameters[0] = 2;
