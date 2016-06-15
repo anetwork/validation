@@ -1,6 +1,8 @@
 {
     "name": "anetwork/validation",
     "license": "MIT",
+    "description": "Laravel persian validation",
+    "keyword": ["laravel", "validation", "persian", "farsi", "validate", "lumen", "check"]
     "authors": [
         {
             "name": "Shahrokh Niakan",
