@@ -9,10 +9,12 @@ use Anetwork\Validation\PersianValidation as PersianValidation;
  */
 class PersianValidationTest extends PHPUnit_Framework_TestCase
 {
-    //variables of class
+    //variables of class that define as methods parameters
     protected $attribute;
     protected $value;
     protected $parameters;
+
+    //instance of PersianValidation class
     protected $PersianValidation;
 
     public function __construct()
@@ -233,12 +235,12 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = [];
         $this->parameters[0] = 1;
 
-        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a"];
         $this->parameters[0] = 2;
 
-        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a", "b"];
         $this->parameters[0] = 2;
@@ -246,9 +248,9 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a", "b", "c"];
-        $this->parameters[0] = 3;
+        $this->parameters[0] = 2;
 
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
 
     }
 

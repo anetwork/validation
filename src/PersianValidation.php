@@ -13,7 +13,6 @@ class PersianValidation
     /**
      * validate persian alphabet
      * @param string $attribute $value
-     * @param array $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -30,8 +29,6 @@ class PersianValidation
     /**
      * validate persian number
      * @param string $attribute $value
-     * @param array $parameters
-     * @param object $validator -> instance of validator
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -48,7 +45,6 @@ class PersianValidation
     /**
      * validate persian alphabet and number
      * @param string $attribute $value
-     * @param array $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -65,7 +61,6 @@ class PersianValidation
     /**
      * validate mobile number
      * @param string $attribute $value
-     * @param array $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -82,7 +77,6 @@ class PersianValidation
     /**
      * validate sheba number
      * @param string $attribute $value
-     * @param array $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -132,7 +126,6 @@ class PersianValidation
    /**
     * validate meliCode number
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
     * @return boolean
@@ -175,7 +168,6 @@ class PersianValidation
    /**
     * validate category
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
@@ -200,7 +192,6 @@ class PersianValidation
    /**
     * validate geo
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
@@ -225,7 +216,6 @@ class PersianValidation
    /**
     * validate os
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 11, 2016
     * @return boolean
@@ -269,7 +259,6 @@ class PersianValidation
    /**
     * validate geo range
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
@@ -288,7 +277,6 @@ class PersianValidation
    /**
     * validate os range
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
@@ -307,7 +295,6 @@ class PersianValidation
     /**
      * validate string that is not contain persian alphabet and number
      * @param string $attriute $value
-     * @param array $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since June 13, 2016
      * @return boolean
