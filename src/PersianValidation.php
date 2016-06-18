@@ -294,7 +294,7 @@ class PersianValidation
 
     /**
      * validate string that is not contain persian alphabet and number
-     * @param string $attriute $value
+     * @param string $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since June 13, 2016
      * @return boolean
@@ -316,7 +316,7 @@ class PersianValidation
 
    /**
     * validate array with custom count of array
-    * @param string $attriute $value
+    * @param string $attribute $value
     * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 13, 2016
@@ -345,7 +345,7 @@ class PersianValidation
 
    /**
     * validate integer is greater than custom parameter
-    * @param string $attriute $value
+    * @param string $attribute $value
     * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 13, 2016
@@ -366,7 +366,7 @@ class PersianValidation
 
    /**
     * validate integer is lesser than custom parameter
-    * @param string $attriute $value
+    * @param string $attribute $value
     * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 14, 2016
