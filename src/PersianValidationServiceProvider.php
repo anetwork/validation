@@ -145,43 +145,6 @@ class PersianValidationServiceProvider extends ServiceProvider
 
            });
 
-           // create custom rule for category
-            Validator::extend('category', 'PersianValidation@Category');
-
-          // create custom message for category
-            Validator::replacer('category', function ($message, $attribute, $rule, $parameters) {
-
-                $this->new_message = "category value is not valid";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-         // create custom rule for geo
-            Validator::extend('geo', 'PersianValidation@Geo');
-
-          // create custom message for geo
-            Validator::replacer('geo', function ($message, $attribute, $rule, $parameters) {
-
-                $this->new_message = "geo value is not valid";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-          // create custom rule for os
-            Validator::extend('os', 'PersianValidation@Os');
-
-          // create custom message for os
-            Validator::replacer('os', function ($message, $attribute, $rule, $parameters) {
-
-                $this->new_message = "os value is not valid";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-
           // create custom rule for category range
             Validator::extend('category_range', 'PersianValidation@CategoryRange');
 
