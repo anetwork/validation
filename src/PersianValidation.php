@@ -18,7 +18,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function Alpha($attribute, $value, $parameters)
+    public function Alpha($attribute, $value)
     {
 
         $this->status = preg_match("/^[\x{600}-\x{6FF}]+$/u", $value);
@@ -36,7 +36,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function Num($attribute, $value, $parameters)
+    public function Num($attribute, $value)
     {
 
         $this->status = preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
@@ -53,7 +53,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function AlphaNum($attribute, $value, $parameters)
+    public function AlphaNum($attribute, $value)
     {
 
         $this->status = preg_match('/^[\x{600}-\x{6FF}]+$/u', $value);
@@ -70,7 +70,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function IranMobile($attribute, $value, $parameters)
+    public function IranMobile($attribute, $value)
     {
 
         $this->status = preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
@@ -87,7 +87,7 @@ class PersianValidation
      * @since May 21, 2016
      * @return boolean
      */
-    public function Sheba($attribute, $value, $parameters)
+    public function Sheba($attribute, $value)
     {
 
         if (!empty($value)) {
@@ -137,7 +137,7 @@ class PersianValidation
     * @since May 21, 2016
     * @return boolean
     */
-    public function MelliCode($attribute, $value, $parameters)
+    public function MelliCode($attribute, $value)
     {
 
         $control = 0;
@@ -180,7 +180,7 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-    public function Category($attribute, $value, $parameters)
+    public function Category($attribute, $value)
     {
 
         foreach ($value as $key => $val) {
@@ -205,7 +205,7 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-    public function Geo($attribute, $value, $parameters)
+    public function Geo($attribute, $value)
     {
 
         foreach ($value as $key => $val) {
@@ -230,7 +230,7 @@ class PersianValidation
     * @since June 11, 2016
     * @return boolean
     */
-    public function Os($attribute, $value, $parameters)
+    public function Os($attribute, $value)
     {
 
         foreach ($value as $key => $val) {
@@ -255,7 +255,7 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-    public function CategoryRange($attribute, $value, $parameters)
+    public function CategoryRange($attribute, $value)
     {
 
         if (is_array($value) && count($value) < 3 && !empty($value)) {
@@ -274,7 +274,7 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-    public function GeoRange($attribute, $value, $parameters)
+    public function GeoRange($attribute, $value)
     {
 
         if (is_array($value) && count($value) < 6 && !empty($value)) {
@@ -293,7 +293,7 @@ class PersianValidation
     * @since June 8, 2016
     * @return boolean
     */
-    public function OsRange($attribute, $value, $parameters)
+    public function OsRange($attribute, $value)
     {
 
         if (is_array($value) && count($value) < 7 && !empty($value)) {
@@ -312,7 +312,7 @@ class PersianValidation
      * @since June 13, 2016
      * @return boolean
      */
-     public function IsNotPersian($attribute, $value, $parameters)
+     public function IsNotPersian($attribute, $value)
      {
 
        if (is_string($value)) {
@@ -342,7 +342,7 @@ class PersianValidation
 
         if (isset($parameters[0])) {
 
-           return ( (count($value) == $parameters[0]) ? true : false );
+           return ( (count($value) <= $parameters[0]) ? true : false );
 
         } else {
 
@@ -350,10 +350,10 @@ class PersianValidation
 
         }
 
-    } 
+    }
 
     return false;
-    
+
   }
 
    /**
@@ -374,7 +374,7 @@ class PersianValidation
         }
 
         return false;
-    
+
   }
 
    /**
@@ -395,7 +395,7 @@ class PersianValidation
         }
 
         return false;
-    
+
   }
 
 

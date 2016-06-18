@@ -115,7 +115,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for NotPersian
           Validator::replacer('is_array', function ($message, $attribute, $rule, $parameters) {
 
-              $this->new_message = "value is not array or is contain more or less";
+              $this->new_message = "value is not array or array count is greater than value you define";
 
               return str_replace($message, $this->new_message, $message);
 
@@ -127,7 +127,7 @@ class PersianValidationServiceProvider extends ServiceProvider
          // create custom message for Greater
           Validator::replacer('greater_than', function ($message, $attribute, $rule, $parameters) {
 
-              $this->new_message = "value is not greater than parameter";
+              $this->new_message = "value is not greater than value you define";
 
               return str_replace($message, $this->new_message, $message);
 
@@ -139,7 +139,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for Lesser
           Validator::replacer('lesser_than', function ($message, $attribute, $rule, $parameters) {
 
-              $this->new_message = "value is not lesser than parameter";
+              $this->new_message = "value is not lesser than value you define";
 
               return str_replace($message, $this->new_message, $message);
 
