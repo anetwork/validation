@@ -168,7 +168,6 @@ class PersianValidation
    /**
     * validate category range
     * @param string $attribute $value
-    * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 8, 2016
     * @return boolean
