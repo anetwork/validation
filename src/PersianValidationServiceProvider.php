@@ -115,31 +115,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for NotPersian
           Validator::replacer('is_array', function ($message) {
 
-              $this->new_message = "value is not array or is contain more or less";
-
-              return str_replace($message, $this->new_message, $message);
-
-           });
-
-         // create custom rule for Greater
-          Validator::extend('greater_than', 'PersianValidation@Greater');
-
-         // create custom message for Greater
-          Validator::replacer('greater_than', function ($message) {
-
-              $this->new_message = "value is not greater than parameter";
-
-              return str_replace($message, $this->new_message, $message);
-
-            });
-
-         // create custom rule for Lesser
-          Validator::extend('lesser_than', 'PersianValidation@Lesser');
-
-        // create custom message for Lesser
-          Validator::replacer('lesser_than', function ($message) {
-
-              $this->new_message = "value is not lesser than parameter";
+              $this->new_message = "value is not array or is contain more than parameter";
 
               return str_replace($message, $this->new_message, $message);
 

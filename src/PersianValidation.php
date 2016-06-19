@@ -270,48 +270,4 @@ class PersianValidation
 
   }
 
-   /**
-    * validate integer is greater than custom parameter
-    * @param string $attribute $value
-    * @param array $parameters
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-    * @since June 13, 2016
-    * @return boolean
-    */
-    public function Greater($attribute, $value, $parameters)
-    {
-
-       if (isset($parameters[0])) {
-
-           return ( (intval($value) > $parameters[0]) ? true : false );
-
-        }
-
-        return false;
-
-  }
-
-   /**
-    * validate integer is lesser than custom parameter
-    * @param string $attribute $value
-    * @param array $parameters
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-    * @since June 14, 2016
-    * @return boolean
-    */
-    public function Lesser($attribute, $value, $parameters)
-    {
-
-        if (isset($parameters[0])) {
-
-           return ( (intval($value) < $parameters[0]) ? true : false );
-
-        }
-
-        return false;
-
-  }
-
-
-
 }

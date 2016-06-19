@@ -255,64 +255,6 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * unit test of greater than custom parameter
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-     * @since June 13, 2016
-     * @return void
-     */
-    public function testGreater()
-    {
-        $this->value = 12;
-
-        $this->assertEquals(false, $this->PersianValidation->Greater($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 22;
-        $this->parameters[0] = 11;
-
-        $this->assertEquals(true, $this->PersianValidation->Greater($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 11;
-        $this->parameters[0] = 22;
-
-        $this->assertEquals(false, $this->PersianValidation->Greater($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 22;
-        $this->parameters[0] = 22;
-
-        $this->assertEquals(false, $this->PersianValidation->Greater($this->attribute, $this->value, $this->parameters));
-
-    }
-
-    /**
-     * unit test of lesser than custom parameter
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-     * @since June 13, 2016
-     * @return void
-     */
-    public function testLesser()
-    {
-        $this->value = 12;
-
-        $this->assertEquals(false, $this->PersianValidation->Lesser($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 22;
-        $this->parameters[0] = 11;
-
-        $this->assertEquals(false, $this->PersianValidation->Lesser($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 11;
-        $this->parameters[0] = 22;
-
-        $this->assertEquals(true, $this->PersianValidation->Lesser($this->attribute, $this->value, $this->parameters));
-
-        $this->value = 22;
-        $this->parameters[0] = 22;
-
-        $this->assertEquals(false, $this->PersianValidation->Lesser($this->attribute, $this->value, $this->parameters));
-
-    }
-
-    /**
      * unit test of category range
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since June 8, 2016
