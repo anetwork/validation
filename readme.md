@@ -41,6 +41,9 @@ You can use it as Validator rules
 | iran_mobile | Iran mobile number |
 | sheba_number | Iran Sheba number |
 | melli_code | Iran Melli code |
+| is_not_persian | Doesn't accept persain alphabet and number |
+| is_array | Check is array and array must be lesser and equal than parameter |
+
 
 
 ``` php
@@ -57,6 +60,10 @@ Validator::make( $request->all(), [
   'sheba_number' => 'sheba',    // Validate sheba number of bank account
 
   'melli_code' => 'melli_code',    // Validate melli code number
+  
+  'latin_name' => 'is_not_persian' // Validate laname doesn't contain persian alphabet or number
+  
+  'your_array' => 'is_array:2' // Validate your array variable and must be contian 2 member or lesser
 
 ]);
 ```
