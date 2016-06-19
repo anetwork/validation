@@ -3,7 +3,7 @@
 
 # Laravel Anetwork Validation
 
-Laravel Persian Validation provides validation for Persian alphabet, number and etc.
+Laravel Anetwork Validation provides validation for Persian alphabet, number and etc.
 
 ## Requirement
 
@@ -12,7 +12,7 @@ Laravel Persian Validation provides validation for Persian alphabet, number and 
 
 ## License
 
-Laravel Persian Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Laravel Anetwork Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Install
 
