@@ -84,6 +84,8 @@ class PersianValidation
     public function Sheba($attribute, $value)
     {
 
+        $ibanReplaceValues = array();
+
         if (!empty($value)) {
                 $value = preg_replace('/[\W_]+/', '', strtoupper($value));
 
@@ -133,8 +135,7 @@ class PersianValidation
     public function MelliCode($attribute, $value)
     {
 
-        $control = 0;
-          $sub = 0;
+        $sub = 0;
 
         if (!preg_match('/^\d{8,10}$/', $value)) {
             return false;
