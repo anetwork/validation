@@ -29,9 +29,9 @@ class PersianValidationServiceProvider extends ServiceProvider
         Validator::extend('persian_alpha', 'PersianValidation@Alpha');
 
         // create custom message for persian alphabet
-        Validator::replacer('persian_alpha', function ($message) {
+        Validator::replacer('persian_alpha', function ($message, $attribute) {
 
-            $this->new_message = "persian alphabet is not valid";
+            $this->new_message = "The $attribute must be a persian alphabet";
 
             return str_replace($message, $this->new_message, $message);
 
@@ -41,9 +41,9 @@ class PersianValidationServiceProvider extends ServiceProvider
         Validator::extend('persian_num', 'PersianValidation@Num');
 
         // create custom message for persian number
-        Validator::replacer('persian_num', function ($message) {
+        Validator::replacer('persian_num', function ($message, $attribute) {
 
-            $this->new_message = "persian number is not valid";
+            $this->new_message = "The $attribute must be a persian number";
 
             return str_replace($message, $this->new_message, $message);
 
@@ -53,9 +53,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('persian_alpha_num', 'PersianValidation@AlphaNum');
 
           // create custom message for persian alphabet and number
-            Validator::replacer('persian_alpha_num', function ($message) {
+            Validator::replacer('persian_alpha_num', function ($message, $attribute) {
 
-                $this->new_message = "persian alpahbet & number is not valid";
+                $this->new_message = "The $attribute must be a persian alpahbet or number";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -65,9 +65,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('iran_mobile', 'PersianValidation@IranMobile');
 
           // create custom message for mobile
-            Validator::replacer('iran_mobile', function ($message) {
+            Validator::replacer('iran_mobile', function ($message, $attribute) {
 
-                $this->new_message = "iran mobile number is not valid";
+                $this->new_message = "The $attribute must be a iran mobile number";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -77,9 +77,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('sheba', 'PersianValidation@Sheba');
 
           // create custom message for sheba number
-            Validator::replacer('sheba', function ($message) {
+            Validator::replacer('sheba', function ($message, $attribute) {
 
-                $this->new_message = "sheba number is not valid";
+                $this->new_message = "The $attribute must be a sheba number";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -89,9 +89,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('melli_code', 'PersianValidation@MelliCode');
 
           // create custom message for melliCode
-            Validator::replacer('melli_code', function ($message) {
+            Validator::replacer('melli_code', function ($message, $attribute) {
 
-                $this->new_message = "melli code number is not valid";
+                $this->new_message = "The $attribute must be a iran melli code";;
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -101,9 +101,9 @@ class PersianValidationServiceProvider extends ServiceProvider
            Validator::extend('is_not_persian', 'PersianValidation@IsNotPersian');
 
          // create custom message for NotPersian
-           Validator::replacer('is_not_persian', function ($message) {
+           Validator::replacer('is_not_persian', function ($message, $attribute) {
 
-               $this->new_message = "value is not string or is contain persian alphabet or number";
+               $this->new_message = "The $attribute could not be contain persian alpahbet or number";
 
                return str_replace($message, $this->new_message, $message);
 
@@ -113,9 +113,9 @@ class PersianValidationServiceProvider extends ServiceProvider
           Validator::extend('is_array', 'PersianValidation@IsArray');
 
         // create custom message for NotPersian
-          Validator::replacer('is_array', function ($message) {
+          Validator::replacer('is_array', function ($message, $attribute) {
 
-              $this->new_message = "value is not array or is contain more than parameter";
+              $this->new_message = "The $attribute must ba a array and contain values you define not more";
 
               return str_replace($message, $this->new_message, $message);
 
@@ -125,9 +125,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('category_range', 'PersianValidation@CategoryRange');
 
           // create custom message for category_range
-            Validator::replacer('category_range', function ($message) {
+            Validator::replacer('category_range', function ($message, $attribute) {
 
-                $this->new_message = "category is out of range min 1 and max 2";
+                $this->new_message = "The $attribute is out of range min 1 and max 2";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -137,9 +137,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('geo_range', 'PersianValidation@GeoRange');
 
           // create custom message for geo_range
-            Validator::replacer('geo_range', function ($message) {
+            Validator::replacer('geo_range', function ($message, $attribute) {
 
-                $this->new_message = "geo is out of range min 1 and max 5";
+                $this->new_message = "The $attribute is out of range min 1 and max 5";
 
                 return str_replace($message, $this->new_message, $message);
 
@@ -149,9 +149,9 @@ class PersianValidationServiceProvider extends ServiceProvider
             Validator::extend('os_range', 'PersianValidation@OsRange');
 
           // create custom message for os_range
-            Validator::replacer('os_range', function ($message) {
+            Validator::replacer('os_range', function ($message, $attribute) {
 
-                $this->new_message = "os is out of range min 1 and max 6";
+                $this->new_message = "The $attribute is out of range min 1 and max 6";
 
                 return str_replace($message, $this->new_message, $message);
 
