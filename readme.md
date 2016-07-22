@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/anetwork/validation.svg?branch=master)](https://travis-ci.org/anetwork/validation)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/anetwork/validation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/anetwork/validation/?branch=master)
 
-# Laravel Anetwork Validation
+# Laravel Persian Validation
 
-Laravel Anetwork Validation provides validation for Persian alphabet, number and etc.
+Laravel Persian Validation provides validation for Persian alphabet, number and etc.
 
 ## Requirement
 
@@ -12,7 +12,7 @@ Laravel Anetwork Validation provides validation for Persian alphabet, number and
 
 ## License
 
-Laravel Anetwork Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Laravel Persian Validation is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
 ## Install
 
@@ -42,8 +42,8 @@ You can use it as Validator rules
 | sheba_number | Iran Sheba number |
 | melli_code | Iran Melli code |
 | is_not_persian | Doesn't accept persain alphabet and number |
-| is_array | Check is array and array must be lesser and equal than parameter |
-
+| is_array | Checked variable is array and array must be lesser and equal than parameter |
+| unsigned_num | Checked variable is integer and unsigned | 
 
 
 ``` php

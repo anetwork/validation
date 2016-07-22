@@ -322,4 +322,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->OsRange($this->attribute, $this->value));
 
     }
+
+    /**
+     * unit test of unsigned number
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since July 22, 2016
+     * @return void
+     */
+    public function testUnSignedNum()
+    {
+
+        $this->value = 11;
+
+        $this->assertEquals(true, $this->PersianValidation->UnSignedNum($this->attribute, $this->value));
+
+        $this->value = -11;
+
+        $this->assertEquals(false, $this->PersianValidation->UnSignedNum($this->attribute, $this->value));
+
+        $this->value = 11.22;
+
+        $this->assertEquals(false, $this->PersianValidation->UnSignedNum($this->attribute, $this->value));
+
+    }
 }

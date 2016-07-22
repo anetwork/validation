@@ -271,4 +271,19 @@ class PersianValidation
 
   }
 
+  /**
+   * validate number to be unsigned
+   * @param string $attribute $value
+   * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+   * @since July 22, 2016
+   * @return boolean
+   */
+   public function UnSignedNum($attribute, $value) {
+
+     $this->status = preg_match('/^\d+$/', $value);
+
+     return ( $this->status ? true : false );
+
+    }
+
 }
