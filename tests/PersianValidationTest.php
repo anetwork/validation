@@ -345,4 +345,23 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->UnSignedNum($this->attribute, $this->value));
 
     }
+
+    /**
+     * unit test of alpha space
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 3, 2016
+     * @return void
+     */
+    public function testAlphaSpace()
+    {
+
+        $this->value = "shahrokh niakan";
+
+        $this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
+
+        $this->value = "shahrokh 121";
+
+        $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
+
+    }
 }

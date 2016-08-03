@@ -286,4 +286,20 @@ class PersianValidation
 
     }
 
+    /**
+     * validate alphabet and spaces
+     * @param string $attribute $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 3, 2016
+     * @return boolean
+     */
+    public function AlphaSpace($attribute, $value)
+    {
+
+        $this->status = preg_match("/^[\pL\s\-]+$/u", $value);
+
+        return ( $this->status ? true : false );
+
+    }
+
 }

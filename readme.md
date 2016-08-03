@@ -43,7 +43,9 @@ You can use it as Validator rules
 | melli_code | Iran Melli code |
 | is_not_persian | Doesn't accept persain alphabet and number |
 | is_array | Checked variable is array and array must be lesser and equal than parameter |
-| unsigned_num | Checked variable is integer and unsigned | 
+| unsigned_num | Checked variable is integer and unsigned |
+| alpha_space | Accept alphabet and space | 
+
 
 
 ``` php

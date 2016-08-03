@@ -169,6 +169,19 @@ class PersianValidationServiceProvider extends ServiceProvider
 
           });
 
+         // create custom rule for unsigned_num
+          Validator::extend('alpha_space', 'PersianValidation@AlphaSpace');
+
+         // create custom message for unsigned_num
+          Validator::replacer('alpha_space', function ($message, $attribute) {
+
+              $this->new_message = "The $attribute must be alphabet.";
+
+              return str_replace($message, $this->new_message, $message);
+
+          });
+
+
     }
 
 
