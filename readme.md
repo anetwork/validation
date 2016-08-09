@@ -107,7 +107,7 @@ Validate iran's national code (melli-code):
 ```
 $input = [ '3240175800' ];
 
-$rules = [ 'melli-code' ];
+$rules = [ 'melli_code' ];
 
 Validator::make( $input, $rules );
 ```
