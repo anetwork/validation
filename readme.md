@@ -31,7 +31,7 @@ Anetwork\Validation\PersianValidationServiceProvider::class
 
 ## Usage
 
-You can use it as Validator rules
+You can access to validation rules by passing the rules key according blew following table:
 
 | Rules | Descriptions |
 | --- | --- |
@@ -44,9 +44,76 @@ You can use it as Validator rules
 | is_not_persian | Doesn't accept persain alphabet and number |
 | is_array | Checked variable is array and array must be lesser and equal than parameter |
 | unsigned_num | Checked variable is integer and unsigned |
-| alpha_space | Accept alphabet and space | 
+| alpha_space | Accept alphabet and space |
 
+### Persian Alpha
+Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
 
+```
+$input = [ 'فارسی' ];
+
+$rules = [ 'persian_alpha' ];
+
+Validator::make( $input, $rules );
+```
+
+### Persian numbers
+Validate Persian standard numbers (۰۱۲۳۴۵۶۷۸۹):
+
+```
+$input = [ '۰۱۲۳۴۵۶۷۸۹' ];
+
+$rules = [ 'persian_num' ];
+
+Validator::make( $input, $rules );
+```
+
+### Persian Alpha Num
+Validate Persian alpha num:
+
+```
+$input = [ 'فارسی۱۲۳۴۵۶۷۸۹' ];
+
+$rules = [ 'persian_alpha_num' ];
+
+Validator::make( $input, $rules );
+```
+
+### Iran mobile phone
+Validate Iran mobile phones (irancel, rightel, hamrah-e-aval, ...):
+
+```
+$input = [ '09381234567' ];
+
+$rules = [ 'iran_mobile' ];
+
+Validator::make( $input, $rules );
+```
+
+### Sheba number
+Validate iranian bank sheba number:
+
+```
+$input = [ 'IR062960000000100324200001' ];
+
+$rules = [ 'sheba' ];
+
+Validator::make( $input, $rules );
+```
+
+### Iran national code
+Validate iran's national code (melli-code):
+
+```
+$input = [ '3240175800' ];
+
+$rules = [ 'melli-code' ];
+
+Validator::make( $input, $rules );
+```
+
+## More
+Here is full list of Anetwork validation rules usage:
 
 ``` php
 Validator::make( $request->all(), [
@@ -62,9 +129,9 @@ Validator::make( $request->all(), [
   'sheba_number' => 'sheba',    // Validate sheba number of bank account
 
   'melli_code' => 'melli_code',    // Validate melli code number
-  
+
   'latin_name' => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
-  
+
   'your_array' => 'is_array:2' // Validate your array variable and must be contian 2 member or lesser
 
 ]);
