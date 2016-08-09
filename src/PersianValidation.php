@@ -152,7 +152,7 @@ class PersianValidation
             $sub = $sub + ( $value[$i] * ( 10 - $i ) );
         }
 
-        if (( $sub % 11 ) <= 2) {
+        if (( $sub % 11 ) < 2) {
             $control = ( $sub % 11 );
         } else {
             $control = 11 - ( $sub % 11 );

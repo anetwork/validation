@@ -171,7 +171,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
      */
     public function testMelliCode()
     {
+        $this->value = "0013542419";
+
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
         $this->value = "3240175800";
+
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "3240164175";
+
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "3370075024";
+
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "0010532129";
+
+        $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "0860170470";
 
         $this->assertEquals(true, $this->PersianValidation->MelliCode($this->attribute, $this->value));
 
