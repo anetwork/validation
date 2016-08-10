@@ -166,60 +166,6 @@ class PersianValidation
 
     }
 
-   /**
-    * validate category range
-    * @param string $attribute $value
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-    * @since June 8, 2016
-    * @return boolean
-    */
-    public function CategoryRange($attribute, $value)
-    {
-
-        if (is_array($value) && count($value) < 3 && !empty($value)) {
-            return true;
-        }
-
-        return false;
-
-    }
-
-   /**
-    * validate geo range
-    * @param string $attribute $value
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-    * @since June 8, 2016
-    * @return boolean
-    */
-    public function GeoRange($attribute, $value)
-    {
-
-        if (is_array($value) && count($value) < 6 && !empty($value)) {
-            return true;
-        }
-
-        return false;
-
-    }
-
-   /**
-    * validate os range
-    * @param string $attribute $value
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-    * @since June 8, 2016
-    * @return boolean
-    */
-    public function OsRange($attribute, $value)
-    {
-
-        if (is_array($value) && count($value) < 7 && !empty($value)) {
-            return true;
-        }
-
-        return false;
-
-    }
-
     /**
      * validate string that is not contain persian alphabet and number
      * @param string $attribute $value
