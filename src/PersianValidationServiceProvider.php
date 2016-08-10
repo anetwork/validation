@@ -121,42 +121,6 @@ class PersianValidationServiceProvider extends ServiceProvider
 
            });
 
-          // create custom rule for category range
-            Validator::extend('category_range', 'PersianValidation@CategoryRange');
-
-          // create custom message for category_range
-            Validator::replacer('category_range', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute is out of range min 1 and max 2.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-         // create custom rule for geo range
-            Validator::extend('geo_range', 'PersianValidation@GeoRange');
-
-          // create custom message for geo_range
-            Validator::replacer('geo_range', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute is out of range min 1 and max 5.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-          // create custom rule for os range
-            Validator::extend('os_range', 'PersianValidation@OsRange');
-
-          // create custom message for os_range
-            Validator::replacer('os_range', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute is out of range min 1 and max 6.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
          // create custom rule for unsigned_num
            Validator::extend('unsigned_num', 'PersianValidation@UnSignedNum');
 
