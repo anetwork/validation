@@ -118,7 +118,7 @@ Here is full list of Anetwork validation rules usage:
 ``` php
 Validator::make( $request->all(), [
 
-  'name' => 'persian_alpha|unique|max:25',    // Validate Persian name, unique and max to 25 characters
+  'name' => 'persian_alpha|unique|max:25',    // Validate Persian alphabet, unique and max to 25 characters
 
   'age' => 'persian_num|required',   // Validate Persian numbers and check it's required
 
@@ -132,7 +132,7 @@ Validator::make( $request->all(), [
 
   'latin_name' => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
 
-  'your_array' => 'is_array:2' // Validate your array variable and must be contian 2 member or lesser
+  'your_array' => 'limited_array:2' // Validate your array variable and must be contian 2 member or lesser
 
 ]);
 ```

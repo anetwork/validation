@@ -109,11 +109,11 @@ class PersianValidationServiceProvider extends ServiceProvider
 
            });
 
-        // create custom rule for NotPersian
-          Validator::extend('is_array', 'PersianValidation@IsArray');
+        // create custom rule for LimitArray
+          Validator::extend('limited_array', 'PersianValidation@LimitedArray');
 
-        // create custom message for NotPersian
-          Validator::replacer('is_array', function ($message, $attribute) {
+        // create custom message for LimitArray
+          Validator::replacer('limited_array', function ($message, $attribute) {
 
               $this->new_message = "The $attribute must ba a array and contain values you define not more.";
 
