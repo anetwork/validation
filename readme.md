@@ -118,7 +118,7 @@ Here is full list of Anetwork validation rules usage:
 ``` php
 Validator::make( $request->all(), [
 
-  'name' => 'persian_alpha|unique|max:25',    // Validate Persian name, unique and max to 25 characters
+  'name' => 'persian_alpha|unique|max:25',    // Validate Persian alphabet, unique and max to 25 characters
 
   'age' => 'persian_num|required',   // Validate Persian numbers and check it's required
 
