@@ -11,7 +11,7 @@ class PersianValidation
     protected $status;
 
     /**
-     * validate persian alphabet
+     * validate persian alphabet and space
      * @param string $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
@@ -20,7 +20,7 @@ class PersianValidation
     public function Alpha($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\x{600}-\x{6FF}]+$/u", $value);
+        $this->status = preg_match("/^[\x{600}-\x{6FF}\s]+$/u", $value);
 
         return ( $this->status ? true : false );
 
@@ -43,7 +43,7 @@ class PersianValidation
     }
 
     /**
-     * validate persian alphabet and number
+     * validate persian alphabet, number and space
      * @param string $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
@@ -52,7 +52,7 @@ class PersianValidation
     public function AlphaNum($attribute, $value)
     {
 
-        $this->status = preg_match('/^[\x{600}-\x{6FF}]+$/u', $value);
+        $this->status = preg_match('/^[\x{600}-\x{6FF}\s]+$/u', $value);
 
         return ( $this->status ? true : false );
 
@@ -196,7 +196,7 @@ class PersianValidation
     * @since June 13, 2016
     * @return boolean
     */
-    public function IsArray($attribute, $value, $parameters)
+    public function LimitedArray($attribute, $value, $parameters)
     {
 
       if (is_array($value)) {

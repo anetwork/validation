@@ -132,7 +132,7 @@ Validator::make( $request->all(), [
 
   'latin_name' => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
 
-  'your_array' => 'is_array:2' // Validate your array variable and must be contian 2 member or lesser
+  'your_array' => 'limited_array:2' // Validate your array variable and must be contian 2 member or lesser
 
 ]);
 ```

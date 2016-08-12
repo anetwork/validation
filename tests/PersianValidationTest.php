@@ -40,10 +40,13 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
 
-        $this->value =  "1111شاهرخ";
+        $this->value =  "1111 شاهرخ";
 
         $this->assertEquals(false, $this->PersianValidation->Alpha($this->attribute, $this->value));
 
+        $this->value = "شاهرخ نیاکان";
+
+        $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
 
     }
 
@@ -102,6 +105,11 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value =  "Shahrokh۱۲۳۴شاهرخ";
 
         $this->assertEquals(false, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
+
+        $this->value =  "۱۲۳۴ شاهرخ";
+
+        $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
+
 
     }
 
@@ -250,27 +258,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     {
         $this->value = [];
 
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->LimitedArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = [];
         $this->parameters[0] = 1;
 
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->LimitedArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a"];
         $this->parameters[0] = 2;
 
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->LimitedArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a", "b"];
         $this->parameters[0] = 2;
 
-        $this->assertEquals(true, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(true, $this->PersianValidation->LimitedArray($this->attribute, $this->value, $this->parameters));
 
         $this->value = ["a", "b", "c"];
         $this->parameters[0] = 2;
 
-        $this->assertEquals(false, $this->PersianValidation->IsArray($this->attribute, $this->value, $this->parameters));
+        $this->assertEquals(false, $this->PersianValidation->LimitedArray($this->attribute, $this->value, $this->parameters));
 
     }
 
