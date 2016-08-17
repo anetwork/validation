@@ -12,7 +12,7 @@ class PersianValidation
 
     /**
      * validate persian alphabet and space
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -28,7 +28,7 @@ class PersianValidation
 
     /**
      * validate persian number
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -44,7 +44,7 @@ class PersianValidation
 
     /**
      * validate persian alphabet, number and space
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -60,7 +60,7 @@ class PersianValidation
 
     /**
      * validate mobile number
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -76,7 +76,7 @@ class PersianValidation
 
     /**
      * validate sheba number
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -127,7 +127,7 @@ class PersianValidation
 
    /**
     * validate meliCode number
-    * @param string $attribute $value
+    * @param $attribute $value
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
     * @return boolean
@@ -168,7 +168,7 @@ class PersianValidation
 
     /**
      * validate string that is not contain persian alphabet and number
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since June 13, 2016
      * @return boolean
@@ -190,7 +190,7 @@ class PersianValidation
 
    /**
     * validate array with custom count of array
-    * @param string $attribute $value
+    * @param $attribute $value
     * @param array $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 13, 2016
@@ -219,7 +219,7 @@ class PersianValidation
 
   /**
    * validate number to be unsigned
-   * @param string $attribute $value
+   * @param $attribute $value
    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
    * @since July 22, 2016
    * @return boolean
@@ -234,7 +234,7 @@ class PersianValidation
 
     /**
      * validate alphabet and spaces
-     * @param string $attribute $value
+     * @param $attribute $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 3, 2016
      * @return boolean
@@ -243,6 +243,38 @@ class PersianValidation
     {
 
         $this->status = preg_match("/^[\pL\s\-]+$/u", $value);
+
+        return ( $this->status ? true : false );
+
+    }
+
+    /**
+     * validate Url
+     * @param $attribute $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 17, 2016
+     * @return boolean
+     */
+    public function Url($attribute, $value)
+    {
+
+        $this->status = preg_match("/^HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?+$/", $value);
+
+        return ( $this->status ? true : false );
+
+    }
+
+    /**
+     * validate Domain
+     * @param $attribute $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 17, 2016
+     * @return boolean
+     */
+    public function Domain($attribute, $value)
+    {
+
+        $this->status = preg_match("/((www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)/", $value);
 
         return ( $this->status ? true : false );
 

@@ -118,21 +118,25 @@ Here is full list of Anetwork validation rules usage:
 ``` php
 Validator::make( $request->all(), [
 
-  'name' => 'persian_alpha|unique|max:25',    // Validate Persian alphabet, unique and max to 25 characters
+  'name'         => 'persian_alpha|unique|max:25',    // Validate Persian alphabet, unique and max to 25 characters
 
-  'age' => 'persian_num|required',   // Validate Persian numbers and check it's required
+  'age'          => 'persian_num|required',   // Validate Persian numbers and check it's required
 
-  'address' => 'persian_alpha_num|min:10',   // Validate persian alphabet & numbers at least 10 digit accepted
+  'address'      => 'persian_alpha_num|min:10',   // Validate persian alphabet & numbers at least 10 digit accepted
 
-  'mobile' => 'iran_mobile',   // Validate mobile number
+  'mobile'       => 'iran_mobile',   // Validate mobile number
 
   'sheba_number' => 'sheba',    // Validate sheba number of bank account
 
-  'melli_code' => 'melli_code',    // Validate melli code number
+  'melli_code'   => 'melli_code',    // Validate melli code number
 
-  'latin_name' => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
+  'latin_name'   => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
 
-  'your_array' => 'limited_array:2' // Validate your array variable and must be contian 2 member or lesser
+  'your_array'   => 'limited_array:2' // Validate your array variable and must be contian 2 member or lesser
+
+  'url'          => 'a_url' // Validate url
+
+  'domain'       => 'a_domain' // Validate domain
 
 ]);
 ```

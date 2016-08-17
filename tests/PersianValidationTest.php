@@ -323,4 +323,46 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
 
     }
+
+    /**
+     * unit test of url
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 17, 2016
+     * @return void
+     */
+    public function testUrl()
+    {
+
+        $this->value = "http://hello.com";
+
+        $this->assertEquals(true, $this->PersianValidation->Url($this->attribute, $this->value));
+
+        $this->value = "http/df;fdl";
+
+        $this->assertEquals(false, $this->PersianValidation->Url($this->attribute, $this->value));
+
+    }
+
+    /**
+     * unit test of domain
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 17, 2016
+     * @return void
+     */
+    public function testDomain()
+    {
+
+      $this->value = "xn--pgba0a.com";
+
+        $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "iran-go.ir";
+
+        $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "dshgf---df.w";
+
+        $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+    }
 }

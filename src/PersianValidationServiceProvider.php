@@ -145,9 +145,31 @@ class PersianValidationServiceProvider extends ServiceProvider
 
           });
 
+        // create custom rule for url
+        Validator::extend('a_url', 'PersianValidation@Url');
+
+        // create custom message for unsigned_num
+        Validator::replacer('a_url', function ($message, $attribute) {
+
+            $this->new_message = "The $attribute is not correct url.";
+
+            return str_replace($message, $this->new_message, $message);
+
+        });
+
+        // create custom rule for domain
+        Validator::extend('a_domain', 'PersianValidation@Domain');
+
+        // create custom message for unsigned_num
+        Validator::replacer('a_domain', function ($message, $attribute) {
+
+            $this->new_message = "The $attribute is not correct domain.";
+
+            return str_replace($message, $this->new_message, $message);
+
+        });
 
     }
-
 
     /**
       * register PersianValidation service
