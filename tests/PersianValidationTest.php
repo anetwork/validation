@@ -254,7 +254,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
      * @since June 13, 2016
      * @return void
      */
-    public function testIsArray()
+    public function testLimitedArray()
     {
         $this->value = [];
 

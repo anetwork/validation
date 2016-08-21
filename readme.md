@@ -42,9 +42,13 @@ You can access to validation rules by passing the rules key according blew follo
 | sheba_number | Iran Sheba number |
 | melli_code | Iran Melli code |
 | is_not_persian | Doesn't accept persain alphabet and number |
-| is_array | Checked variable is array and array must be lesser and equal than parameter |
+| limited_array | Checked variable is array and array must be lesser and equal than parameter |
 | unsigned_num | Checked variable is integer and unsigned |
 | alpha_space | Accept alphabet and space |
+| a_url | Checked correct url |
+| a_domain | Checked correct domain |
+
+
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
