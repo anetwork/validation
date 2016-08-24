@@ -151,8 +151,7 @@ Validator::make( $request->all(), [
 
   'less'         => 'less:10' // Validate value be less than parameter
 
-  'phone'         => 'iran_phone' // Validate phone number
-
+  'phone'        => 'iran_phone' // Validate phone number
 
 ]);
 ```
