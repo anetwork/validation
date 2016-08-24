@@ -280,4 +280,44 @@ class PersianValidation
 
     }
 
+    /**
+     * value must be more than parameters
+     * @param $attribute $value $parameters
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 24, 2016
+     * @return boolean
+     */
+    public function More($attribute, $value, $parameters)
+    {
+
+        if ( isset( $parameters[0] ) ) {
+
+          return ( $value > $parameters[0] ? true : false );
+
+        }
+
+        return false;
+
+    }
+
+    /**
+     * value must be less than parameters
+     * @param $attribute $value $parameters
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 24, 2016
+     * @return boolean
+     */
+    public function Less($attribute, $value, $parameters)
+    {
+
+        if ( isset( $parameters[0] ) ) {
+
+          return ( $value < $parameters[0] ? true : false );
+
+        }
+
+        return false;
+
+    }
+
 }

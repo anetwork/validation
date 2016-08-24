@@ -47,6 +47,9 @@ You can access to validation rules by passing the rules key according blew follo
 | alpha_space | Accept alphabet and space |
 | a_url | Checked correct url |
 | a_domain | Checked correct domain |
+| more | Checked value be max and not equal too|
+| less | Checked value be min and not equal too |
+
 
 
 
@@ -141,6 +144,10 @@ Validator::make( $request->all(), [
   'url'          => 'a_url' // Validate url
 
   'domain'       => 'a_domain' // Validate domain
+
+  'more'         => 'more:10' // Validate value be more than parameter
+
+  'less'         => 'less:10' // Validate value be less than parameter
 
 ]);
 ```

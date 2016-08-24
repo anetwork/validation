@@ -169,6 +169,30 @@ class PersianValidationServiceProvider extends ServiceProvider
 
         });
 
+        // create custom rule for domain
+        Validator::extend('more', 'PersianValidation@More');
+
+        // create custom message for unsigned_num
+        Validator::replacer('more', function ($message, $attribute) {
+
+            $this->new_message = "The $attribute must be more than parameter.";
+
+            return str_replace($message, $this->new_message, $message);
+
+        });
+
+        // create custom rule for domain
+        Validator::extend('less', 'PersianValidation@Less');
+
+        // create custom message for unsigned_num
+        Validator::replacer('less', function ($message, $attribute) {
+
+          $this->new_message = "The $attribute must be less than parameter.";
+
+            return str_replace($message, $this->new_message, $message);
+
+        });
+
     }
 
     /**

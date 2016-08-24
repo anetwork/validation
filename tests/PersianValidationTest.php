@@ -365,4 +365,54 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
 
     }
+
+    /**
+     * unit test of more
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 24, 2016
+     * @return void
+     */
+    public function testMore()
+    {
+
+        $this->value = 10;
+
+        $this->parameters[0] = 9;
+
+        $this->assertEquals(true, $this->PersianValidation->More($this->attribute, $this->value, $this->parameters));
+
+        $this->parameters[0] = 11;
+
+        $this->assertEquals(false, $this->PersianValidation->More($this->attribute, $this->value, $this->parameters));
+
+        $this->parameters[0] = 10;
+
+        $this->assertEquals(false, $this->PersianValidation->More($this->attribute, $this->value, $this->parameters));
+
+    }
+
+    /**
+     * unit test of less
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 24, 2016
+     * @return void
+     */
+    public function testLess()
+    {
+
+        $this->value = 10;
+
+        $this->parameters[0] = 11;
+
+        $this->assertEquals(true, $this->PersianValidation->Less($this->attribute, $this->value, $this->parameters));
+
+        $this->parameters[0] = 9;
+
+        $this->assertEquals(false, $this->PersianValidation->Less($this->attribute, $this->value, $this->parameters));
+
+        $this->parameters[0] = 10;
+
+        $this->assertEquals(false, $this->PersianValidation->Less($this->attribute, $this->value, $this->parameters));
+
+    }
 }
