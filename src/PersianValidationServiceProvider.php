@@ -193,6 +193,18 @@ class PersianValidationServiceProvider extends ServiceProvider
 
         });
 
+        // create custom rule for domain
+        Validator::extend('iran_phone', 'PersianValidation@IranPhone');
+
+        // create custom message for unsigned_num
+        Validator::replacer('iran_phone', function ($message, $attribute) {
+
+          $this->new_message = "The $attribute must be a iran phone number.";
+
+            return str_replace($message, $this->new_message, $message);
+
+        });
+
     }
 
     /**
