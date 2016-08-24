@@ -320,4 +320,20 @@ class PersianValidation
 
     }
 
+    /**
+     * iran phone number
+     * @param $attribute $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Agu 24, 2016
+     * @return boolean
+     */
+    public function IranPhone($attribute, $value)
+    {
+
+        $this->status = preg_match('/^((0)([1-9]{2})([0-9]{8}))+$/', $value) ;
+
+        return ( $this->status ? true : false );
+
+    }
+
 }
