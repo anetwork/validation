@@ -49,6 +49,8 @@ You can access to validation rules by passing the rules key according blew follo
 | a_domain | Checked correct domain |
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
+| iran_phone | Iran phone number |
+
 
 
 
@@ -148,6 +150,9 @@ Validator::make( $request->all(), [
   'more'         => 'more:10' // Validate value be more than parameter
 
   'less'         => 'less:10' // Validate value be less than parameter
+
+  'phone'         => 'iran_phone' // Validate phone number
+
 
 ]);
 ```
