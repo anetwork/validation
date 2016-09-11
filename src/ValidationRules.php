@@ -5,10 +5,12 @@ namespace Anetwork\Validation;
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since May 21, 2016
  */
-class PersianValidation
+class ValidationRules
 {
-    //variable of class
-    protected $status;
+	/**
+     * @var boolean
+	 */
+	protected $status;
 
     /**
      * validate persian alphabet and space
