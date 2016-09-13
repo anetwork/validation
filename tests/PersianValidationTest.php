@@ -1,6 +1,6 @@
 <?php
 
-use Anetwork\Validation\PersianValidation as PersianValidation;
+use Anetwork\Validation\ValidationRules as ValidationRules;
 
 /**
  * unit test class
@@ -9,18 +9,37 @@ use Anetwork\Validation\PersianValidation as PersianValidation;
  */
 class PersianValidationTest extends PHPUnit_Framework_TestCase
 {
-    //variables of class that define as methods parameters
+	/**
+	 * @var null
+	 */
     protected $attribute;
+
+	/**
+	 * @var string
+	 */
     protected $value;
+
+	/**
+	 * @var array
+	 */
     protected $parameters;
 
-    //instance of PersianValidation class
-    protected $PersianValidation;
+	/**
+     * @var object
+	 */
+	protected $PersianValidation;
 
+	/**
+	 * create instance of ValidationRules class
+	 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+	 * @since May 28, 2016
+	 * @return void
+	 */
     public function __construct()
     {
 
-        $this->PersianValidation = new PersianValidation();
+        $this->PersianValidation = new ValidationRules();
+		
     }
 
     /**

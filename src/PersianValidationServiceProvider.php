@@ -12,10 +12,6 @@ use Validator;
 class PersianValidationServiceProvider extends ServiceProvider
 {
 
-    // variable of class
-    protected $new_message;
-
-
     /**
       * create custom validation rules and messages
       * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
@@ -25,185 +21,95 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        // create custom rule for persian alphabet
-        Validator::extend('persian_alpha', 'PersianValidation@Alpha');
+        // create custom rule for Alpha
+        Validator::extend('persian_alpha', 'ValidationRules@Alpha');
+        // create custom message for Alpha
+        Validator::replacer('persian_alpha', 'ValidationMessages@AlphaMsg');
 
-        // create custom message for persian alphabet
-        Validator::replacer('persian_alpha', function ($message, $attribute) {
 
-            $this->new_message = "The $attribute must be a persian alphabet.";
+	// create custom rule for Num
+        Validator::extend('persian_num', 'ValidationRules@Num');
+	// create custom message for Num
+	Validator::replacer('persian_num', 'ValidationMessages@NumMsg');
 
-            return str_replace($message, $this->new_message, $message);
 
-        });
+        // create custom rule for AlphaNum
+        Validator::extend('persian_alpha_num', 'ValidationRules@AlphaNum');
+	// create custom message for AlphaNum
+	Validator::replacer('persian_alpha_num', 'ValidationMessages@AlphaNumMsg');
 
-        // create custom rule for persian number
-        Validator::extend('persian_num', 'PersianValidation@Num');
 
-        // create custom message for persian number
-        Validator::replacer('persian_num', function ($message, $attribute) {
+        // create custom rule for IranMobile
+        Validator::extend('iran_mobile', 'ValidationRules@IranMobile');
+	// create custom message for IranMobile
+	Validator::replacer('iran_mobile', 'ValidationMessages@IranMobileMsg');
 
-            $this->new_message = "The $attribute must be a persian number.";
 
-            return str_replace($message, $this->new_message, $message);
+        // create custom rule for Sheba
+        Validator::extend('sheba', 'ValidationRules@Sheba');
+	// create custom message for Sheba
+	Validator::replacer('sheba', 'ValidationMessages@ShebaMsg');
 
-        });
 
-        // create custom rule for persian alphabet and number
-            Validator::extend('persian_alpha_num', 'PersianValidation@AlphaNum');
+        // create custom rule for MelliCode
+        Validator::extend('melli_code', 'ValidationRules@MelliCode');
+	// create custom message for MelliCode
+	Validator::replacer('melli_code', 'ValidationMessages@MelliCodeMsg');
 
-          // create custom message for persian alphabet and number
-            Validator::replacer('persian_alpha_num', function ($message, $attribute) {
 
-                $this->new_message = "The $attribute must be a persian alpahbet or number.";
+        // create custom rule for IsNotPersian
+        Validator::extend('is_not_persian', 'ValidationRules@IsNotPersian');
+	// create custom message for IsNotPersian
+	Validator::replacer('is_not_persian', 'ValidationMessages@IsNotPersianMsg');
 
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-        // create custom rule for mobile
-            Validator::extend('iran_mobile', 'PersianValidation@IranMobile');
-
-          // create custom message for mobile
-            Validator::replacer('iran_mobile', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute must be a iran mobile number.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-        // create custom rule for sheba number
-            Validator::extend('sheba', 'PersianValidation@Sheba');
-
-          // create custom message for sheba number
-            Validator::replacer('sheba', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute must be a sheba number.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-        // create custom rule for melliCode
-            Validator::extend('melli_code', 'PersianValidation@MelliCode');
-
-          // create custom message for melliCode
-            Validator::replacer('melli_code', function ($message, $attribute) {
-
-                $this->new_message = "The $attribute must be a iran melli code.";
-
-                return str_replace($message, $this->new_message, $message);
-
-            });
-
-         // create custom rule for NotPersian
-           Validator::extend('is_not_persian', 'PersianValidation@IsNotPersian');
-
-         // create custom message for NotPersian
-           Validator::replacer('is_not_persian', function ($message, $attribute) {
-
-               $this->new_message = "The $attribute could not be contain persian alpahbet or number.";
-
-               return str_replace($message, $this->new_message, $message);
-
-           });
 
         // create custom rule for LimitArray
-          Validator::extend('limited_array', 'PersianValidation@LimitedArray');
+        Validator::extend('limited_array', 'ValidationRules@LimitedArray');
+	// create custom message for LimitArray
+	Validator::replacer('limited_array', 'ValidationMessages@LimitedArrayMsg');
 
-        // create custom message for LimitArray
-          Validator::replacer('limited_array', function ($message, $attribute) {
 
-              $this->new_message = "The $attribute must ba a array and contain values you define not more.";
+        // create custom rule for UnSignedNum
+        Validator::extend('unsigned_num', 'ValidationRules@UnSignedNum');
+	// create custom message for UnSignedNum
+	Validator::replacer('unsigned_num', 'ValidationMessages@UnSignedNumMsg');
 
-              return str_replace($message, $this->new_message, $message);
 
-           });
+        // create custom rule for AlphaSpace
+        Validator::extend('alpha_space', 'ValidationRules@AlphaSpace');
+	// create custom message for AlphaSpace
+	Validator::replacer('alpha_space', 'ValidationMessages@AlphaSpaceMsg');
 
-         // create custom rule for unsigned_num
-           Validator::extend('unsigned_num', 'PersianValidation@UnSignedNum');
 
-         // create custom message for unsigned_num
-           Validator::replacer('unsigned_num', function ($message, $attribute) {
+        // create custom rule for Url
+        Validator::extend('a_url', 'ValidationRules@Url');
+	// create custom message for Url
+	Validator::replacer('a_url', 'ValidationMessages@UrlMsg');
 
-              $this->new_message = "The $attribute must be an integer and unsigned.";
 
-              return str_replace($message, $this->new_message, $message);
+        // create custom rule for Domain
+        Validator::extend('a_domain', 'ValidationRules@Domain');
+	// create custom message for Domain
+	Validator::replacer('a_domain', 'ValidationMessages@DomainMsg');
 
-          });
 
-         // create custom rule for unsigned_num
-          Validator::extend('alpha_space', 'PersianValidation@AlphaSpace');
+        // create custom rule for More
+        Validator::extend('more', 'ValidationRules@More');
+	// create custom message for More
+	Validator::replacer('more', 'ValidationMessages@MoreMsg');
 
-         // create custom message for unsigned_num
-          Validator::replacer('alpha_space', function ($message, $attribute) {
 
-              $this->new_message = "The $attribute must be alphabet.";
+        // create custom rule for Less
+        Validator::extend('less', 'ValidationRules@Less');
+	// create custom message for Less
+	Validator::replacer('less', 'ValidationMessages@LessMsg');
 
-              return str_replace($message, $this->new_message, $message);
 
-          });
+        // create custom rule for IranPhone
+        Validator::extend('iran_phone', 'ValidationRules@IranPhone');
+	// create custom message for IranPhone
+	Validator::replacer('iran_phone', 'ValidationMessages@IranPhoneMsg');
 
-        // create custom rule for url
-        Validator::extend('a_url', 'PersianValidation@Url');
-
-        // create custom message for unsigned_num
-        Validator::replacer('a_url', function ($message, $attribute) {
-
-            $this->new_message = "The $attribute is not correct url.";
-
-            return str_replace($message, $this->new_message, $message);
-
-        });
-
-        // create custom rule for domain
-        Validator::extend('a_domain', 'PersianValidation@Domain');
-
-        // create custom message for unsigned_num
-        Validator::replacer('a_domain', function ($message, $attribute) {
-
-            $this->new_message = "The $attribute is not correct domain.";
-
-            return str_replace($message, $this->new_message, $message);
-
-        });
-
-        // create custom rule for domain
-        Validator::extend('more', 'PersianValidation@More');
-
-        // create custom message for unsigned_num
-        Validator::replacer('more', function ($message, $attribute) {
-
-            $this->new_message = "The $attribute must be more than parameter.";
-
-            return str_replace($message, $this->new_message, $message);
-
-        });
-
-        // create custom rule for domain
-        Validator::extend('less', 'PersianValidation@Less');
-
-        // create custom message for unsigned_num
-        Validator::replacer('less', function ($message, $attribute) {
-
-          $this->new_message = "The $attribute must be less than parameter.";
-
-            return str_replace($message, $this->new_message, $message);
-
-        });
-
-        // create custom rule for domain
-        Validator::extend('iran_phone', 'PersianValidation@IranPhone');
-
-        // create custom message for unsigned_num
-        Validator::replacer('iran_phone', function ($message, $attribute) {
-
-          $this->new_message = "The $attribute must be a iran phone number.";
-
-            return str_replace($message, $this->new_message, $message);
-
-        });
 
     }
 
@@ -216,7 +122,9 @@ class PersianValidationServiceProvider extends ServiceProvider
     public function register()
     {
 
-        $this->app->bind('PersianValidation', 'Anetwork\Validation\PersianValidation');
+        $this->app->bind('ValidationRules', 'Anetwork\Validation\ValidationRules');
+
+	$this->app->bind('ValidationMessages', 'Anetwork\Validation\ValidationMessages');
 
     }
 }
