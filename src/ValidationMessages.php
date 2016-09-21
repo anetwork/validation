@@ -26,7 +26,7 @@ class ValidationMessages
 
 		 $this->lang = \App::getLocale();
 
-		 $this->config = include_once __DIR__ . '/../lang/' . $this->lang . '.php';
+		 $this->config = include __DIR__ . '/../lang/' . $this->lang . '.php';
 
 	 }
 
