@@ -444,13 +444,17 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     public function testIranPhone()
     {
 
+        $this->value = '07236445';
+
+        $this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
+
         $this->value = '7236445';
 
         $this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
 
-        $this->value = '0217236445';
+		$this->value = '17236445';
 
-        $this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
+		$this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
 
         $this->value = '37236445';
 
