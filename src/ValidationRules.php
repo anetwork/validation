@@ -332,7 +332,7 @@ class ValidationRules
     public function IranPhone($attribute, $value)
     {
 
-        $this->status = preg_match('/^([1-9]{8})+$/', $value) ;
+        $this->status = preg_match('/^[2-9][0-9]{7}+$/', $value) ;
 
         return ( $this->status ? true : false );
 
