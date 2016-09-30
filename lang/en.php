@@ -16,6 +16,7 @@ return [
 	'a_domain'			=> 'domain is not correct domain',
 	'more'				=> 'must be more than parameter',
 	'less'				=> 'must be less than parameter',
-	'iran_phone'		=> 'must be a iran phone number'
+	'iran_phone'		=> 'must be a iran phone number',
+	'card_number'		=> 'must be a valid payment card number'
 
 ];

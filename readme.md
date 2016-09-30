@@ -50,6 +50,7 @@ You can access to validation rules by passing the rules key according blew follo
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
 | iran_phone | Iran phone number |
+| card number | Payment card number |
 
 
 
@@ -117,6 +118,17 @@ Validate iran's national code (melli-code):
 $input = [ '3240175800' ];
 
 $rules = [ 'melli_code' ];
+
+Validator::make( $input, $rules );
+```
+
+### Payment card number
+Validate iranian payment card number:
+
+```
+$input = [ '6274129005473742' ];
+
+$rules = [ 'card_number' ];
 
 Validator::make( $input, $rules );
 ```
