@@ -39,7 +39,7 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_num | Persian numbers |
 | persian_alpha_num | Persian alphabet and numbers |
 | iran_mobile | Iran mobile number |
-| sheba_number | Iran Sheba number |
+| sheba | Iran Sheba number |
 | melli_code | Iran Melli code |
 | is_not_persian | Doesn't accept persain alphabet and number |
 | limited_array | Checked variable is array and array must be lesser and equal than parameter |
