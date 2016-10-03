@@ -50,7 +50,7 @@ You can access to validation rules by passing the rules key according blew follo
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
 | iran_phone | Iran phone number |
-| card number | Payment card number |
+| card_number | Payment card number |
 
 
 
@@ -151,19 +151,22 @@ Validator::make( $request->all(), [
 
   'melli_code'   => 'melli_code',    // Validate melli code number
 
-  'latin_name'   => 'is_not_persian' // Validate latin name doesn't contain persian alphabet or number
+  'latin_name'   => 'is_not_persian', // Validate latin name doesn't contain persian alphabet or number
 
-  'your_array'   => 'limited_array:2' // Validate your array variable and must be contian 2 member or lesser
+  'your_array'   => 'limited_array:2', // Validate your array variable and must be contian 2 member or lesser
 
-  'url'          => 'a_url' // Validate url
+  'url'          => 'a_url', // Validate url
 
-  'domain'       => 'a_domain' // Validate domain
+  'domain'       => 'a_domain', // Validate domain
 
-  'more'         => 'more:10' // Validate value be more than parameter
+  'more'         => 'more:10', // Validate value be more than parameter
 
-  'less'         => 'less:10' // Validate value be less than parameter
+  'less'         => 'less:10', // Validate value be less than parameter
 
-  'phone'        => 'iran_phone' // Validate phone number
+  'phone'        => 'iran_phone', // Validate phone number
+
+  'card_number'  => 'card_number', // Validate payment card number
+
 
 ]);
 ```
