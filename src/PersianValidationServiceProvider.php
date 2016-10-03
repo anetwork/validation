@@ -110,6 +110,11 @@ class PersianValidationServiceProvider extends ServiceProvider
 		// create custom message for IranPhone
 		Validator::replacer('iran_phone', 'ValidationMessages@IranPhoneMsg');
 
+        // create custom rule for CardNumber
+        Validator::extend('card_number', 'ValidationRules@CardNumber');
+        // create custom message for CardNumber
+        Validator::replacer('card_number', 'ValidationMessages@CardNumberMsg');
+
     }
 
     /**

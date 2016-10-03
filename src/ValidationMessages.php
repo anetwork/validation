@@ -240,6 +240,23 @@ class ValidationMessages
 
 	 }
 
+	/**
+	 * validation message for CardNumber
+	 * 
+	 * @param $message
+	 * @param $attribute
+	 * @param $rule
+	 * @author Mojtaba Anisi <geevepahlavan@yahoo.com>
+	 * @since Oct 1, 2016
+	 * @return string
+	 */
+	public function CardNumberMsg($message, $attribute, $rule)
+	{
+
+		return str_replace($message, $this->config[ $rule ], $message);
+
+	}
+
 
 
 }
