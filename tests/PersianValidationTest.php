@@ -461,4 +461,37 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->PersianValidation->IranPhone($this->attribute, $this->value));
 
     }
+
+    /**
+     * payment card number
+     * @author Mojtaba Anisi <geevepahlavan@yahoo.com>
+     * @since Oct 2, 2016
+     * @return void
+     */
+    public function testCardNumber()
+    {
+        $this->value = '6274-1290-0547-3742';
+
+        $this->assertEquals(false, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+
+        $this->value = '6274129107473842';
+
+        $this->assertEquals(false, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+
+        $this->value = '6274 1290 0547 3742';
+
+        $this->assertEquals(false, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+
+        $this->value = '627412900742';
+
+        $this->assertEquals(false, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+
+        $this->value = '62741290054737423252';
+
+        $this->assertEquals(false, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+
+        $this->value = '6274129005473742';
+
+        $this->assertEquals(true, $this->PersianValidation->CardNumber($this->attribute, $this->value));
+    }
 }
