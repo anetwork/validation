@@ -385,7 +385,7 @@ class ValidationRules
     }
 
 		/**
-     * validate alphabet and some special characters
+     * validate alphabet, number and some special characters
      * @param $attribute
 		 * @param $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
@@ -395,7 +395,7 @@ class ValidationRules
     public function AlphaSpecial($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\pL\s\-\/\,\،\.\\\\]+$/u", $value);
+        $this->status = preg_match("/^[\pL\s\d\-\/\,\،\.\\\\]+$/u", $value);
 
         return ( $this->status ? true : false );
 

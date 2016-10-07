@@ -512,7 +512,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
 				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
 
-				$this->value = "Iran / Tehran / pardis";
+				$this->value = "Iran / Tehran / pardis / 16";
 
 				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
 

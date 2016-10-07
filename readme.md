@@ -41,9 +41,9 @@ You can access to validation rules by passing the rules key according blew follo
 | iran_mobile | Iran mobile number |
 | sheba | Iran Sheba number |
 | melli_code | Iran Melli code |
-| is_not_persian | Doesn't accept persain alphabet and number |
+| is_not_persian | Doesn't accept persain alphabet and numbers |
 | limited_array | Checked variable is array and array must be lesser and equal than parameter |
-| unsigned_num | Checked variable is integer and unsigned |
+| unsigned_num | Checked variable is unsigned number |
 | alpha_space | Accept all alphabets and space character|
 | a_url | Checked correct url |
 | a_domain | Checked correct domain |
@@ -51,7 +51,7 @@ You can access to validation rules by passing the rules key according blew follo
 | less | Checked value be min and not equal too |
 | iran_phone | Iran phone number |
 | card_number | Payment card number |
-| alpha_special | Accept all alphabets and some special characters|
+| alpha_special | Accept any alphabets, English numbers and some special characters|
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -164,7 +164,7 @@ Validator::make( $request->all(), [
 
   'card_number'   => 'card_number', // Validate payment card number
 
-  'address'       => 'alpha_special' // validate all alphabets and some special characters
+  'address'       => 'alpha_special' // validate any alphabets, English numbers and some special characters
 
 ]);
 ```
