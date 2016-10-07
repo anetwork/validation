@@ -13,11 +13,11 @@ return [
 	'unsigned_num'				=> 'must be an unsigned number.',
 	'alpha_space'					=> 'must be alphabet and space.',
 	'a_url'								=> 'url is not correct.',
-	'a_domain'						=> 'domain is not correct domain.',
+	'a_domain'						=> 'domain is not correct.',
 	'more'								=> 'must be more than parameter.',
 	'less'								=> 'must be less than parameter.',
 	'iran_phone'					=> 'must be a iran phone number.',
 	'card_number'					=> 'must be a valid payment card number.',
-	'alpha_special'				=> 'must be alphabet and some special characters.'
+	'alpha_special'				=> 'must be alphabet, number and some special characters.'
 
 ];
