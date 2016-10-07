@@ -44,17 +44,14 @@ You can access to validation rules by passing the rules key according blew follo
 | is_not_persian | Doesn't accept persain alphabet and number |
 | limited_array | Checked variable is array and array must be lesser and equal than parameter |
 | unsigned_num | Checked variable is integer and unsigned |
-| alpha_space | Accept alphabet and space |
+| alpha_space | Accept all alphabets and space character|
 | a_url | Checked correct url |
 | a_domain | Checked correct domain |
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
 | iran_phone | Iran phone number |
 | card_number | Payment card number |
-
-
-
-
+| alpha_special | Accept all alphabets and some special characters|
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -139,34 +136,35 @@ Here is full list of Anetwork validation rules usage:
 ``` php
 Validator::make( $request->all(), [
 
-  'name'         => 'persian_alpha|unique|max:25',    // Validate Persian alphabet, unique and max to 25 characters
+  'name'          => 'persian_alpha|unique|max:25', // Validate Persian alphabet, unique and max to 25 characters
 
-  'age'          => 'persian_num|required',   // Validate Persian numbers and check it's required
+  'age'           => 'persian_num|required',  // Validate Persian numbers and check it's required
 
-  'address'      => 'persian_alpha_num|min:10',   // Validate persian alphabet & numbers at least 10 digit accepted
+  'city'          => 'persian_alpha_num|min:10',  // Validate persian alphabet & numbers at least 10 digit accepted
 
-  'mobile'       => 'iran_mobile',   // Validate mobile number
+  'mobile'        => 'iran_mobile', // Validate mobile number
 
-  'sheba_number' => 'sheba',    // Validate sheba number of bank account
+  'sheba_number'  => 'sheba', // Validate sheba number of bank account
 
-  'melli_code'   => 'melli_code',    // Validate melli code number
+  'melli_code'    => 'melli_code',  // Validate melli code number
 
-  'latin_name'   => 'is_not_persian', // Validate latin name doesn't contain persian alphabet or number
+  'latin_name'    => 'is_not_persian',  // Validate latin name doesn't contain persian alphabet or number
 
-  'your_array'   => 'limited_array:2', // Validate your array variable and must be contian 2 member or lesser
+  'your_array'    => 'limited_array:2', // Validate your array variable and must be contian 2 member or lesser
 
-  'url'          => 'a_url', // Validate url
+  'url'           => 'a_url', // Validate url
 
-  'domain'       => 'a_domain', // Validate domain
+  'domain'        => 'a_domain',  // Validate domain
 
-  'more'         => 'more:10', // Validate value be more than parameter
+  'more'          => 'more:10', // Validate value be more than parameter
 
-  'less'         => 'less:10', // Validate value be less than parameter
+  'less'          => 'less:10', // Validate value be less than parameter
 
-  'phone'        => 'iran_phone', // Validate phone number
+  'phone'         => 'iran_phone', // Validate phone number
 
-  'card_number'  => 'card_number', // Validate payment card number
+  'card_number'   => 'card_number', // Validate payment card number
 
+  'address'       => 'alpha_special' // validate all alphabets and some special characters
 
 ]);
 ```

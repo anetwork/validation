@@ -14,8 +14,9 @@ class ValidationRules
 
     /**
      * validate persian alphabet and space
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
@@ -30,8 +31,9 @@ class ValidationRules
 
     /**
      * validate persian number
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
@@ -46,8 +48,9 @@ class ValidationRules
 
     /**
      * validate persian alphabet, number and space
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
@@ -62,7 +65,8 @@ class ValidationRules
 
     /**
      * validate mobile number
-     * @param $attribute $value
+		 * @param $attribute
+		 * @param $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
@@ -78,8 +82,9 @@ class ValidationRules
 
     /**
      * validate sheba number
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since May 21, 2016
      * @return boolean
      */
@@ -129,8 +134,9 @@ class ValidationRules
 
    /**
     * validate meliCode number
-    * @param $attribute $value
-    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $attribute
+		* @param $value
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since May 21, 2016
     * @return boolean
     */
@@ -170,8 +176,9 @@ class ValidationRules
 
     /**
      * validate string that is not contain persian alphabet and number
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since June 13, 2016
      * @return boolean
      */
@@ -192,8 +199,9 @@ class ValidationRules
 
    /**
     * validate array with custom count of array
-    * @param $attribute $value
-    * @param array $parameters
+		* @param $attribute
+		* @param $value
+		* @param $parameters
     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
     * @since June 13, 2016
     * @return boolean
@@ -221,7 +229,8 @@ class ValidationRules
 
   /**
    * validate number to be unsigned
-   * @param $attribute $value
+	 * @param $attribute
+	 * @param $value
    * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
    * @since July 22, 2016
    * @return boolean
@@ -236,7 +245,8 @@ class ValidationRules
 
     /**
      * validate alphabet and spaces
-     * @param $attribute $value
+     * @param $attribute
+		 * @param $value
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 3, 2016
      * @return boolean
@@ -244,7 +254,7 @@ class ValidationRules
     public function AlphaSpace($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\pL\s\-]+$/u", $value);
+        $this->status = preg_match("/^[\pL\s]+$/u", $value);
 
         return ( $this->status ? true : false );
 
@@ -252,8 +262,9 @@ class ValidationRules
 
     /**
      * validate Url
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 17, 2016
      * @return boolean
      */
@@ -268,8 +279,9 @@ class ValidationRules
 
     /**
      * validate Domain
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 17, 2016
      * @return boolean
      */
@@ -284,8 +296,10 @@ class ValidationRules
 
     /**
      * value must be more than parameters
-     * @param $attribute $value $parameters
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @param $parameters
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 24, 2016
      * @return boolean
      */
@@ -304,7 +318,9 @@ class ValidationRules
 
     /**
      * value must be less than parameters
-     * @param $attribute $value $parameters
+		 * @param $attribute
+		 * @param $value
+		 * @param $parameters
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 24, 2016
      * @return boolean
@@ -324,8 +340,9 @@ class ValidationRules
 
     /**
      * iran phone number
-     * @param $attribute $value
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @param $attribute
+		 * @param $value
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 24, 2016
      * @return boolean
      */
@@ -366,5 +383,22 @@ class ValidationRules
 
         return (bool)($sum % 10 === 0);
     }
+
+		/**
+     * validate alphabet and some special characters
+     * @param $attribute
+		 * @param $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Oct 7, 2016
+     * @return boolean
+     */
+    public function AlphaSpecial($attribute, $value)
+    {
+
+        $this->status = preg_match("/^[\pL\s\-\/\,\،\.\\\\]+$/u", $value);
+
+        return ( $this->status ? true : false );
+
+		}
 
 }

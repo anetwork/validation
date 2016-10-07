@@ -32,8 +32,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Alpha
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -46,8 +48,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Num
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -60,8 +64,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for AlphaNum
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -74,8 +80,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for IranMobile
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -88,8 +96,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Sheba
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -102,8 +112,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for MelliCode
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -116,8 +128,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for IsNotPersian
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -130,8 +144,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for LimitedArray
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -144,8 +160,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for UnSignedNum
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -158,8 +176,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for AlphaSpace
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -172,8 +192,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Url
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -186,8 +208,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Domain
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -200,8 +224,10 @@ class ValidationMessages
 
 	 /**
 	  * validation message for More
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		* @param $message
+		* @param $attribute
+		* @param $rule
+		* @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
 	  */
@@ -214,7 +240,9 @@ class ValidationMessages
 
 	 /**
 	  * validation message for Less
-	  * @param $message, $attribute and $rule
+		* @param $message
+ 	 	* @param $attribute
+ 	 	* @param $rule
 	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
@@ -228,7 +256,9 @@ class ValidationMessages
 
 	 /**
 	  * validation message for IranPhone
-	  * @param $message, $attribute and $rule
+		* @param $message
+ 	 	* @param $attribute
+ 	 	* @param $rule
 	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	  * @since Sep 11, 2016
 	  * @return string
@@ -242,7 +272,7 @@ class ValidationMessages
 
 	/**
 	 * validation message for CardNumber
-	 * 
+	 *
 	 * @param $message
 	 * @param $attribute
 	 * @param $rule
@@ -257,6 +287,20 @@ class ValidationMessages
 
 	}
 
+	/**
+	 * validation message for AlphaSpecial
+	 * @param $message
+	 * @param $attribute
+	 * @param $rule
+	 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+	 * @since Oct 7, 2016
+	 * @return string
+	 */
+	public function AlphaSpecialMsg($message, $attribute, $rule)
+	{
 
+		return str_replace($message, $this->config[ $rule ], $message);
+
+	}
 
 }
