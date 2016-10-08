@@ -44,14 +44,14 @@ You can access to validation rules by passing the rules key according blew follo
 | is_not_persian | Doesn't accept persain alphabet and numbers |
 | limited_array | Checked variable is array and array must be lesser and equal than parameter |
 | unsigned_num | Checked variable is unsigned number |
-| alpha_space | Accept alphabets and space character|
+| alpha_space | Accept Persian, English and ... alphabet, space character|
 | a_url | Checked correct url |
 | a_domain | Checked correct domain |
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
 | iran_phone | Iran phone number |
 | card_number | Payment card number |
-| alpha_special | Accept alphabets, English numbers and some special characters|
+| alpha_special | Accept Persian, English and ... alphabet, English numbers and some special characters|
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -164,7 +164,7 @@ Validator::make( $request->all(), [
 
   'card_number'   => 'card_number', // Validate payment card number
 
-  'address'       => 'alpha_special' // validate alphabets, English numbers and some special characters
+  'address'       => 'alpha_special' // validate Persian, English and ... alphabet, English numbers and some special characters
 
 ]);
 ```
