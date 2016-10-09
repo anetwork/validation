@@ -436,7 +436,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * iran phone number
+     * unit test of iran phone number
      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
      * @since Agu 24, 2016
      * @return void
@@ -463,7 +463,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * payment card number
+     * unit test of payment card number
      * @author Mojtaba Anisi <geevepahlavan@yahoo.com>
      * @since Oct 2, 2016
      * @return void
@@ -494,4 +494,36 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(true, $this->PersianValidation->CardNumber($this->attribute, $this->value));
     }
+
+		/**
+		 * unit test of alpha and special characters
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @since Oct 7, 2016
+		 * @return void
+		 */
+		public function testAlphaSpecial()
+		{
+
+				$this->value = "Iran, Tehran - pardis";
+
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+
+				$this->value = "ایران، تهران - پردیس";
+
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+
+				$this->value = "Iran / Tehran / pardis / 16";
+
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+
+				$this->value = "ایران \ تهران \ پردیس \ ۱۶";
+
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+
+				$this->value = "Iran, Tehran & pardis";
+
+				$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
+
+		}
+
 }
