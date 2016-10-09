@@ -452,9 +452,9 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
 
-				$this->value = '17236445';
+		$this->value = '17236445';
 
-				$this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
+		$this->assertEquals(false, $this->PersianValidation->IranPhone($this->attribute, $this->value));
 
         $this->value = '37236445';
 
@@ -506,23 +506,23 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
 				$this->value = "Iran, Tehran - pardis";
 
-				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
 				$this->value = "ایران، تهران - پردیس";
 
-				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
 				$this->value = "Iran / Tehran / pardis / 16";
 
-				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
-				$this->value = "ایران \ تهران \ پردیس";
+				$this->value = "ایران \ تهران \ پردیس \ ۱۶";
 
-				$this->assertEquals(true, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
+				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
 				$this->value = "Iran, Tehran & pardis";
 
-				$this->assertEquals(false, $this->PersianValidation->AlphaSpecial($this->attribute, $this->value));
+				$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
 
 		}
 

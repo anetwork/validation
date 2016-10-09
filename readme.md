@@ -38,20 +38,20 @@ You can access to validation rules by passing the rules key according blew follo
 | persian_alpha | Persian alphabet |
 | persian_num | Persian numbers |
 | persian_alpha_num | Persian alphabet and numbers |
-| iran_mobile | Iran mobile number |
-| sheba | Iran Sheba number |
-| melli_code | Iran Melli code |
-| is_not_persian | Doesn't accept persain alphabet and numbers |
+| iran_mobile | Iran mobile numbers |
+| sheba | Iran Sheba numbers |
+| melli_code | Iran melli code |
+| is_not_persian | Doesn't accept Persian alphabet and numbers |
 | limited_array | Checked variable is array and array must be lesser and equal than parameter |
-| unsigned_num | Checked variable is unsigned number |
+| unsigned_num | Checked variable is unsigned numbers |
 | alpha_space | Accept Persian, English and ... alphabet, space character|
-| a_url | Checked correct url |
-| a_domain | Checked correct domain |
+| a_url | Checked correct URL |
+| a_domain | Checked correct Domain |
 | more | Checked value be max and not equal too|
 | less | Checked value be min and not equal too |
-| iran_phone | Iran phone number |
-| card_number | Payment card number |
-| alpha_special | Accept Persian, English and ... alphabet, English numbers and some special characters|
+| iran_phone | Iran phone numbers |
+| card_number | Payment card numbers |
+| address | Accept Persian, English and ... alphabet, Persian and English numbers and some special characters|
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -98,7 +98,7 @@ Validator::make( $input, $rules );
 ```
 
 ### Sheba number
-Validate iranian bank sheba number:
+Validate iranian bank sheba numbers:
 
 ```
 $input = [ 'IR062960000000100324200001' ];
@@ -120,7 +120,7 @@ Validator::make( $input, $rules );
 ```
 
 ### Payment card number
-Validate iranian payment card number:
+Validate iranian payment card numbers:
 
 ```
 $input = [ '6274129005473742' ];
@@ -148,7 +148,7 @@ Validator::make( $request->all(), [
 
   'melli_code'    => 'melli_code',  // Validate melli code number
 
-  'latin_name'    => 'is_not_persian',  // Validate latin name doesn't contain persian alphabet or number
+  'latin_name'    => 'is_not_persian',  // Validate alphabet and doesn't contain Persian alphabet or number
 
   'your_array'    => 'limited_array:2', // Validate your array variable and must be contian 2 member or lesser
 
@@ -164,7 +164,7 @@ Validator::make( $request->all(), [
 
   'card_number'   => 'card_number', // Validate payment card number
 
-  'address'       => 'alpha_special' // validate Persian, English and ... alphabet, English numbers and some special characters
+  'address'       => 'address' // validate Persian, English and ... alphabet, Persian and English numbers and some special characters
 
 ]);
 ```
