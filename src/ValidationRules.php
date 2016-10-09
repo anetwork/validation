@@ -23,9 +23,9 @@ class ValidationRules
     public function Alpha($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\x{600}-\x{6FF}\s]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\x{600}-\x{6FF}\s]+$/u", $value);
 
-        return ( $this->status ? true : false );
+        return $this->status ;
 
     }
 
@@ -40,9 +40,9 @@ class ValidationRules
     public function Num($attribute, $value)
     {
 
-        $this->status = preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
+        $this->status = (bool) preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
 
-        return ( $this->status ? true : false );
+        return $this->status ;
 
     }
 
@@ -57,9 +57,9 @@ class ValidationRules
     public function AlphaNum($attribute, $value)
     {
 
-        $this->status = preg_match('/^[\x{600}-\x{6FF}\s]+$/u', $value);
+        $this->status = (bool) preg_match('/^[\x{600}-\x{6FF}\s]+$/u', $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -74,9 +74,9 @@ class ValidationRules
     public function IranMobile($attribute, $value)
     {
 
-        $this->status = preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
+        $this->status = (bool) preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -187,9 +187,9 @@ class ValidationRules
 
        if (is_string($value)) {
 
-         $this->status = preg_match("/[\x{600}-\x{6FF}]/u", $value);
+         $this->status = (bool) preg_match("/[\x{600}-\x{6FF}]/u", $value);
 
-         return ( $this->status ? false : true );
+         return !$this->status;
 
      }
 
@@ -237,9 +237,9 @@ class ValidationRules
    */
    public function UnSignedNum($attribute, $value) {
 
-     $this->status = preg_match('/^\d+$/', $value);
+     $this->status = (bool) preg_match('/^\d+$/', $value);
 
-     return ( $this->status ? true : false );
+     return $this->status;
 
     }
 
@@ -254,9 +254,9 @@ class ValidationRules
     public function AlphaSpace($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\pL\s]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\pL\s]+$/u", $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -271,9 +271,9 @@ class ValidationRules
     public function Url($attribute, $value)
     {
 
-        $this->status = preg_match("/^HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?+$/", $value);
+        $this->status = (bool) preg_match("/^HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?+$/", $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -288,9 +288,9 @@ class ValidationRules
     public function Domain($attribute, $value)
     {
 
-        $this->status = preg_match("/((www\.)?(\*\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)/", $value);
+        $this->status = (bool) preg_match("/((www\.)?(\*\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)/", $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -349,9 +349,9 @@ class ValidationRules
     public function IranPhone($attribute, $value)
     {
 
-        $this->status = preg_match('/^[2-9][0-9]{7}+$/', $value) ;
+        $this->status = (bool) preg_match('/^[2-9][0-9]{7}+$/', $value) ;
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
     }
 
@@ -395,9 +395,9 @@ class ValidationRules
     public function Address($attribute, $value)
     {
 
-        $this->status = preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{6F0}-\x{6F9}]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{6F0}-\x{6F9}]+$/u", $value);
 
-        return ( $this->status ? true : false );
+        return $this->status;
 
 		}
 
