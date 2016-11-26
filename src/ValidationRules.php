@@ -74,9 +74,10 @@ class ValidationRules
     public function IranMobile($attribute, $value)
     {
 
-        $this->status = (bool) preg_match('/^(((98)|(\+98)|(0098)|0)(90|91|92|93){1}[0-9]{8})+$/', $value);
+        if ((bool) preg_match('/^(((98)|(\+98)|(0098)|0)(9){1}[0-9]{9})+$/', $value) || (bool) preg_match('/^(9){1}[0-9]{9}+$/', $value))
+            return true;
 
-        return $this->status;
+        return false;
 
     }
 
@@ -399,6 +400,22 @@ class ValidationRules
 
         return $this->status;
 
-		}
+	}
+
+	/**
+     * validate lenght of string
+     * @param $attribute
+     * @param $value
+	 * @param $parameters
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Oct 29, 2016
+     * @return boolean
+     */
+	public function Lenght($attribute, $value, $parameters)
+	{
+
+		return ( is_string( $value ) && ( strlen( $value ) >= $parameters[0] ) ) ? true : false;
+
+	}
 
 }
