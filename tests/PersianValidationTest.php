@@ -141,27 +141,27 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     public function testIranMobile()
     {
 
-        $this->value = "+989380105725";
+        $this->value = "+989355214655";
 
         $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
 
-        $this->value = "09380105725";
+        $this->value = "989355214655";
 
         $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
 
-        $this->value = "989123583439";
+        $this->value = "00989355214655";
 
         $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
 
-        $this->value = "9380105725";
-
-        $this->assertEquals(false, $this->PersianValidation->IranMobile($this->attribute, $this->value));
-
-        $this->value = "09023583439";
+        $this->value = "09355214655";
 
         $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
 
-        $this->value = "09313583439";
+        $this->value = "09901464762";
+
+        $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
+
+        $this->value = "9901464762";
 
         $this->assertEquals(true, $this->PersianValidation->IranMobile($this->attribute, $this->value));
 
@@ -523,6 +523,23 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 				$this->value = "Iran, Tehran & pardis";
 
 				$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
+
+		}
+
+		public function testLenght()
+		{
+
+				$this->value = "shahrokh";
+
+				$this->parameters[0] = 6;
+
+				$this->assertEquals(true, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
+
+				$this->value = "shahrokh";
+
+				$this->parameters[0] = 10;
+
+				$this->assertEquals(false, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
 
 		}
 
