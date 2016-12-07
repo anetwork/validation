@@ -188,7 +188,7 @@ class ValidationRules
 
        if (is_string($value)) {
 
-         $this->status = (bool) preg_match("/[\x{0600}-\x{06FF}\x]/u", $value);
+         $this->status = (bool) preg_match("/[\x{600}-\x{6FF}]/u", $value);
 
          return !$this->status;
 
