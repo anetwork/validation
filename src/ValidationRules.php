@@ -146,6 +146,21 @@ class ValidationRules
 
         $sub = 0;
 
+        switch($value){
+            case '0000000000':
+            case '1111111111':
+            case '2222222222':
+            case '3333333333':
+            case '4444444444':
+            case '5555555555':
+            case '6666666666':
+            case '7777777777':
+            case '8888888888':
+            case '9999999999':
+                return false;
+            break;
+        }
+
         if (!preg_match('/^\d{8,10}$/', $value)) {
             return false;
         }
