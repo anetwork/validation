@@ -66,6 +66,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "شاهرخ نیاکان";
 
         $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
+	    
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+
+        $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
 
     }
 
@@ -128,7 +132,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value =  "۱۲۳۴ شاهرخ";
 
         $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
-
+	
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    
+	$this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
 
     }
 
@@ -340,6 +347,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "shahrokh 121";
 
         $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
+	    
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    
+	$this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
 
     }
 
