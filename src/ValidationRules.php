@@ -144,12 +144,11 @@ class ValidationRules
     public function MelliCode($attribute, $value)
     {
 
-        $sub = 0;
-
-        if (!preg_match('/^\d{8,10}$/', $value)) {
+        if (!preg_match('/^\d{8,10}$/', $value) || preg_match('/^[0]{10}|[1]{10}|[2]{10}|[3]{10}|[4]{10}|[5]{10}|[6]{10}|[7]{10}|[8]{10}|[9]{10}$/', $value)) {
             return false;
         }
 
+        $sub = 0;
 
         if (strlen($value) == 8) {
             $value = '00' . $value;
