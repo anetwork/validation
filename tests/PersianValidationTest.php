@@ -66,6 +66,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "شاهرخ نیاکان";
 
         $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
+	    
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+
+        $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value));
 
     }
 
@@ -128,7 +132,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value =  "۱۲۳۴ شاهرخ";
 
         $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
-
+	
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    
+	$this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value));
 
     }
 
@@ -227,6 +234,46 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
 
         $this->value = "3213213";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "0000000000";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "1111111111";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "2222222222";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "3333333333";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "4444444444";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "5555555555";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "6666666666";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "7777777777";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "8888888888";
+
+        $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
+
+        $this->value = "9999999999";
 
         $this->assertEquals(false, $this->PersianValidation->MelliCode($this->attribute, $this->value));
 
@@ -340,6 +387,10 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "shahrokh 121";
 
         $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
+	    
+	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    
+	$this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
 
     }
 

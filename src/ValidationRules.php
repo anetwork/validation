@@ -23,7 +23,7 @@ class ValidationRules
     public function Alpha($attribute, $value)
     {
 
-        $this->status = (bool) preg_match("/^[\x{600}-\x{6FF}\s]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\s]+$/u", $value);
 
         return $this->status ;
 
@@ -57,7 +57,7 @@ class ValidationRules
     public function AlphaNum($attribute, $value)
     {
 
-        $this->status = (bool) preg_match('/^[\x{600}-\x{6FF}\s]+$/u', $value);
+        $this->status = (bool) preg_match('/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\s]+$/u', $value);
 
         return $this->status;
 
@@ -144,12 +144,11 @@ class ValidationRules
     public function MelliCode($attribute, $value)
     {
 
-        $sub = 0;
-
-        if (!preg_match('/^\d{8,10}$/', $value)) {
+        if (!preg_match('/^\d{8,10}$/', $value) || preg_match('/^[0]{10}|[1]{10}|[2]{10}|[3]{10}|[4]{10}|[5]{10}|[6]{10}|[7]{10}|[8]{10}|[9]{10}$/', $value)) {
             return false;
         }
 
+        $sub = 0;
 
         if (strlen($value) == 8) {
             $value = '00' . $value;
@@ -255,7 +254,7 @@ class ValidationRules
     public function AlphaSpace($attribute, $value)
     {
 
-        $this->status = (bool) preg_match("/^[\pL\s]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\pL\s\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}]+$/u", $value);
 
         return $this->status;
 
@@ -396,7 +395,7 @@ class ValidationRules
     public function Address($attribute, $value)
     {
 
-        $this->status = (bool) preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{6F0}-\x{6F9}]+$/u", $value);
+        $this->status = (bool) preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\x{6F0}-\x{6F9}]+$/u", $value);
 
         return $this->status;
 
