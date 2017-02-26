@@ -401,20 +401,4 @@ class ValidationRules
 
 	}
 
-	/**
-     * validate lenght of string
-     * @param $attribute
-     * @param $value
-	 * @param $parameters
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-     * @since Oct 29, 2016
-     * @return boolean
-     */
-	public function Lenght($attribute, $value, $parameters)
-	{
-
-		return ( is_string( $value ) && ( strlen( $value ) >= $parameters[0] ) ) ? true : false;
-
-	}
-
 }

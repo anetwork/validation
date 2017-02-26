@@ -577,21 +577,4 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
 		}
 
-		public function testLenght()
-		{
-
-				$this->value = "shahrokh";
-
-				$this->parameters[0] = 6;
-
-				$this->assertEquals(true, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
-
-				$this->value = "shahrokh";
-
-				$this->parameters[0] = 10;
-
-				$this->assertEquals(false, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
-
-		}
-
 }
