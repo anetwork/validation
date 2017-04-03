@@ -25,7 +25,7 @@ Via Composer
 $ composer require Anetwork/Validation
 ```
 
-##Config
+## Config
 
 Add the following provider to providers part of config/app.php
 ``` php
