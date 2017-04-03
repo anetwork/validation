@@ -422,7 +422,11 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     public function testDomain()
     {
 
-      $this->value = "xn--pgba0a.com";
+        $this->value = "www.adele.com";
+
+        $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "xn--pgba0a.com";
 
         $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
 
@@ -431,6 +435,14 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
 
         $this->value = "dshgf---df.w";
+
+        $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "www.ad#le.com";
+
+        $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
+        
+        $this->value = "www.adele.co,m";
 
         $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
 
@@ -574,23 +586,6 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 				$this->value = "Iran, Tehran & pardis";
 
 				$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
-
-		}
-
-		public function testLenght()
-		{
-
-				$this->value = "shahrokh";
-
-				$this->parameters[0] = 6;
-
-				$this->assertEquals(true, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
-
-				$this->value = "shahrokh";
-
-				$this->parameters[0] = 10;
-
-				$this->assertEquals(false, $this->PersianValidation->Lenght($this->attribute, $this->value, $this->parameters));
 
 		}
 

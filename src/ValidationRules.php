@@ -271,7 +271,7 @@ class ValidationRules
     public function Url($attribute, $value)
     {
 
-        $this->status = (bool) preg_match("/^HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?+$/", $value);
+        $this->status = (bool) preg_match("/^(HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)$/", $value);
 
         return $this->status;
 
@@ -288,7 +288,7 @@ class ValidationRules
     public function Domain($attribute, $value)
     {
 
-        $this->status = (bool) preg_match("/((www\.)?(\*\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)/", $value);
+        $this->status = (bool) preg_match("/^((www\.)?(\*\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)$/", $value);
 
         return $this->status;
 
@@ -398,22 +398,6 @@ class ValidationRules
         $this->status = (bool) preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\x{6F0}-\x{6F9}]+$/u", $value);
 
         return $this->status;
-
-	}
-
-	/**
-     * validate lenght of string
-     * @param $attribute
-     * @param $value
-	 * @param $parameters
-     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-     * @since Oct 29, 2016
-     * @return boolean
-     */
-	public function Lenght($attribute, $value, $parameters)
-	{
-
-		return ( is_string( $value ) && ( strlen( $value ) >= $parameters[0] ) ) ? true : false;
 
 	}
 
