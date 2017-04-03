@@ -422,7 +422,11 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     public function testDomain()
     {
 
-      $this->value = "xn--pgba0a.com";
+        $this->value = "www.adele.com";
+
+        $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "xn--pgba0a.com";
 
         $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
 
@@ -431,6 +435,14 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->PersianValidation->Domain($this->attribute, $this->value));
 
         $this->value = "dshgf---df.w";
+
+        $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
+
+        $this->value = "www.ad#le.com";
+
+        $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
+        
+        $this->value = "www.adele.co,m";
 
         $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value));
 
