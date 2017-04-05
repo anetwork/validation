@@ -401,4 +401,21 @@ class ValidationRules
 
 	}
 
+    /**
+     * validate Iran postal code format
+     * @param $attribute
+     * @param $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Apr 5, 2017
+     * @return boolean
+     */
+    public function IranPostalCode($attribute, $value)
+    {
+
+        $this->status = (bool) preg_match("/^(\d{5}-?\d{5})$/", $value);
+
+        return $this->status;
+
+    }
+
 }

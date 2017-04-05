@@ -303,4 +303,20 @@ class ValidationMessages
 
 	}
 
+	/**
+	 * validation message for IranPostalCode
+	 * @param $message
+	 * @param $attribute
+	 * @param $rule
+	 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+	 * @since Apr 5, 2017
+	 * @return string
+	 */
+	public function IranPostalCodeMsg($message, $attribute, $rule)
+	{
+
+		return str_replace($message, $this->config[ $rule ], $message);
+
+	}
+
 }

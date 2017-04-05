@@ -18,6 +18,7 @@ return [
 	'less'					=> 'must be less than parameter.',
 	'iran_phone'			=> 'must be a iran phone number.',
 	'card_number'			=> 'must be a valid payment card number.',
-	'address'				=> 'must be a correct address.'
+	'address'				=> 'must be a correct address.',
+	'iran_postal_code'		=> 'must be a iran postal code.'
 
 ];
