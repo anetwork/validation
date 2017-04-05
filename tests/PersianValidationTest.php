@@ -558,35 +558,62 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(true, $this->PersianValidation->CardNumber($this->attribute, $this->value));
     }
 
-		/**
-		 * unit test of alpha and special characters
-		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-		 * @since Oct 7, 2016
-		 * @return void
-		 */
-		public function testAlphaSpecial()
-		{
+	/**
+	 * unit test of alpha and special characters
+	 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+	 * @since Oct 7, 2016
+	 * @return void
+	 */
+	public function testAdress()
+	{
 
-				$this->value = "Iran, Tehran - pardis";
+		$this->value = "Iran, Tehran - pardis";
 
-				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+		$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
-				$this->value = "ایران، تهران - پردیس";
+		$this->value = "ایران، تهران - پردیس";
 
-				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+		$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
-				$this->value = "Iran / Tehran / pardis / 16";
+		$this->value = "Iran / Tehran / pardis / 16";
 
-				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+		$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
-				$this->value = "ایران \ تهران \ پردیس \ ۱۶";
+		$this->value = "ایران \ تهران \ پردیس \ ۱۶";
 
-				$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
+		$this->assertEquals(true, $this->PersianValidation->Address($this->attribute, $this->value));
 
-				$this->value = "Iran, Tehran & pardis";
+		$this->value = "Iran, Tehran & pardis";
 
-				$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
+		$this->assertEquals(false, $this->PersianValidation->Address($this->attribute, $this->value));
 
-		}
+	}
+
+    /**
+     * unit test of iran postal code
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since Apr 5, 2017
+     * @return void
+     */
+    public function testIranPostalCode()
+    {
+
+        $this->value = "1619735744";
+
+        $this->assertEquals(true, $this->PersianValidation->IranPostalCode($this->attribute, $this->value));
+
+        $this->value = "16197-35744";
+
+        $this->assertEquals(true, $this->PersianValidation->IranPostalCode($this->attribute, $this->value));
+
+        $this->value = "116197-35744";
+
+        $this->assertEquals(false, $this->PersianValidation->IranPostalCode($this->attribute, $this->value));
+
+        $this->value = "11619735744";
+
+        $this->assertEquals(false, $this->PersianValidation->IranPostalCode($this->attribute, $this->value));
+
+    }
 
 }

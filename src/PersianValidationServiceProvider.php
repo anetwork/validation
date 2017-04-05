@@ -122,6 +122,11 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for Address
         Validator::replacer('address', 'ValidationMessages@AddressMsg');
 
+        // create custom rule for IranPostalCode
+        Validator::extend('iran_postal_code', 'ValidationRules@IranPostalCode');
+        // create custom message for IranPostalCode
+        Validator::replacer('iran_postal_code', 'ValidationMessages@IranPostalCodeMsg');
+
     }
 
     /**

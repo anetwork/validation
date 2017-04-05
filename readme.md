@@ -25,7 +25,7 @@ Via Composer
 $ composer require Anetwork/Validation
 ```
 
-##Config
+## Config
 
 Add the following provider to providers part of config/app.php
 ``` php
@@ -55,6 +55,8 @@ You can access to validation rules by passing the rules key according blew follo
 | iran_phone | Iran phone numbers |
 | card_number | Payment card numbers |
 | address | Accept Persian, English and ... alphabet, Persian and English numbers and some special characters|
+| iran_postal_code | Iran postal code |
+
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -101,7 +103,7 @@ Validator::make( $input, $rules );
 ```
 
 ### Sheba number
-Validate iranian bank sheba numbers:
+Validate Iran bank sheba numbers:
 
 ```
 $input = [ 'IR062960000000100324200001' ];
@@ -112,7 +114,7 @@ Validator::make( $input, $rules );
 ```
 
 ### Iran national code
-Validate iran's national code (melli-code):
+Validate Iran national code (melli-code):
 
 ```
 $input = [ '3240175800' ];
@@ -123,7 +125,7 @@ Validator::make( $input, $rules );
 ```
 
 ### Payment card number
-Validate iranian payment card numbers:
+Validate Iran payment card numbers:
 
 ```
 $input = [ '6274129005473742' ];
@@ -131,6 +133,25 @@ $input = [ '6274129005473742' ];
 $rules = [ 'card_number' ];
 
 Validator::make( $input, $rules );
+```
+
+### Iran postal code
+Validate Iran postal code:
+
+```
+$input = [ '167197-35744' ];
+
+$rules = [ 'iran_postal_code' ];
+
+Validator::make( $input, $rules );
+
+
+$input = [ '16719735744' ];
+
+$rules = [ 'iran_postal_code' ];
+
+Validator::make( $input, $rules );
+
 ```
 
 ## More
@@ -168,6 +189,8 @@ Validator::make( $request->all(), [
   'card_number'   => 'card_number', // Validate payment card number
 
   'address'       => 'address' // validate Persian, English and ... alphabet, Persian and English numbers and some special characters
+
+  'postal_code'   => 'iran_postal_code' // validate iran postal code format
 
 ]);
 ```
