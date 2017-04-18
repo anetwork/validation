@@ -194,3 +194,7 @@ Validator::make( $request->all(), [
 
 ]);
 ```
+
+### publish:vendor
+You can run publish:vendor command to have custom lang file of package on this path ( resources/lang/validation )
+
