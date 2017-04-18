@@ -21,9 +21,9 @@ class PersianValidationServiceProvider extends ServiceProvider
       */
     public function boot()
     {
-        // publish lang file to config file of project
+        // publish lang file to resources/lang/validation
         $this->publishes([
-            __DIR__.'/../lang/' . App::getLocale() . '.php' => config_path( App::getLocale() . '_validation_lang.php' ),
+            __DIR__.'/../lang/' . App::getLocale() . '.php' => resource_path( 'lang/validation/' . App::getLocale() . '.php' ),
         ]);
 
         // create custom rule for Alpha
@@ -129,5 +129,6 @@ class PersianValidationServiceProvider extends ServiceProvider
         $this->app->bind('ValidationRules', 'Anetwork\Validation\ValidationRules');
 
 		$this->app->bind('ValidationMessages', 'Anetwork\Validation\ValidationMessages');
+
     }
 }
