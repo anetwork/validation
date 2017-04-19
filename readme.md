@@ -32,6 +32,9 @@ Add the following provider to providers part of config/app.php
 Anetwork\Validation\PersianValidationServiceProvider::class
 ```
 
+## vendor:publish
+You can run vendor:publish command to have custom lang file of package on this path ( resources/lang/validation )
+
 ## Usage
 
 You can access to validation rules by passing the rules key according blew following table:
@@ -194,7 +197,4 @@ Validator::make( $request->all(), [
 
 ]);
 ```
-
-### vendor:publish
-You can run vendor:publish command to have custom lang file of package on this path ( resources/lang/validation )
 

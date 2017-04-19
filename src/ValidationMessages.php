@@ -1,6 +1,8 @@
 <?php
 namespace Anetwork\Validation;
 
+use App;
+
 /**
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since Sep 11, 2016
@@ -24,7 +26,7 @@ class ValidationMessages
 	   */
 	 public function __construct() {
 
-		 $this->lang = \App::getLocale();
+		 $this->lang = App::getLocale();
 
 		if(! file_exists(resource_path('lang/validation/' . $this->lang . '.php'))){
             $this->config = include __DIR__ . '/../lang/' . $this->lang . '.php';
