@@ -74,10 +74,9 @@ class ValidationRules
     public function IranMobile($attribute, $value)
     {
 
-        if ((bool) preg_match('/^(((98)|(\+98)|(0098)|0)(9){1}[0-9]{9})+$/', $value) || (bool) preg_match('/^(9){1}[0-9]{9}+$/', $value))
-            return true;
+       $this->status = (bool) preg_match('/^(((98)|(\+98)|(0098)|0)?(9){1}[0-9]{9})+$/', $value);
 
-        return false;
+        return $this->status;
 
     }
 
@@ -213,7 +212,7 @@ class ValidationRules
 
         if (isset($parameters[0])) {
 
-           return ( (count($value) <= $parameters[0]) ? true : false );
+           return count($value) <= $parameters[0] ? true : false;
 
         } else {
 
@@ -308,7 +307,7 @@ class ValidationRules
 
         if ( isset( $parameters[0] ) ) {
 
-          return ( $value > $parameters[0] ? true : false );
+          return $value > $parameters[0] ? true : false;
 
         }
 
@@ -330,7 +329,7 @@ class ValidationRules
 
         if ( isset( $parameters[0] ) ) {
 
-          return ( $value < $parameters[0] ? true : false );
+          return $value < $parameters[0] ? true : false;
 
         }
 
@@ -413,6 +412,23 @@ class ValidationRules
     {
 
         $this->status = (bool) preg_match("/^(\d{5}-?\d{5})$/", $value);
+
+        return $this->status;
+
+    }
+
+    /**
+     * validate package name of apk
+     * @param $attribute
+     * @param $value
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 31, 2017
+     * @return boolean
+     */
+    public function PackageName($attribute, $value)
+    {
+
+        $this->status = (bool) preg_match("/^([a-zA-Z]{1}[a-zA-Z\d_]*\.)+[a-zA-Z][a-zA-Z\d_]*$/", $value);
 
         return $this->status;
 

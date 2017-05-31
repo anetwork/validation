@@ -388,9 +388,9 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
 	    
-	$this->value = "وَحِیُدّ‌الٍمٌاًسی";
+	    $this->value = "وَحِیُدّ‌الٍمٌاًسی";
 	    
-	$this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
+	    $this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value));
 
     }
 
@@ -613,6 +613,34 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "11619735744";
 
         $this->assertEquals(false, $this->PersianValidation->IranPostalCode($this->attribute, $this->value));
+
+    }
+
+
+    /**
+     * unit test of apk packge name
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+     * @since May 31, 2017
+     * @return void
+     */
+    public function testPackageName()
+    {
+
+        $this->value = "com.adele";
+
+        $this->assertEquals(true, $this->PersianValidation->PackageName($this->attribute, $this->value));
+
+         $this->value = "com.adele.adele";
+
+        $this->assertEquals(true, $this->PersianValidation->PackageName($this->attribute, $this->value));
+
+        $this->value = "com.";
+
+        $this->assertEquals(false, $this->PersianValidation->PackageName($this->attribute, $this->value));
+
+        $this->value = "com.adele.";
+
+        $this->assertEquals(false, $this->PersianValidation->PackageName($this->attribute, $this->value));
 
     }
 
