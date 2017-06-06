@@ -1,6 +1,8 @@
 <?php
 namespace Anetwork\Validation;
 
+use App;
+
 /**
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since Sep 11, 2016
