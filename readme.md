@@ -48,17 +48,18 @@ You can access to validation rules by passing the rules key according blew follo
 | sheba | Iran Sheba numbers |
 | melli_code | Iran melli code |
 | is_not_persian | Doesn't accept Persian alphabet and numbers |
-| limited_array | Checked variable is array and array must be lesser and equal than parameter |
-| unsigned_num | Checked variable is unsigned numbers |
+| limited_array | Check variable is array and array must be lesser and equal than parameter |
+| unsigned_num | Check variable is unsigned numbers |
 | alpha_space | Accept Persian, English and ... alphabet, space character|
-| a_url | Checked correct URL |
-| a_domain | Checked correct Domain |
-| more | Checked value be max and not equal too|
-| less | Checked value be min and not equal too |
+| a_url | Check correct URL |
+| a_domain | Check correct Domain |
+| more | Check value be max and not equal too|
+| less | Check value be min and not equal too |
 | iran_phone | Iran phone numbers |
 | card_number | Payment card numbers |
 | address | Accept Persian, English and ... alphabet, Persian and English numbers and some special characters|
 | iran_postal_code | Iran postal code |
+| package_name | Check APK package name |
 
 
 ### Persian Alpha
@@ -194,6 +195,9 @@ Validator::make( $request->all(), [
   'address'       => 'address' // validate Persian, English and ... alphabet, Persian and English numbers and some special characters
 
   'postal_code'   => 'iran_postal_code' // validate iran postal code format
+
+  'package_name'  => 'package_name' // validate APK package name
+
 
 ]);
 ```

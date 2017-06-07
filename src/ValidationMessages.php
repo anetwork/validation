@@ -9,23 +9,27 @@ use App;
  */
 class ValidationMessages
 {
-
 	 /**
-	   * @var string
+	  * @var string
 	  */
 	  protected $lang;
 
 	  /**
-		* @var array
+	   * @var array
 	   */
 	   protected $config;
+
+  	  /**
+	   * @var array
+	   */
+	   protected static $messages;
 
 	  /**
 	   * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	   * @since Sep 21, 2016
 	   */
-	 public function __construct() {
-
+	 public function __construct() 
+	 {
 		 $this->lang = App::getLocale();
 
 		if(! file_exists(resource_path('lang/validation/' . $this->lang . '.php'))){
@@ -33,7 +37,19 @@ class ValidationMessages
         } else {
             $this->config = include resource_path('lang/validation/' . $this->lang . '.php');
         }
+	 }
 
+	 /**
+	  * set user custom messeages
+	  * @param $validator
+	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+	  * @since Jun 6, 2017
+	  */
+	 public static function setCustomMessages( $validator )
+	 {	
+	 	if ( $validator ) {
+	 		self::$messages = $validator->getCustomMessages();
+	 	}
 	 }
 
 	 /**
@@ -47,9 +63,11 @@ class ValidationMessages
 	  */
 	 public function AlphaMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -63,9 +81,11 @@ class ValidationMessages
 	  */
 	 public function NumMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -79,9 +99,11 @@ class ValidationMessages
 	  */
 	 public function AlphaNumMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -95,9 +117,11 @@ class ValidationMessages
 	  */
 	 public function IranMobileMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -111,9 +135,11 @@ class ValidationMessages
 	  */
 	 public function ShebaMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -128,7 +154,11 @@ class ValidationMessages
 	 public function MelliCodeMsg($message, $attribute,	$rule)
 	 {
 
-		 return str_replace($message, $this->config[ $rule ], $message);
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
+
+		return str_replace($message, $this->config[ $rule ], $message);
 
 	 }
 
@@ -144,7 +174,11 @@ class ValidationMessages
 	 public function IsNotPersianMsg($message, $attribute, $rule)
 	 {
 
-		 return str_replace($message, $this->config[ $rule ], $message);
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
+
+		return str_replace($message, $this->config[ $rule ], $message);
 
 	 }
 
@@ -159,9 +193,11 @@ class ValidationMessages
 	  */
 	 public function LimitedArrayMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -175,9 +211,11 @@ class ValidationMessages
 	  */
 	 public function UnSignedNumMsg($message, $attribute, $rule)
 	 {
+	 	if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -191,9 +229,11 @@ class ValidationMessages
 	  */
 	 public function AlphaSpaceMsg($message, $attribute, $rule)
 	 {
+	 	if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -207,9 +247,11 @@ class ValidationMessages
 	  */
 	 public function UrlMsg($message, $attribute, $rule)
 	 {
+	 	if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -223,9 +265,11 @@ class ValidationMessages
 	  */
 	 public function DomainMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -239,9 +283,11 @@ class ValidationMessages
 	  */
 	 public function MoreMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -255,9 +301,11 @@ class ValidationMessages
 	  */
 	 public function LessMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	 /**
@@ -271,9 +319,11 @@ class ValidationMessages
 	  */
 	 public function IranPhoneMsg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
 
 	/**
@@ -288,9 +338,11 @@ class ValidationMessages
 	 */
 	public function CardNumberMsg($message, $attribute, $rule)
 	{
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
 		return str_replace($message, $this->config[ $rule ], $message);
-
 	}
 
 	/**
@@ -304,9 +356,11 @@ class ValidationMessages
 	 */
 	public function AddressMsg($message, $attribute, $rule)
 	{
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
 		return str_replace($message, $this->config[ $rule ], $message);
-
 	}
 
 	/**
@@ -320,9 +374,29 @@ class ValidationMessages
 	 */
 	public function IranPostalCodeMsg($message, $attribute, $rule)
 	{
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
 		return str_replace($message, $this->config[ $rule ], $message);
-
 	}
+
+	/**
+     * validation message for PackageName
+     * @param $message 
+     * @param $attribute      
+     * @param $rule
+     * @author Shahrokh Niakan <sh.niakan@anetwork.ir>        
+     * @since May 31, 2017
+     * @return string
+     */
+    public function PackageNameMsg($message, $attribute, $rule)
+    {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
+
+        return str_replace($message, $this->config[ $rule ], $message);
+    }
 
 }

@@ -19,6 +19,7 @@ return [
 	'iran_phone'			=> 'must be a iran phone number.',
 	'card_number'			=> 'must be a valid payment card number.',
 	'address'				=> 'must be a correct address.',
-	'iran_postal_code'		=> 'must be a iran postal code.'
+	'iran_postal_code'		=> 'must be a iran postal code.',
+	'package_name'			=> 'must be a valid package name.'
 
 ];

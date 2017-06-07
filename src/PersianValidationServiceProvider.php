@@ -116,6 +116,11 @@ class PersianValidationServiceProvider extends ServiceProvider
         // create custom message for IranPostalCode
         Validator::replacer('iran_postal_code', 'ValidationMessages@IranPostalCodeMsg');
 
+        // create custom rule for PackageName
+        Validator::extend('package_name', 'ValidationRules@PackageName');
+        // create custom message for PackageName
+        Validator::replacer('package_name', 'ValidationMessages@PackageNameMsg');
+
     }
 
     /**
