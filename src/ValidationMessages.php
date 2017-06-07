@@ -9,7 +9,6 @@ use App;
  */
 class ValidationMessages
 {
-
 	 /**
 	  * @var string
 	  */
@@ -31,7 +30,7 @@ class ValidationMessages
 	   */
 	 public function __construct() 
 	 {
-		 $this->lang = \App::getLocale();
+		 $this->lang = App::getLocale();
 
 		if(! file_exists(resource_path('lang/validation/' . $this->lang . '.php'))){
             $this->config = include __DIR__ . '/../lang/' . $this->lang . '.php';
@@ -47,8 +46,10 @@ class ValidationMessages
 	  * @since Jun 6, 2017
 	  */
 	 public static function setCustomMessages( $validator )
-	 {
-	 	self::$messages = $validator->getCustomMessages();
+	 {	
+	 	if ( $validator ) {
+	 		self::$messages = $validator->getCustomMessages();
+	 	}
 	 }
 
 	 /**

@@ -1,11 +1,13 @@
 <?php
 namespace Anetwork\Validation;
 
+use Anetwork\Validation\ValidationMessages;
+
 /**
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since May 21, 2016
  */
-class ValidationRules extends ValidationMessages
+class ValidationRules
 {
     /**
      * @var boolean
@@ -24,7 +26,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Alpha($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\s]+$/u", $value);
 
@@ -44,7 +46,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Num($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match('/^[\x{6F0}-\x{6F9}]+$/u', $value);
 
@@ -63,7 +65,7 @@ class ValidationRules extends ValidationMessages
      */
     public function AlphaNum($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match('/^[\x{600}-\x{6FF}\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\s]+$/u', $value);
 
@@ -82,7 +84,7 @@ class ValidationRules extends ValidationMessages
      */
     public function IranMobile($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if ((bool) preg_match('/^(((98)|(\+98)|(0098)|0)(9){1}[0-9]{9})+$/', $value) || (bool) preg_match('/^(9){1}[0-9]{9}+$/', $value))
             return true;
@@ -102,7 +104,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Sheba($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $ibanReplaceValues = array();
 
@@ -156,7 +158,7 @@ class ValidationRules extends ValidationMessages
     */
     public function MelliCode($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if (!preg_match('/^\d{8,10}$/', $value) || preg_match('/^[0]{10}|[1]{10}|[2]{10}|[3]{10}|[4]{10}|[5]{10}|[6]{10}|[7]{10}|[8]{10}|[9]{10}$/', $value)) {
             return false;
@@ -200,7 +202,7 @@ class ValidationRules extends ValidationMessages
      */
      public function IsNotPersian($attribute, $value, $parameters, $validator)
      {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if (is_string($value)) {
 
@@ -225,7 +227,7 @@ class ValidationRules extends ValidationMessages
     */
     public function LimitedArray($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if (is_array($value)) {
 
@@ -256,7 +258,7 @@ class ValidationRules extends ValidationMessages
    */
    public function UnSignedNum($attribute, $value, $parameters, $validator) 
    {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match('/^\d+$/', $value);
 
@@ -275,7 +277,7 @@ class ValidationRules extends ValidationMessages
      */
     public function AlphaSpace($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^[\pL\s\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}]+$/u", $value);
 
@@ -294,7 +296,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Url($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^(HTTP|http(s)?:\/\/(www\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)$/", $value);
 
@@ -313,7 +315,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Domain($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^((www\.)?(\*\.)?[A-Za-z0-9]+([\-\.]{1,2}[A-Za-z0-9]+)*\.[A-Za-z]{2,40}(:[0-9]{1,40})?(\/.*)?)$/", $value);
 
@@ -332,7 +334,7 @@ class ValidationRules extends ValidationMessages
      */
     public function More($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if ( isset( $parameters[0] ) ) {
 
@@ -355,7 +357,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Less($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         if ( isset( $parameters[0] ) ) {
 
@@ -378,7 +380,7 @@ class ValidationRules extends ValidationMessages
      */
     public function IranPhone($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match('/^[2-9][0-9]{7}+$/', $value) ;
 
@@ -399,9 +401,9 @@ class ValidationRules extends ValidationMessages
      */
     function CardNumber($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
-        if(!preg_match('/^\d{16}$/', $value)){
+        if (!preg_match('/^\d{16}$/', $value)) {
             return false;
         }
 
@@ -430,7 +432,7 @@ class ValidationRules extends ValidationMessages
      */
     public function Address($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^[\pL\s\d\-\/\,\،\.\\\\\x{200c}\x{064b}\x{064d}\x{064c}\x{064e}\x{064f}\x{0650}\x{0651}\x{6F0}-\x{6F9}]+$/u", $value);
 
@@ -449,7 +451,7 @@ class ValidationRules extends ValidationMessages
      */
     public function IranPostalCode($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^(\d{5}-?\d{5})$/", $value);
 
@@ -466,7 +468,7 @@ class ValidationRules extends ValidationMessages
      */
     public function PackageName($attribute, $value, $parameters, $validator)
     {
-        self::setCustomMessages( $validator );
+        ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^([a-zA-Z]{1}[a-zA-Z\d_]*\.)+[a-zA-Z][a-zA-Z\d_]*$/", $value);
         
