@@ -487,13 +487,10 @@ class ValidationRules
      {
          ValidationMessages::setCustomMessages( $validator );
 
-         if ( is_float($value) || is_numeric($value) ) {
-           if ( $value >= 0 ) {
-             return true;
-           }
-         }
+         $this->status = (bool) preg_match("/^([0-9]*[\.]?[0-9]*)$/", $value);
 
-         return false;
+         return $this->status;
+
       }
 
 }
