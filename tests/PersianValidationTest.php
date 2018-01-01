@@ -40,7 +40,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
 	 * @since May 28, 2016
 	 * @return void
 	 */
-    public function __construct() 
+    public function __construct()
     {
         $this->PersianValidation = new ValidationRules();
     }
@@ -69,7 +69,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "شاهرخ نیاکان";
 
         $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters, $this->validator));
-	    
+
 	    $this->value = "وَحِیُدّ‌الٍمٌاًسی";
 
         $this->assertEquals(true, $this->PersianValidation->Alpha($this->attribute, $this->value, $this->parameters, $this->validator));
@@ -135,9 +135,9 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value =  "۱۲۳۴ شاهرخ";
 
         $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
-	
+
 	    $this->value = "وَحِیُدّ‌الٍمٌاًسی";
-	    
+
 	    $this->assertEquals(true, $this->PersianValidation->AlphaNum($this->attribute, $this->value, $this->parameters, $this->validator));
 
     }
@@ -390,9 +390,9 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "shahrokh 121";
 
         $this->assertEquals(false, $this->PersianValidation->AlphaSpace($this->attribute, $this->value, $this->parameters, $this->validator, $this->parameters, $this->validator));
-	    
+
 	    $this->value = "وَحِیُدّ‌الٍمٌاًسی";
-	    
+
 	    $this->assertEquals(true, $this->PersianValidation->AlphaSpace($this->attribute, $this->value, $this->parameters, $this->validator, $this->parameters, $this->validator));
 
     }
@@ -444,7 +444,7 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->value = "www.ad#le.com";
 
         $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value, $this->parameters, $this->validator));
-        
+
         $this->value = "www.adele.co,m";
 
         $this->assertEquals(false, $this->PersianValidation->Domain($this->attribute, $this->value, $this->parameters, $this->validator));
@@ -646,5 +646,32 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(false, $this->PersianValidation->PackageName($this->attribute, $this->value, $this->parameters, $this->validator));
 
     }
+
+		/**
+		 * unit test ot float number
+		 * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+		 * @since Jul 07, 2017
+		 * @return void
+		 */
+		public function testFloatNum()
+		{
+
+				$this->value = 0;
+
+				$this->assertEquals(true, $this->PersianValidation->FloatNum($this->attribute, $this->value, $this->parameters, $this->validator));
+
+				 $this->value = 1.5;
+
+				$this->assertEquals(true, $this->PersianValidation->FloatNum($this->attribute, $this->value, $this->parameters, $this->validator));
+
+				$this->value = .5;
+
+				$this->assertEquals(true, $this->PersianValidation->FloatNum($this->attribute, $this->value, $this->parameters, $this->validator));
+
+				$this->value = -1;
+
+				$this->assertEquals(false, $this->PersianValidation->FloatNum($this->attribute, $this->value, $this->parameters, $this->validator));
+
+		}
 
 }

@@ -256,7 +256,7 @@ class ValidationRules
    * @since July 22, 2016
    * @return boolean
    */
-   public function UnSignedNum($attribute, $value, $parameters, $validator) 
+   public function UnSignedNum($attribute, $value, $parameters, $validator)
    {
         ValidationMessages::setCustomMessages( $validator );
 
@@ -471,8 +471,26 @@ class ValidationRules
         ValidationMessages::setCustomMessages( $validator );
 
         $this->status = (bool) preg_match("/^([a-zA-Z]{1}[a-zA-Z\d_]*\.)+[a-zA-Z][a-zA-Z\d_]*$/", $value);
-        
+
         return $this->status;
      }
+
+     /**
+      * validate float number
+      * @param $attribute
+      * @param $value
+      * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
+      * @since Jul  07, 2017
+      * @return boolean
+      */
+     public function FloatNum($attribute, $value, $parameters, $validator)
+     {
+         ValidationMessages::setCustomMessages( $validator );
+
+         $this->status = (bool) preg_match("/^([0-9]*[\.]?[0-9]*)$/", $value);
+
+         return $this->status;
+
+      }
 
 }

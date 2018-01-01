@@ -60,7 +60,7 @@ You can access to validation rules by passing the rules key according blew follo
 | address | Accept Persian, English and ... alphabet, Persian and English numbers and some special characters|
 | iran_postal_code | Iran postal code |
 | package_name | Check APK package name |
-
+| float_num | Check float and integer unsigned number |
 
 ### Persian Alpha
 Accept Persian language alphabet according to standard Persian, this is the way you can use this validation rule:
@@ -184,9 +184,9 @@ Validator::make( $request->all(), [
 
   'domain'        => 'a_domain',  // Validate domain
 
-  'more'          => 'more:10', // Validate value be more than parameter
+  'number'        => 'more:10', // Validate value be more than parameter
 
-  'less'          => 'less:10', // Validate value be less than parameter
+  'number'        => 'less:10', // Validate value be less than parameter
 
   'phone'         => 'iran_phone', // Validate phone number
 
@@ -198,7 +198,7 @@ Validator::make( $request->all(), [
 
   'package_name'  => 'package_name' // validate APK package name
 
+  'number'        => 'float_num'  // validate float and integer unsigned number
 
 ]);
 ```
-

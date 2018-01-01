@@ -20,6 +20,7 @@ return [
 	'card_number'			=> 'must be a valid payment card number.',
 	'address'				=> 'must be a correct address.',
 	'iran_postal_code'		=> 'must be a iran postal code.',
-	'package_name'			=> 'must be a valid package name.'
+	'package_name'			=> 'must be a valid package name.',
+	'float_num'				=> 'must be float or integer number.'
 
 ];
