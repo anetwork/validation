@@ -32,7 +32,7 @@ class PersianValidationServiceProvider extends ServiceProvider
         'more'                          => 'More',
         'less'                          => 'Less',
         'iran_phone'                    => 'IranPhone',
-        'iran_phone_with_area_code'    => 'IranPhoneWithAreaCode',
+        'iran_phone_with_area_code'     => 'IranPhoneWithAreaCode',
         'card_number'                   => 'CardNumber',
         'address'                       => 'Address',
         'iran_postal_code'              => 'IranPostalCode',
