@@ -382,7 +382,26 @@ class ValidationRules
     {
         ValidationMessages::setCustomMessages( $validator );
 
-        $this->status = (bool) preg_match('/^[2-9][0-9]{7}+$/', $value) ;
+        $this->status = (bool) preg_match('/^(0[1-9]{2})?[2-9][0-9]{7}+$/', $value) ;
+
+        return $this->status;
+    }
+
+    /**
+     * iran phone number with area code
+     * @param $attribute
+     * @param $value
+     * @param $parameters
+     * @param $validator
+     * @author Amir Hosseini <hosseini.sah95@gmail.com>
+     * @since Jan 28, 2019
+     * @return boolean
+     */
+    public function IranPhoneWithAreaCode($attribute, $value, $parameters, $validator)
+    {
+        ValidationMessages::setCustomMessages( $validator );
+
+        $this->status = (bool) preg_match('/^(0[1-9]{2})[2-9][0-9]{7}+$/', $value) ;
 
         return $this->status;
     }
