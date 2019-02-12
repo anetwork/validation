@@ -388,6 +388,25 @@ class ValidationRules
     }
 
     /**
+     * iran phone number with area code
+     * @param $attribute
+     * @param $value
+     * @param $parameters
+     * @param $validator
+     * @author Amir Hosseini <hosseini.sah95@gmail.com>
+     * @since Jan 28, 2019
+     * @return boolean
+     */
+    public function IranPhoneWithAreaCode($attribute, $value, $parameters, $validator)
+    {
+        ValidationMessages::setCustomMessages( $validator );
+
+        $this->status = (bool) preg_match('/^(0[1-9]{2})[2-9][0-9]{7}+$/', $value) ;
+
+        return $this->status;
+    }
+
+    /**
      * payment card number validation
      * depending on 'http://www.aliarash.com/article/creditcart/credit-debit-cart.htm' article
      *

@@ -529,6 +529,37 @@ class PersianValidationTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * unit test of iran phone number with the area code
+     * @author Amir Hosseini <hosseini.sah95@gmail.com>
+     * @since Jan 28, 2019
+     * @return void
+     */
+    public function testIranPhoneWithAreaCode()
+    {
+
+        $this->value = '07236445';
+
+        $this->assertEquals(false, $this->PersianValidation->IranPhoneWithAreaCode($this->attribute, $this->value, $this->parameters, $this->validator));
+
+        $this->value = '7236445';
+
+        $this->assertEquals(false, $this->PersianValidation->IranPhoneWithAreaCode($this->attribute, $this->value, $this->parameters, $this->validator));
+
+		$this->value = '17236445';
+
+		$this->assertEquals(false, $this->PersianValidation->IranPhoneWithAreaCode($this->attribute, $this->value, $this->parameters, $this->validator));
+
+        $this->value = '37236445';
+
+        $this->assertEquals(false, $this->PersianValidation->IranPhoneWithAreaCode($this->attribute, $this->value, $this->parameters, $this->validator));
+
+        $this->value = '02137236445';
+
+        $this->assertEquals(true, $this->PersianValidation->IranPhoneWithAreaCode($this->attribute, $this->value, $this->parameters, $this->validator));
+
+    }
+
+    /**
      * unit test of payment card number
      * @author Mojtaba Anisi <geevepahlavan@yahoo.com>
      * @since Oct 2, 2016
