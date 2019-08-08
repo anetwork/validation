@@ -1,245 +1,84 @@
 <?php
 namespace Anetwork\Validation;
 
+use App;
+
 /**
  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
  * @since Sep 11, 2016
  */
 class ValidationMessages
 {
-
 	 /**
-	   * @var string
+	  * @var string
 	  */
 	  protected $lang;
 
 	  /**
-		* @var array
+	   * @var array
 	   */
 	   protected $config;
+
+  	  /**
+	   * @var array
+	   */
+	   protected static $messages;
+
+	  /**
+	   * @var array
+	   */
+	   protected static $app;
 
 	  /**
 	   * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	   * @since Sep 21, 2016
 	   */
-	 public function __construct() {
+	 public function __construct() 
+	 {
+		 $this->lang = App::getLocale();
 
-		 $this->lang = \App::getLocale();
-
-		 $this->config = include __DIR__ . '/../lang/' . $this->lang . '.php';
-
+		if(! file_exists(resource_path('lang/validation/' . $this->lang . '.php'))){
+            $this->config = include __DIR__ . '/../lang/' . $this->lang . '.php';
+        } else {
+            $this->config = include resource_path('lang/validation/' . $this->lang . '.php');
+        }
 	 }
 
 	 /**
-	  * validation message for Alpha
-	  * @param $message, $attribute and $rule
+	  * set user custom messeages
+	  * @param $validator
 	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
+	  * @since Jun 6, 2017
 	  */
-	 public function AlphaMsg($message, $attribute, $rule)
-	 {
+	 public static function setCustomMessages( $validator )
+	 {	
+	 	self::$app = include __DIR__ . '/Config.php';
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+	 	if ( $validator ) {
+	 		if ( round(App::version(), 1) > self::$app['version'] ) {
+	 			self::$messages = $validator->customMessages;
+	 		} else {
+	 			self::$messages = $validator->getCustomMessages();
+	 		}
+	 	}
 	 }
 
 	 /**
-	  * validation message for Num
-	  * @param $message, $attribute and $rule
+	  * get validations message
+	  * @param $message
+	  * @param $attribute
+	  * @param $rule
 	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
+	  * @since Jun 10, 2017
 	  * @return string
 	  */
-	 public function NumMsg($message, $attribute, $rule)
+	 public function Msg($message, $attribute, $rule)
 	 {
+		if ( isset( self::$messages[$rule] ) ) {
+	 		return str_replace($message, self::$messages[$rule], $message);
+	 	}
 
-		 return str_replace($message, $this->config[ $rule ], $message);
-
+		return str_replace($message, $this->config[ $rule ], $message);
 	 }
-
-	 /**
-	  * validation message for AlphaNum
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function AlphaNumMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for IranMobile
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function IranMobileMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for Sheba
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function ShebaMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for MelliCode
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function MelliCodeMsg($message, $attribute,	$rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for IsNotPersian
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function IsNotPersianMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for LimitedArray
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function LimitedArrayMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for UnSignedNum
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function UnSignedNumMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for AlphaSpace
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function AlphaSpaceMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for Url
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function UrlMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for Domain
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function DomainMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for More
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function MoreMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for Less
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function LessMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-	 /**
-	  * validation message for IranPhone
-	  * @param $message, $attribute and $rule
-	  * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
-	  * @since Sep 11, 2016
-	  * @return string
-	  */
-	 public function IranPhoneMsg($message, $attribute, $rule)
-	 {
-
-		 return str_replace($message, $this->config[ $rule ], $message);
-
-	 }
-
-
 
 }
