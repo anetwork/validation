@@ -14,6 +14,13 @@
             "Anetwork\\Validation\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anetwork\\Validation\\PersianValidationServiceProvider"
+            ]
+        }
+    },
     "require": {
         "illuminate/support": "^5.2"
     }
