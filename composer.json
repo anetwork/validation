@@ -14,6 +14,13 @@
             "Anetwork\\Validation\\": "src"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anetwork\\Validation\\PersianValidationServiceProvider"
+            ]
+        }
+    },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
