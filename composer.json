@@ -19,5 +19,12 @@
     },
     "require": {
         "illuminate/support": "^5.2"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anetwork\\Validation\\PersianValidationServiceProvider"
+            ]
+        }
     }
 }
