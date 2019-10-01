@@ -472,7 +472,7 @@ class ValidationRules
     {
         ValidationMessages::setCustomMessages( $validator );
 
-        $this->status = (bool) preg_match("/^(\d{5}-?\d{5})$/", $value);
+        $this->status = (bool) preg_match("/^([13456789]{5}-?\d{5})$/", $value);
 
         return $this->status;
     }
