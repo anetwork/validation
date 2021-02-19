@@ -55,7 +55,7 @@ class ValidationMessages
 	 	self::$app = include __DIR__ . '/Config.php';
 
 	 	if ( $validator ) {
-	 		if ( round(App::version(), 1) > self::$app['version'] ) {
+	 		if ( round((int)App::version(), 1) > self::$app['version'] ) {
 	 			self::$messages = $validator->customMessages;
 	 		} else {
 	 			self::$messages = $validator->getCustomMessages();
