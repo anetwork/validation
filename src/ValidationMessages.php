@@ -33,7 +33,7 @@ class ValidationMessages
 	   * @author Shahrokh Niakan <sh.niakan@anetwork.ir>
 	   * @since Sep 21, 2016
 	   */
-	 public function __construct()
+	 public function __construct() 
 	 {
 		 $this->lang = App::getLocale();
 
@@ -51,17 +51,18 @@ class ValidationMessages
 	  * @since Jun 6, 2017
 	  */
 	 public static function setCustomMessages( $validator )
-	 {
+	 {	
 	 	self::$app = include __DIR__ . '/Config.php';
 
 	 	if ( $validator ) {
-	 		if ( round(App::version(), 1) > self::$app['version'] ) {
+	 		if ( round((int)App::version(), 1) > self::$app['version'] ) {
 	 			self::$messages = $validator->customMessages;
 	 		} else {
-	 		    if(method_exists($validator, 'getCustomMessages')) {
-	 		        self::$messages = $validator->getCustomMessages();
-                }
-                self::$messages = $validator->customMessages;
+				if(method_exists($validator, 'getCustomMessages')) {
+					self::$messages = $validator->getCustomMessages();
+			   } else {
+				   self::$messages = $validator->customMessages;
+			   }
 	 		}
 	 	}
 	 }
