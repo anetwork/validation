@@ -58,7 +58,11 @@ class ValidationMessages
 	 		if ( round(floatval(App::version()), 1) > self::$app['version'] ) {
 	 			self::$messages = $validator->customMessages;
 	 		} else {
-	 			self::$messages = $validator->getCustomMessages();
+				if(method_exists($validator, 'getCustomMessages')) {
+					self::$messages = $validator->getCustomMessages();
+			   } else {
+				   self::$messages = $validator->customMessages;
+			   }
 	 		}
 	 	}
 	 }
